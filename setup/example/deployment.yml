@@ -18,3 +18,10 @@ spec:
           image: b4bz/homer:latest
           ports:
             - containerPort: 8080
+          volumeMounts:
+          - name: homer-pvc
+            mountPath: /www/assets
+      volumes:
+      - name: homer-pvc
+        persistentVolumeClaim:
+          claimName: homer-longhorn-pvc
