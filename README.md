@@ -7,17 +7,14 @@
 
 # IP Address Use
 
-| IP Address    | Port | Use/Service  |
-| ------------- | ---- | ------------ |
-| 192.168.13.1  | n/a  | router       |
-| 192.168.13.2  | n/a  | controler 1  |
-| 192.168.13.3  | n/a  | controller 2 |
-| 192.168.13.4  | n/a  | controller 3 |
-| 192.168.13.11 | n/a  | worker 1     |
-| 192.168.13.12 | n/a  | worker 2     |
-| 192.168.13.21 | n/a  | data 1       |
-| 192.168.13.22 | n/a  | data 2       |
-| 192.168.13.23 | n/a  | data 3       |
-| 192.168.13.24 | n/a  | data 4       |
-| 192.168.13.31 | 80   | Longhorn UI  |
-| 192.168.13.31 | 8080 | Homer        |
+| IP Address     | Port | Use/Service            |
+| -------------- | ---- | ---------------------- |
+| 192.168.13.1   | n/a  | router                 |
+| 192.168.13.2   | n/a  | controler 1            |
+| 192.168.13.3   | n/a  | controller 2           |
+| 192.168.13.4   | n/a  | controller 3           |
+| 192.168.13.11  | n/a  | worker 1               |
+| 192.168.13.12  | n/a  | worker 2               |
+| 192.168.13.252 | n/a  | NFS server             |
+| 192.168.13.253 | n/a  | management (portainer) |
+| 192.168.13.254 | n/a  | API-vIP                |
