@@ -48,8 +48,8 @@ spec:
       volumes:
         - name: homer-nfs
           hostPath:
-            path: /data/foo # directory location on host
-            type: Directory # this field is optional
+            path: /mnt/k3s-data/dev-test/apps/homer/
+            type: Directory
 
 # apiVersion: v1
 # kind: Pod
