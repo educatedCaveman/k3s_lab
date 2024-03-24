@@ -8,13 +8,20 @@ This is an experiment to use K3s to replace my old docker swarm stack. Currently
 
 - setup the cluster
 - setup MetalLB
+- setup, then abandon longhorn
+    - longhorn is either a waste of time, or **WAY** too over my head right now.
+- determine how to use local files for config/data
 - deploy a workload to the k3s cluster
   - using namespaces
 
 ### TODO
 
+- determine how to precisely set permissions for the NFS share
+    - presently i have the entire share in the `nobody:nogroup` user:group, with 777 permissions.  not ideal.
 - CI/CD
 - deploy existing stacks
+- automate shutdown/reboot for maintenance
+    - something leveraging the `kubectl drain` command.
 
 ## Useful sites:
 
