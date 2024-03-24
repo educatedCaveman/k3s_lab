@@ -3,7 +3,7 @@
 title: "Grand Ol' Dungeon of the Horned God"
 subtitle: "Homer"
 # documentTitle: "Welcome" # Customize the browser tab text
-logo: "assets/icons/icon-maskable.png"
+logo: "./assets/icons/icon-maskable.png"
 # https://fontawesome.com/v4.7.0/icons/
 # Alternatively a fa icon can be provided:
 # icon: "fas fa-skull-crossbones"
@@ -17,7 +17,7 @@ columns: "auto" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
 connectivityCheck: true # whether you want to display a message when the apps are not accessible anymore (VPN disconnected for example)
 
 # Optional theming
-theme: default # 'default' or one of the themes available in 'src/assets/themes'.
+theme: default # 'default' or one of the themes available in 'src/./assets/themes'.
 
 #default colors from github:
 colors:
@@ -33,7 +33,7 @@ colors:
     text-subtitle: "#424242"
     card-shadow: rgba(0, 0, 0, 0.1)
     link-hover: "#363636"
-    background-image: "assets/your/light/bg.png"
+    background-image: "./assets/your/light/bg.png"
   dark:
     highlight-primary: "#3367d6"
     highlight-secondary: "#4285f4"
@@ -46,7 +46,7 @@ colors:
     text-subtitle: "#f5f5f5"
     card-shadow: rgba(0, 0, 0, 0.4)
     link-hover: "#ffdd57"
-    background-image: "assets/your/dark/bg.png"
+    background-image: "./assets/your/dark/bg.png"
 
 # Optional navbar
 # links: [] # Allows for navbar (dark mode, layout, and search) without any links
@@ -95,47 +95,47 @@ services:
     items:
 
       - name: "pfSense"
-        logo: "assets/pfsense.png"
+        logo: "./assets/pfsense.png"
         url:  "https://pfsense.drak3.io"
         target: "_blank" 
 
       - name: "Mobius"
-        logo: "assets/truenas.png"
+        logo: "./assets/truenas.png"
         url:  "https://mobius.drak3.io"
         target: "_blank"        
 
       - name: "Tesseract"
-        logo: "assets/proxmox.png"
+        logo: "./assets/proxmox.png"
         url:  "https://tesseract.drak3.io"
         target: "_blank"    
 
       - name: "Proxmox Backup Server"
-        logo: "assets/proxmox.png"
+        logo: "./assets/proxmox.png"
         url:  "https://pbs.drak3.io"
         target: "_blank"
 
       - name: "Unifi Controller"
-        logo: "assets/unifi-controller.png"
+        logo: "./assets/unifi-controller.png"
         url:  "https://unifi.drak3.io"
         target: "_blank"
 
       - name: "Unifi Protect"
-        logo: "assets/unifi.png"
+        logo: "./assets/unifi.png"
         url:  "https://nvr.drak3.io"
         target: "_blank"
 
       - name: "Guacamole"
-        logo: "assets/guacamole.png"
+        logo: "./assets/guacamole.png"
         url:  "https://guac.drak3.io"
         target: "_blank"
 
       - name: "Mobius (iDRAC)"
-        logo: "assets/idrac.png"
+        logo: "./assets/idrac.png"
         url:  "https://idrac.mobius.drak3.io"
         target: "_blank"
 
       - name: "Tesseract (iDRAC)"
-        logo: "assets/idrac.png"
+        logo: "./assets/idrac.png"
         url:  "https://idrac.tesseract.drak3.io"
         target: "_blank"
 
@@ -145,7 +145,7 @@ services:
         target: "_blank"
 
       - name: "Fluidd"
-        logo: "assets/fluidd.png"
+        logo: "./assets/fluidd.png"
         url:  "https://fluidd.drak3.io"
         target: "_blank"
 
@@ -154,32 +154,32 @@ services:
     items:
 
       - name: "Plex"
-        logo: "assets/plex.png"
+        logo: "./assets/plex.png"
         url:  "https://plex.drak3.io"
         target: "_blank"
 
       - name: "Tautulli"
-        logo: "assets/tautulli.png"
+        logo: "./assets/tautulli.png"
         url:  "https://tau.drak3.io/"
         target: "_blank"
 
       - name: "NextCloud"
-        logo: "assets/nextcloud.png"
+        logo: "./assets/nextcloud.png"
         url:  "https://cloud.drak3.io"
         target: "_blank"
 
       - name: "qBittorrent"
-        logo: "assets/qbittorrent.svg"
+        logo: "./assets/qbittorrent.svg"
         url:  "https://qbt.drak3.io/"
         target: "_blank"
 
       - name: "HandBrake"
-        logo: "assets/handbrake.png"
+        logo: "./assets/handbrake.png"
         url:  "https://hb.drak3.io"
         target: "_blank"
 
       - name: "YouTube DL"
-        logo: "assets/youtubedl.png"
+        logo: "./assets/youtubedl.png"
         url:  "https://ytdl.drak3.io"
         target: "_blank"
 
@@ -188,32 +188,32 @@ services:
     items:
 
       - name: "qBittorrent"
-        logo: "assets/qbittorrent.svg"
+        logo: "./assets/qbittorrent.svg"
         url:  "https://qbt.drak3.io/"
         target: "_blank"
 
       - name: "Radarr (Movies)"
-        logo: "assets/radarr.png"
+        logo: "./assets/radarr.png"
         url:  "https://radarr.drak3.io"
         target: "_blank"
 
       - name: "Sonarr (TV)"
-        logo: "assets/sonarr.svg"
+        logo: "./assets/sonarr.svg"
         url:  "https://sonarr.drak3.io"
         target: "_blank"
 
       - name: "Lidarr (Music)"
-        logo: "assets/lidarr.png"
+        logo: "./assets/lidarr.png"
         url:  "https://lidarr.drak3.io"
         target: "_blank"
 
       - name: "Bazarr (Subtitles)"
-        logo: "assets/bazarr.png"
+        logo: "./assets/bazarr.png"
         url:  "https://bazarr.drak3.io"
         target: "_blank"
 
       - name: "Prowlarr (Indexer)"
-        logo: "assets/png/prowlarr.png"
+        logo: "./assets/png/prowlarr.png"
         url:  "https://prowlarr.drak3.io"
         target: "_blank"
 
@@ -222,37 +222,37 @@ services:
     items:
 
       - name: "Gatus"
-        logo: "assets/gatus.png"
+        logo: "./assets/gatus.png"
         url:  "https://status.drak3.io/"
         target: "_blank"
 
       - name: "Syncthing"
-        logo: "assets/syncthing.png"
+        logo: "./assets/syncthing.png"
         url:  "https://sync.drak3.io/syncthing/"
         target: "_blank"
 
       - name: "Syncthing (local)"
-        logo: "assets/syncthing.png"
+        logo: "./assets/syncthing.png"
         url:  "http://localhost:8384/"
         target: "_blank"
 
       # - name: "InfluxDB / Chronograf"
-      #   logo: "assets/influxdb.svg"
+      #   logo: "./assets/influxdb.svg"
       #   url:  "https://influx.drak3.io/"
       #   target: "_blank"
 
       - name: "Grafana"
-        logo: "assets/grafana.svg"
+        logo: "./assets/grafana.svg"
         url:  "https://grafana.drak3.io/"
         target: "_blank"
 
       - name: "Unifi Protect (feeds)"
-        logo: "assets/unifi.png"
+        logo: "./assets/unifi.png"
         url:  "https://nvr.drak3.io"
         target: "_blank"
 
       - name: "Diskover"
-        logo: "assets/diskover.png"
+        logo: "./assets/diskover.png"
         url:  "https://diskover.drak3.io"
         target: "_blank"
 
@@ -261,21 +261,21 @@ services:
     items:
 
       - name: "Jenkins"
-        logo: "assets/jenkins.png"
+        logo: "./assets/jenkins.png"
         url:  "https://jenkins.drak3.io/"
         target: "_blank"
 
       - name: "VS Code"
-        logo: "assets/vscode.svg"
+        logo: "./assets/vscode.svg"
         url:  "https://code.drak3.io"
         target: "_blank"
 
       - name: "Portainer"
-        logo: "assets/portainer.png"
+        logo: "./assets/portainer.png"
         url:  "https://portainer.drak3.io/"
 
       - name: "Portainer (Pi)"
-        logo: "assets/portainer.png"
+        logo: "./assets/portainer.png"
         url:  "https://portainer-pi.drak3.io/"
         target: "_blank"
 
@@ -289,17 +289,17 @@ services:
         target: "_blank"
 
       - name: "Singularity"
-        logo: "assets/pihole.png"
+        logo: "./assets/pihole.png"
         url:  "https://pihole.drak3.io/admin/index.php"
         target: "_blank"
 
       - name: "Event Horizon"
-        logo: "assets/pihole.png"
+        logo: "./assets/pihole.png"
         url:  "https://pihole2.drak3.io/admin/index.php"
         target: "_blank"
 
       - name: "Home-Assistant"
-        logo: "assets/home-assistant.svg"
+        logo: "./assets/home-assistant.svg"
         url:  "https://home-assistant.drak3.io/"
         target: "_blank"
 
@@ -308,27 +308,27 @@ services:
     items:
     
       - name: "Scripts"
-        logo: "assets/github.png"
+        logo: "./assets/github.png"
         url:  "https://github.com/educatedCaveman/scripts"
         target: "_blank"
     
       - name: "Dotfiles"
-        logo: "assets/github.png"
+        logo: "./assets/github.png"
         url:  "https://github.com/educatedCaveman/dotfiles"
         target: "_blank"
     
       - name: "Ansible"
-        logo: "assets/github.png"
+        logo: "./assets/github.png"
         url:  "https://github.com/educatedCaveman/ansible"
         target: "_blank"
         
       - name: "Jenkins"
-        logo: "assets/github.png"
+        logo: "./assets/github.png"
         url:  "https://github.com/educatedCaveman/Jenkins"
         target: "_blank"
     
       - name: "Documentation"
-        logo: "assets/github.png"
+        logo: "./assets/github.png"
         url:  "https://github.com/educatedCaveman/documentation"
         target: "_blank"
     
@@ -337,16 +337,16 @@ services:
     items:
 
       - name: "YouTube DL (DEV)"
-        logo: "assets/youtubedl.png"
+        logo: "./assets/youtubedl.png"
         url:  "https://ytdl.dev.drak3.io"
         target: "_blank"
 
       - name: "Portainer (DEV)"
-        logo: "assets/portainer.png"
+        logo: "./assets/portainer.png"
         url:  "https://portainer.dev.drak3.io/"
         target: "_blank"
 
       - name: "Diskover"
-        logo: "assets/diskover.png"
+        logo: "./assets/diskover.png"
         url:  "https://diskover.dev.drak3.io"
         target: "_blank"
