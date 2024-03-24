@@ -1,2 +1,13 @@
-bases:
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: dev-test
+
+resources:
 - ../../base
+
+namePrefix: dev-
+
+patches:
+- path: volumes.yml
+- path: svc_port.yml
