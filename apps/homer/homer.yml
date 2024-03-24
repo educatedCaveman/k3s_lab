@@ -48,5 +48,5 @@ spec:
       volumes:
         - name: homer-nfs
           hostPath:
-            path: /mnt/k3s-data/dev-test/apps/homer
+            path: /mnt/k3s-data/dev-test/apps/homer/assets/
             type: Directory
