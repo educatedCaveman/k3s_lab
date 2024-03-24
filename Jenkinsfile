@@ -29,8 +29,7 @@ pipeline {
             steps {
                 // deploy configs to PRD
                 echo 'deploy docker config files (PRD)'
-                // sh 'ansible-playbook deploy.yml --extra-vars "branch=master dir=production"'
-                sh 'ansible-playbook deploy.yml --extra-vars "branch=master dir=dev-test"'
+                sh 'ansible-playbook deploy.yml --extra-vars "branch=master dir=production"'
             }
         }
 
