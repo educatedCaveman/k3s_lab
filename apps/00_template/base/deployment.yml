@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: CHANGE_ME
+  labels:
+    app: CHANGE_ME
+spec:
+  selector:
+    matchLabels:
+      app: CHANGE_ME
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: CHANGE_ME
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: CHANGE_ME
+          image: CHANGE_ME
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: CHANGE_ME-nfs
+            mountPath: /www/assets
+      volumes:
+        - name: CHANGE_ME-nfs
+          hostPath:
+            path: /mnt/k3s-data/production/apps/CHANGE_ME
+            type: Directory
