@@ -9,7 +9,7 @@ This is an experiment to use K3s to replace my old docker swarm stack. Currently
 - setup the cluster
 - setup MetalLB
 - setup, then abandon longhorn
-    - longhorn is either a waste of time, or **WAY** too over my head right now.
+  - longhorn is either a waste of time, or **WAY** too over my head right now.
 - determine how to use local files for config/data
 - deploy a workload to the k3s cluster
   - using namespaces
@@ -17,11 +17,11 @@ This is an experiment to use K3s to replace my old docker swarm stack. Currently
 ### TODO
 
 - determine how to precisely set permissions for the NFS share
-    - presently i have the entire share in the `nobody:nogroup` user:group, with 777 permissions.  not ideal.
+  - presently i have the entire share in the `nobody:nogroup` user:group, with 777 permissions. not ideal.
 - CI/CD
 - deploy existing stacks
 - automate shutdown/reboot for maintenance
-    - something leveraging the `kubectl drain` command.
+  - something leveraging the `kubectl drain` command.
 
 ## Useful sites:
 
@@ -48,9 +48,10 @@ This is an experiment to use K3s to replace my old docker swarm stack. Currently
 
 ### Service Useage
 
-| Service | PRD IP:port          | DEV IP:port          | Notes |
-| ------- | -------------------- | -------------------- | ----- |
-| Homer   | `192.168.13.21:8080` | `192.168.13.20:8080` |       |
+| Service   | PRD IP:port          | DEV IP:port          | Notes |
+| --------- | -------------------- | -------------------- | ----- |
+| Homer     | `192.168.13.21:8080` | `192.168.13.20:8080` |       |
+| Privateer | n/a                  | `192.168.13.22:8080` |       |
 
 ### Remaining IPs
 
