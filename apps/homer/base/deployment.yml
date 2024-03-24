@@ -1,19 +1,4 @@
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: homer
-spec:
-  ipFamilyPolicy: PreferDualStack
-  selector:
-    app: homer
-  ports:
-    - port: 8080
-      targetPort: 8080
-  type: LoadBalancer
-  loadBalancerIP: 192.168.13.20
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,15 +12,15 @@ spec:
       app: homer
   strategy:
     type: Recreate
-  replicas: 1
+  # replicas: 1
   template:
     metadata:
       labels:
         app: homer
     spec:
-      os: { name: linux }
-      nodeSelector:
-        kubernetes.io/os: linux
+      # os: { name: linux }
+      # nodeSelector:
+      #   kubernetes.io/os: linux
       restartPolicy: Always
       containers:
         - name: homer
@@ -48,5 +33,5 @@ spec:
       volumes:
         - name: homer-nfs
           hostPath:
-            path: /mnt/k3s-data/dev-test/apps/homer/assets/
+            path: /mnt/k3s-data/production/apps/homer/assets/
             type: Directory

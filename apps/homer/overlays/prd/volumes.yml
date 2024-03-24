@@ -1,0 +1,12 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homer
+spec:
+  template:
+    spec:
+      volumes:
+        - name: homer-nfs
+          hostPath:
+            path: /mnt/k3s-data/production/apps/homer/assets/
