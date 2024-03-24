@@ -5,26 +5,21 @@ metadata:
   name: homer
   labels:
     app: homer
-  # namespace: default
 spec:
   selector:
     matchLabels:
       app: homer
   strategy:
     type: Recreate
-  # replicas: 1
   template:
     metadata:
       labels:
         app: homer
     spec:
-      # os: { name: linux }
-      # nodeSelector:
-      #   kubernetes.io/os: linux
       restartPolicy: Always
       containers:
         - name: homer
-          image: b4bz/homer:latest
+          image: b4bz/homer:v23.10.1
           ports:
             - containerPort: 8080
           volumeMounts:
