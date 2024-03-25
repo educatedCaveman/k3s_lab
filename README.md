@@ -48,11 +48,11 @@ This is an experiment to use K3s to replace my old docker swarm stack. Currently
 
 ### Service Useage
 
-| Service   | PRD IP:port          | DEV IP:port          | Notes |
-| --------- | -------------------- | -------------------- | ----- |
-| Homer     | `192.168.13.21:8080` | `192.168.13.20:8080` |       |
-| Privateer | n/a                  |                      | WIP   |
-| Homer     | `192.168.13.21:8080` | `192.168.13.20:8080` |       |
+| Service    | PRD IP:port           | DEV IP:port          | Notes     |
+| ---------- | --------------------- | -------------------- | --------- |
+| Homer      | `192.168.13.21:8080`  | `192.168.13.20:8080` |           |
+| Privateer  | n/a                   |                      | WIP       |
+| YouTube DL | `192.168.13.22:17442` | n/a                  | prod-only |
 
 ### Remaining IPs
 
