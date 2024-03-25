@@ -1,13 +1,4 @@
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: plex-meta-mgr 
-spec:
-  ipFamilyPolicy: PreferDualStack
-  selector:
-    app: plex-meta-mgr
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -30,10 +21,10 @@ spec:
         - name: plex-meta-mgr
           image: meisnate12/plex-meta-manager:v1.19.1
           volumeMounts:
-          - name: CHANGE_ME-nfs
-            mountPath: /www/assets
+          - name: plex-meta-mgr-nfs
+            mountPath: /config
       volumes:
         - name: plex-meta-mgr-nfs
           hostPath:
-            path: /mnt/k3s-data/production/apps/pmm/config
+            path: /mnt/k3s-data/production/apps/pmm
             type: Directory
