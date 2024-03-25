@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ytdl
+  labels:
+    app: ytdl
+spec:
+  selector:
+    matchLabels:
+      app: ytdl
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ytdl
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: ytdl-material
+          image: tzahi12345/youtubedl-material@sha256:989af148df5f71ba41a79b4ce71bceb21417c2de7f309ed6d5c2042160dfaa22
+          ports:
+            - containerPort: 17442
+          volumeMounts:
+          - name: ytdl-appdata-nfs
+            mountPath: /app/appdata
+          - name: ytdl-audio-nfs
+            mountPath: /app/audio
+          - name: ytdl-video-nfs
+            mountPath: /app/video
+          - name: ytdl-subs-nfs
+            mountPath: /app/subscriptions
+      volumes:
+        # - name: ytdl-nfs
+        #   hostPath:
+        #     path: /mnt/k3s-data/production/apps/ytdl
+        #     type: Directory
+        - name: ytdl-appdata-nfs
+          hostPath:
+            path: /mnt/k3s-data/production/apps/ytdl/appdata
+            type: Directory
+        - name: ytdl-audio-nfs
+          hostPath:
+            path: /mnt/k3s-data/production/apps/ytdl/audio
+            type: Directory
+        - name: ytdl-video-nfs
+          hostPath:
+            path: /mnt/k3s-data/production/apps/ytdl/video
+            type: Directory
+        - name: ytdl-subs-nfs
+          hostPath:
+            path: /mnt/k3s-data/production/apps/ytdl/subscriptions
+            type: Directory

@@ -24,56 +24,56 @@ spec:
           ports:
             - containerPort: 7878
           env:
-          - name:   PUID
-            value:  "1000"
-          - name:   PUID
-            value:  "1000"
-          - name:   TZ
-            value:  "America/New_York"
+            - name:   PUID
+              value:  "1000"
+            - name:   GUID
+              value:  "1000"
+            - name:   TZ
+              value:  "America/New_York"  
           volumeMounts:
-          - name: privateer-nfs-config-radarr
-            mountPath: /config
-          - name: privateer-nfs-mobius-movies
-            mountPath: /movies
-          - name: privateer-nfs-mobius-qbt-downloads
-            mountPath: /downloads
-        # Sonarr
-        - name: sonarr
-          image: lscr.io/linuxserver/sonarr:3.0.10
-          ports:
-            - containerPort: 8989
-          env:
-          - name:   PUID
-            value:  "1000"
-          - name:   PUID
-            value:  "1000"
-          - name:   TZ
-            value:  "America/New_York"
-          volumeMounts:
-          - name: privateer-nfs-config-sonarr
-            mountPath: /config
-          - name: privateer-nfs-mobius-movies
-            mountPath: /tv
-          - name: privateer-nfs-mobius-qbt-downloads
-            mountPath: /downloads
+            - name: privateer-nfs-config-radarr
+              mountPath: /config
+            - name: privateer-nfs-mobius-movies
+              mountPath: /movies
+            - name: privateer-nfs-mobius-qbt-downloads
+              mountPath: /downloads
+        # # Sonarr
+        # - name: sonarr
+        #   image: lscr.io/linuxserver/sonarr:3.0.10
+        #   ports:
+        #     - containerPort: 8989
+        #   env:
+        #     - name:   PUID
+        #       value:  "1000"
+        #     - name:   GUID
+        #       value:  "1000"
+        #     - name:   TZ
+        #       value:  "America/New_York"
+        #   volumeMounts:
+        #     - name: privateer-nfs-config-sonarr
+        #       mountPath: /config
+        #     - name: privateer-nfs-mobius-movies
+        #       mountPath: /tv
+        #     - name: privateer-nfs-mobius-qbt-downloads
+        #       mountPath: /downloads
 
       volumes:
         - name: privateer-nfs-config-radarr
           hostPath:
             path: /mnt/k3s-data/production/apps/privateer/config/radarr
             type: Directory
-        - name: privateer-nfs-config-sonarr
-          hostPath:
-            path: /mnt/k3s-data/production/apps/privateer/config/sonarr
-            type: Directory
+        # - name: privateer-nfs-config-sonarr
+        #   hostPath:
+        #     path: /mnt/k3s-data/production/apps/privateer/config/sonarr
+        #     type: Directory
         - name: privateer-nfs-mobius-movies
           hostPath:
             path: /mnt/mobius/Video/Movies
             type: Directory
-        - name: privateer-nfs-mobius-tv
-          hostPath:
-            path: /mnt/mobius/Video/TV-shows
-            type: Directory
+        # - name: privateer-nfs-mobius-tv
+        #   hostPath:
+        #     path: /mnt/mobius/Video/TV-shows
+        #     type: Directory
         - name: privateer-nfs-mobius-qbt-downloads
           hostPath:
             path: /mnt/mobius/staging/qbittorrent

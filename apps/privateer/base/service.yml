@@ -13,19 +13,19 @@ spec:
     - name: "radarr"
       port: 7878
       targetPort: 7878
-    - name: "sonarr"
-      port: 8989
-      targetPort: 8989
-    - name: "lidarr"
-      port: 8686
-      targetPort: 8686
-    - name: "prowlarr"
-      port: 9696
-      targetPort: 9696
-    - name: "bazarr"
-      port: 6767
-      targetPort: 6767
-    - name: "flaresolverr"
-      port: 8191
-      targetPort: 8191
+    # - name: "sonarr"
+    #   port: 8989
+    #   targetPort: 8989
+    # - name: "lidarr"
+    #   port: 8686
+    #   targetPort: 8686
+    # - name: "prowlarr"
+    #   port: 9696
+    #   targetPort: 9696
+    # - name: "bazarr"
+    #   port: 6767
+    #   targetPort: 6767
+    # - name: "flaresolverr"
+    #   port: 8191
+    #   targetPort: 8191
   type: LoadBalancer
