@@ -1,0 +1,174 @@
+libraries:
+  
+  Movies: 
+      metadata_path: 
+        - folder: /config/Movies/
+      overlay_path:
+        - pmm: ratings
+          template_variables:
+
+            rating1: user                                                    # 5 as this is user and mass_user_rating_update: mdb_tomatoes
+            rating1_image: rt_tomato                                         # 5 as this is user and mass_user_rating_update: mdb_tomatoes
+            rating1_font_size: 63                                            # 5 adjusted font size to fit rating
+    
+            rating2: critic                                                  # 6 as this is critic and mass_critic_rating_update: imdb
+            rating2_image: imdb                                              # 6 as this is critic and mass_critic_rating_update: imdb
+            rating2_font_size: 70                                            # 6 adjusted font size to fit rating
+    
+            rating3: audience                                                # 7 as this is audience and mass_audience_rating_update: tmdb
+            rating3_image: tmdb                                              # 7 as this is audience and mass_audience_rating_update: tmdb
+            rating3_font_size: 70                                            # 7 adjusted font size to fit rating
+      
+            horizontal_position: right                                       # the set of ratings is on the right of the poster
+        - pmm: resolution
+        - pmm: runtimes
+        - pmm: video_format
+      # report_path:
+      #   - file: /config/report.movies.yml
+  
+  TV Shows:
+    metadata_path:
+      - folder: /config/TV_Shows/
+    overlay_path:
+      - pmm: ratings
+      - pmm: resolution
+      - pmm: status
+    # report_path:
+    #   - file: /config/report.tv-shows.yml
+  
+  # Music:
+    # metadata_path:
+      # - folder: config/Music/
+    # overlay_path:
+      # - pmm: audio_codec
+    # report_path:
+    #   - file: /config/report.music.yml
+
+
+# playlist_files:
+#   - pmm: playlist                # This is a file within PMM's defaults folder
+#   # see the wiki for how to use local files, folders, URLs, or files from git
+
+
+settings:
+  cache: true
+  cache_expiration: 60
+  asset_directory: /config/assets
+  asset_folders: true
+  asset_depth: 0
+  create_asset_folders: true
+  prioritize_assets: false
+  dimensional_asset_rename: false
+  download_url_assets: false
+  show_missing_season_assets: true
+  show_missing_episode_assets: true
+  show_asset_not_needed: true
+  sync_mode: append
+  minimum_items: 1
+  default_collection_order: release
+  delete_below_minimum: true
+  delete_not_scheduled: false
+  run_again_delay: 2
+  missing_only_released: true
+  only_filter_missing: false
+  show_unmanaged: true
+  show_unconfigured: true
+  show_filtered: false
+  show_options: false
+  show_missing: true
+  show_missing_assets: true
+  save_report: true
+  tvdb_language: eng
+  ignore_ids:
+  ignore_imdb_ids:
+  item_refresh_delay: 0
+  playlist_sync_to_user: all
+  playlist_exclude_users:
+  playlist_report: true
+  verify_ssl: true
+  custom_repo:
+  check_nightly: false
+
+
+# webhooks:                        # Can be individually specified per library as well
+#   error:
+#   version:
+#   run_start:
+#   run_end:
+#   changes:
+
+
+plex:
+  url: http://192.168.12.2:32400
+  token: n--TvxMK59ubQV6M95T3
+  timeout: 60
+  clean_bundles: false
+  empty_trash: false
+  optimize: false
+
+
+tmdb:
+  apikey: 23e9dc942b3c6d577417ced2fa3d537a
+  language: en
+
+
+# tautulli:                        # Can be individually specified per library as well
+#   url: http://192.168.1.12:8181
+#   apikey: ################################
+
+
+# omdb:
+#   apikey: ########
+#   cache_expiration: 60
+
+
+# mdblist:
+#   apikey: #########################
+#   cache_expiration: 60
+
+
+radarr:
+  url:              http://radarr:7878
+  token:            3d9db26094034a4987ed16998a6530a9
+  add_missing:      true
+  add_existing:     false
+  root_folder_path: /movies
+  monitor:          true
+  availability:     announced
+  quality_profile:  HQ
+  # tag:
+  search:           true
+  # radarr_path:
+  # plex_path:
+
+
+sonarr:
+  url:              http://sonarr:8989
+  token:            3bc4666af115474c8aedf9c038c04203
+  add_missing:      false
+  add_existing:     false
+  root_folder_path: /tv
+  monitor:          all
+  quality_profile:  HD-1080p
+  language_profile: English
+  series_type:      standard
+  season_folder:    true
+  # tag:
+  search:           true
+  cutoff_search:    true
+  # sonarr_path:
+  # plex_path:
+
+
+# trakt:
+#   client_id: ####################
+#   client_secret: ####################
+#   pin:
+#   authorization:
+#     # everything below is autofilled by the script
+#     access_token:
+#     token_type:
+#     expires_in:
+#     refresh_token:
+#     scope: public
+#     created_at:
