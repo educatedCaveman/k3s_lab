@@ -4,4 +4,4 @@ kind: Service
 metadata:
   name: ytdl
 spec:
-  loadBalancerIP: 192.168.13.22
+  loadBalancerIP: 192.168.13.23
