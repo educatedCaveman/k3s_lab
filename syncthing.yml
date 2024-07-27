@@ -1,0 +1,35 @@
+---
+- hosts: apis_1
+  vars:
+     helm_chart_url: "https://k8s-home-lab.github.io/helm-charts/"
+  tasks:
+    
+    # add helm repo
+    - name: Add helm repo
+      kubernetes.core.helm_repository:
+        name: k8s-home-lab
+        repo_url: "{{ helm_chart_url }}"
+
+    # install a chart from said repo
+    - name: Install Syncthing Chart
+      kubernetes.core.helm:
+        name: syncthing
+        namespace: dev-test
+        chart_ref: k8s-home-lab/syncthing
+
+    # install chart
+    - name: Deploy Syncthing Chart
+      kubernetes.core.helm:
+        name: syncthing
+        namespace: dev-test
+        chart_ref: k8s-home-lab/syncthing
+        # state: absent
+        values:
+          service:
+            loadBalancerIP: 192.168.13.101
+        
+    # # get info about installed chart
+    # - name: Gather information about nginx-server
+    #   kubernetes.core.helm_info:
+    #     name: nginx-server
+    #     release_namespace: dev-test

@@ -50,9 +50,8 @@ This is an experiment to use K3s to replace my old docker swarm stack. Currently
 
 | Service           | PRD IP:port           | DEV IP:port           | Notes                                 |
 | ----------------- | --------------------- | --------------------- | ------------------------------------- |
-| Homer             | `192.168.13.21:8080`  | `192.168.13.20:8080`  |                                       |
+| Homer             | `192.168.13.21:8080`  | `192.168.13.20:8080`  | Deleted - OOPS!                       |
 | Privateer         | n/a                   |                       | WIP                                   |
-| YouTube DL        | `192.168.13.23:17442` | `192.168.13.22:17442` | still needs the copy-out stuff set up |
 | Flaresolverr      | `192.168.13.24:8191`  | n/a                   | prod-only                             |
 | Plex Meta Manager | n/a                   | n/a                   | prod-only, but no IP                  |
 
