@@ -1,18 +1,12 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-      "config:base"
-    ],
-    "ansible": {
-      "fileMatch": [
-        "(^|/)deploy.ya?ml$"
-      ] 
-    },
-    "kubernetes": {
-      "fileMatch": [
-        "(^|/)kustomization.ya?ml$"
-      ],
-      "pinDigests": false
-    }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "kubernetes": {
+    "fileMatch": [
+      "(^|/)service.ya?ml$"
+    ]
   }
+}
   
