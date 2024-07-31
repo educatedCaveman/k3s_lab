@@ -5,8 +5,7 @@ pipeline {
         ANSIBLE_REPO = '/var/lib/jenkins/workspace/ansible_master'
         K3S_REPO = '/var/lib/jenkins/workspace/k3s_lab'
         WEBHOOK = credentials('JENKINS_DISCORD')
-        // PORTAINER_DEV_WEBHOOK = credentials('PORTAINER_WEBHOOK_DEV_HOMER')
-        // PORTAINER_PRD_WEBHOOK = credentials('PORTAINER_WEBHOOK_PRD_HOMER')
+        APP_NAME = 'homer'
     }
 
     //triggering periodically so the code is always present
@@ -24,7 +23,7 @@ pipeline {
         stage('DEV: Apply Kustomization') {
             when { branch 'dev_test' }
             steps {
-                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/homer/overlays/dev/'
+                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/dev/'
             }
         }
 
@@ -38,7 +37,7 @@ pipeline {
         stage('PRD: Apply Kustomization') {
             when { branch 'master' }
             steps {
-                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/homer/overlays/prd/'
+                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/prd/'
             }
         }
 
