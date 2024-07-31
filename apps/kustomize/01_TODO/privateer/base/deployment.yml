@@ -20,7 +20,7 @@ spec:
       containers:
         # Radarr
         - name: radarr
-          image: lscr.io/linuxserver/radarr:5.0.3
+          image: lscr.io/linuxserver/radarr:5.8.3
           ports:
             - containerPort: 7878
           env:
