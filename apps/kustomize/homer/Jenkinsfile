@@ -15,19 +15,30 @@ pipeline {
 
     stages {
         // DEV
-        stage('deploy dev code') {
+        stage('DEV: deploy code/configs') {
             when { branch 'dev_test' }
             steps {
                 sh 'ansible-playbook deploy.yml --extra-vars "branch=dev_test dir=dev-test"'
+            }
+        }
+        stage('DEV: Apply Kustomization') {
+            when { branch 'dev_test' }
+            steps {
                 sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/homer/overlays/dev/'
             }
         }
 
         // PRD
-        stage('deploy prd code') {
+        stage('PRD: deploy code/configs') {
             when { branch 'master' }
             steps {
                 sh 'ansible-playbook deploy.yml --extra-vars "branch=master dir=production"'
+            }
+        }
+        stage('PRD: Apply Kustomization') {
+            when { branch 'master' }
+            steps {
+                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/homer/overlays/prd/'
             }
         }
 
