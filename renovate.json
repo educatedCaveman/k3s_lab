@@ -5,6 +5,7 @@
   ],
   "kubernetes": {
     "fileMatch": ["\\.yml$"]
-  }
+  },
+  "baseBranches": ["dev_test", "master"]
 }
   
