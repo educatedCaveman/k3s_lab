@@ -2,7 +2,7 @@
 
 This is an experiment to use K3s to replace my old docker swarm stack. Currently, I'm still feeling things out, but I'm getting closer to the point where I think I could migrate things in earnest.
 
-I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo from Techno Tim as a submodule.  I've also reorganized the repo a bit.
+I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo from Techno Tim as a submodule. I've also reorganized the repo a bit.
 
 ## Things I want to be able to do
 
@@ -50,12 +50,9 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Service Useage
 
-| Service           | PRD IP:port           | DEV IP:port           | Notes                                 |
-| ----------------- | --------------------- | --------------------- | ------------------------------------- |
-| Homer             | `192.168.13.21:8080`  | `192.168.13.20:8080`  | Deleted - OOPS!                       |
-| Privateer         | n/a                   |                       | WIP                                   |
-| Flaresolverr      | `192.168.13.24:8191`  | n/a                   | prod-only                             |
-| Plex Meta Manager | n/a                   | n/a                   | prod-only, but no IP                  |
+| Service | DEV IP:port          | PRD IP:port          | Notes |
+| ------- | -------------------- | -------------------- | ----- |
+| Homer   | `192.168.13.20:8080` | `192.168.13.21:8080` |       |
 
 ### Remaining IPs
 
