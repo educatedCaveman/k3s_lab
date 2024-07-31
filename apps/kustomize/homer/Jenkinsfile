@@ -19,7 +19,7 @@ pipeline {
             when { branch 'dev_test' }
             steps {
                 sh 'ansible-playbook deploy.yml --extra-vars "branch=dev_test dir=dev-test"'
-                sh 'kubectl apply -k $K3S_REPO/apps/kustomize/homer/overlays/dev/'
+                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/homer/overlays/dev/'
             }
         }
 
