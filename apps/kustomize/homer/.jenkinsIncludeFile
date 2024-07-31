@@ -1,2 +1,2 @@
-# Any changes on java files will trigger build
+# only changes under this directory will trigger a build
 apps/kustomize/homer/**

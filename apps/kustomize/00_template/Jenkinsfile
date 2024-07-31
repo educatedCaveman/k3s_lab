@@ -1,0 +1,58 @@
+pipeline {
+    agent any 
+
+    environment {
+        ANSIBLE_REPO = '/var/lib/jenkins/workspace/ansible_master'
+        K3S_REPO = '/var/lib/jenkins/workspace/k3s_lab'
+        WEBHOOK = credentials('JENKINS_DISCORD')
+        // PORTAINER_DEV_WEBHOOK = credentials('PORTAINER_WEBHOOK_DEV_HOMER')
+        // PORTAINER_PRD_WEBHOOK = credentials('PORTAINER_WEBHOOK_PRD_HOMER')
+    }
+
+    //triggering periodically so the code is always present
+    // run every friday at 3AM
+    triggers { cron('0 3 * * 5') }
+
+    stages {
+        // DEV
+        stage('DEV: deploy code/configs') {
+            when { branch 'dev_test' }
+            steps {
+                sh 'ansible-playbook deploy.yml --extra-vars "branch=dev_test dir=dev-test"'
+            }
+        }
+        stage('DEV: Apply Kustomization') {
+            when { branch 'dev_test' }
+            steps {
+                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/homer/overlays/dev/'
+            }
+        }
+
+        // PRD
+        stage('PRD: deploy code/configs') {
+            when { branch 'master' }
+            steps {
+                sh 'ansible-playbook deploy.yml --extra-vars "branch=master dir=production"'
+            }
+        }
+        stage('PRD: Apply Kustomization') {
+            when { branch 'master' }
+            steps {
+                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/homer/overlays/prd/'
+            }
+        }
+
+    }
+    post {
+        always {
+            discordSend \
+                description: "${JOB_NAME} - build #${BUILD_NUMBER}", \
+                // footer: "Footer Text", \
+                // link: env.BUILD_URL, \
+                result: currentBuild.currentResult, \
+                // title: JOB_NAME, \
+                webhookURL: "${WEBHOOK}"
+        }
+    }
+}
+
