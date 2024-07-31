@@ -4,9 +4,7 @@
     "config:base"
   ],
   "kubernetes": {
-    "fileMatch": [
-      "(^|/)service.ya?ml$"
-    ]
+    "fileMatch": ["\\.yml$"]
   }
 }
   
