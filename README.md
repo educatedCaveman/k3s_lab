@@ -57,3 +57,66 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 ### Remaining IPs
 
 `192.168.13.22` - `192.168.13.239`
+
+
+# Useful Commands
+
+To delete a deployment with as few commands as possible, use the following:
+
+1. `kubectl describe service <POD_NAME> -n <NAMESPACE>` to query the service details.
+2. `kubectl get all --selector app=<APP_SELECTOR>` to confirm all of these can be deleted
+3. `kubectl delete all --selector app=<APP_SELECTOR> -n <NAMESPACE>` to delete the resources
+
+
+## Specific Example
+
+1. `kubectl describe service --namespace="dev-test" dev-nginx-testing`
+
+    ```text
+    Name:                     dev-nginx-testing
+    Namespace:                dev-test
+    Labels:                   <none>
+    Annotations:              metallb.universe.tf/allow-shared-ip: nginx-testing-metallb-ip
+                              metallb.universe.tf/ip-allocated-from-pool: first-pool
+    Selector:                 app=nginx-testing
+    Type:                     LoadBalancer
+    IP Family Policy:         PreferDualStack
+    IP Families:              IPv4
+    IP:                       10.43.242.73
+    IPs:                      10.43.242.73
+    IP:                       192.168.13.101
+    LoadBalancer Ingress:     192.168.13.101
+    Port:                     <unset>  80/TCP
+    TargetPort:               80/TCP
+    NodePort:                 <unset>  31667/TCP
+    Endpoints:                10.42.4.29:80
+    Session Affinity:         None
+    External Traffic Policy:  Cluster
+    Events:
+      Type     Reason            Age                    From                Message
+      ----     ------            ----                   ----                -------
+      Warning  AllocationFailed  2m25s (x2 over 6m54s)  metallb-controller  Failed to allocate IP for "dev-test/dev-nginx-testing": can't change sharing key for "dev-test/dev-nginx-testing", address also in use by dev-test/nginx-server
+      Normal   IPAllocated       23s                    metallb-controller  Assigned IP ["192.168.13.101"]
+      Normal   nodeAssigned      23s                    metallb-speaker     announcing from node "k3s-master-03" with protocol "layer2"
+    ```
+
+2. `kubectl get all --selector app=nginx-testing`
+
+    ```text
+    NAME                                     READY   STATUS    RESTARTS   AGE
+    pod/dev-nginx-testing-7d7654b77f-zn5g9   1/1     Running   0          10m
+
+    NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/dev-nginx-testing   1/1     1            1           10m
+
+    NAME                                           DESIRED   CURRENT   READY   AGE
+    replicaset.apps/dev-nginx-testing-7d7654b77f   1         1         1       10m
+    ```
+
+3. `kubectl delete all --selector app=nginx-testing -n dev-test`
+
+    ```text
+    pod "dev-nginx-testing-7d7654b77f-zn5g9" deleted
+    deployment.apps "dev-nginx-testing" deleted
+    replicaset.apps "dev-nginx-testing-7d7654b77f" deleted
+    ```
