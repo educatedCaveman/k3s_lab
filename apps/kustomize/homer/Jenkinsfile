@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         ANSIBLE_REPO = '/var/lib/jenkins/workspace/ansible_master'
+        K3S_REPO = '/var/lib/jenkins/workspace/k3s_lab'
         WEBHOOK = credentials('JENKINS_DISCORD')
         // PORTAINER_DEV_WEBHOOK = credentials('PORTAINER_WEBHOOK_DEV_HOMER')
         // PORTAINER_PRD_WEBHOOK = credentials('PORTAINER_WEBHOOK_PRD_HOMER')
@@ -18,7 +19,7 @@ pipeline {
             when { branch 'dev_test' }
             steps {
                 sh 'ansible-playbook deploy.yml --extra-vars "branch=dev_test dir=dev-test"'
-                sh 'kubectl get nodes'
+                sh 'kubectl apply -k $K3S_REPO/apps/kustomize/homer/overlays/dev/'
             }
         }
 
