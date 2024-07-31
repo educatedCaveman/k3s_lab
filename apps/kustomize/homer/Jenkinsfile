@@ -18,6 +18,7 @@ pipeline {
             when { branch 'dev_test' }
             steps {
                 sh 'ansible-playbook deploy.yml --extra-vars "branch=dev_test dir=dev-test"'
+                sh 'kubectl get nodes'
             }
         }
 
