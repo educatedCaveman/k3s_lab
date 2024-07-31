@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-testing
+  labels:
+    app: nginx-testing
+spec:
+  selector:
+    matchLabels:
+      app: nginx-testing
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nginx-testing
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: nginx-testing
+          image: nginx:1.26
+          ports:
+            - containerPort: 8080
