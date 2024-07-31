@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx_testing
+  name: nginx-testing
   annotations:
-    metallb.universe.tf/allow-shared-ip: "nginx_testing-metallb-ip"  
+    metallb.universe.tf/allow-shared-ip: "nginx-testing-metallb-ip"  
 spec:
   ipFamilyPolicy: PreferDualStack
   selector:
-    app: nginx_testing
+    app: nginx-testing
   ports:
     - port: 8080
       targetPort: 8080
