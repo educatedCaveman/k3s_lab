@@ -50,10 +50,11 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Service Useage
 
-| Service | DEV IP:port          | PRD IP:port          | Notes       |
-| ------- | -------------------- | -------------------- | ----------- |
-| Homer   | `192.168.13.20:8080` | `192.168.13.21:8080` |             |
-| NGINX   | `192.168.13.100:80`  |                      | for testing |
+| Service   | DEV IP:port          | PRD IP:port          | Notes       |
+| --------- | -------------------- | -------------------- | ----------- |
+| Homer     | `192.168.13.20:8080` | `192.168.13.21:8080` |             |
+| Syncthing | n/a                  | `192.168.13.22:8384` |             |
+| NGINX     | `192.168.13.100:80`  |                      | for testing |
 
 ### Remaining IPs
 
