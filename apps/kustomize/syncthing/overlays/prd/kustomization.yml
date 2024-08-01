@@ -10,3 +10,4 @@ namePrefix: prd-
 
 patches:
 - path: svc_IP.yml
+- path: env_vars.yml
