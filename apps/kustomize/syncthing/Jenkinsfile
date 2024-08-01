@@ -1,0 +1,42 @@
+pipeline {
+    agent any 
+
+    environment {
+        WEBHOOK = credentials('JENKINS_DISCORD')
+        APP_NAME = 'syncthing'
+    }
+
+    //triggering periodically so the code is always present
+    // run every friday at 3AM
+    triggers { cron('0 3 * * 5') }
+
+    stages {
+        // PRD
+        stage('PRD: deploy code/configs') {
+            when { branch 'master' }
+            steps {
+                // TODO: git crypt for certs?
+                sh 'ansible-playbook deploy.yml --extra-vars "branch=master dir=production"'
+            }
+        }
+        stage('PRD: Apply Kustomization') {
+            when { branch 'master' }
+            steps {
+                sh 'kubectl apply -k apps/kustomize/${APP_NAME}/overlays/prd/'
+            }
+        }
+
+    }
+    post {
+        always {
+            discordSend \
+                description: "${JOB_NAME} - build #${BUILD_NUMBER}", \
+                // footer: "Footer Text", \
+                // link: env.BUILD_URL, \
+                result: currentBuild.currentResult, \
+                // title: JOB_NAME, \
+                webhookURL: "${WEBHOOK}"
+        }
+    }
+}
+
