@@ -46,7 +46,7 @@ spec:
       volumes:
         - name: syncthing-nfs
           hostPath:
-            path: /mnt/k3s-data/production/apps/kustomize/syncthing
+            path: /mnt/k3s-data/production/apps/kustomize/syncthing/config
             type: Directory
         - name: syncthing-music-nfs
           hostPath:
