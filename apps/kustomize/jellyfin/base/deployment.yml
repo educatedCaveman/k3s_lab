@@ -30,7 +30,7 @@ spec:
           - name: jf-config-nfs
             mountPath: /config
       volumes:
-        - name: jf-movies-nfs
+        - name: jf-video-nfs
           hostPath:
             path: /mnt/mobius/Video
             type: Directory
