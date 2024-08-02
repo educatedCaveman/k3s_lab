@@ -14,16 +14,16 @@ spec:
       targetPort: 8384
       protocol: TCP
 
-    - port: 22000
-      targetPort: 22000
-      protocol: TCP
+    # - port: 22000
+    #   targetPort: 22000
+    #   protocol: TCP
       
-    - port: 22000
-      targetPort: 22000
-      protocol: UDP
+    # - port: 22000
+    #   targetPort: 22000
+    #   protocol: UDP
       
-    - port: 21027
-      targetPort: 21027
-      protocol: UDP
+    # - port: 21027
+    #   targetPort: 21027
+    #   protocol: UDP
       
   type: LoadBalancer
