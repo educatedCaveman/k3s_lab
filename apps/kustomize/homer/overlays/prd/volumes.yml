@@ -7,6 +7,9 @@ spec:
   template:
     spec:
       volumes:
-        - name: homer-nfs
+        - name: homer-png-nfs
           hostPath:
-            path: /mnt/k3s-data/production/apps/kustomize/homer/assets/
+            path: /mnt/k3s-data/dev-test/apps/kustomize/homer/assets/png
+        - name: homer-svg-nfs
+          hostPath:
+            path: /mnt/k3s-data/dev-test/apps/kustomize/homer/assets/svg
