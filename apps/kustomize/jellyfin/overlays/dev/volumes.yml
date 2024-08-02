@@ -1,0 +1,13 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+spec:
+  template:
+    spec:
+      volumes:
+        - name: JF-config-nfs
+          hostPath:
+            path: /mnt/k3s-data/dev-test/apps/kustomize/jellyfin/config
+            

@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+  labels:
+    app: jellyfin
+spec:
+  selector:
+    matchLabels:
+      app: jellyfin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: jellyfin
+          image: 10.9.8ubu2204-ls24
+          ports:
+            - containerPort: 8096
+          volumeMounts:
+          - name: JF-video-nfs
+            mountPath: /mnt/Video
+          - name: JF-music-nfs
+            mountPath: /mnt/Music
+          - name: JF-config-nfs
+            mountPath: /config
+      volumes:
+        - name: JF-movies-nfs
+          hostPath:
+            path: /mnt/mobius/Video
+            type: Directory
+        - name: JF-music-nfs
+          hostPath:
+            path: /mnt/mobius/Music/library
+            type: Directory
+        - name: JF-config-nfs
+          hostPath:
+            path: /mnt/mobius/Music/library
+            type: Directory
