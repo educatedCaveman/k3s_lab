@@ -8,7 +8,7 @@ configMapGenerator:
   files:
   # - myConfiguration.json
   # - myConfiguration2.json # you can use multiple files
-  - ../../config.yml
+  - config.yml
 
 resources:
 - ../../base
