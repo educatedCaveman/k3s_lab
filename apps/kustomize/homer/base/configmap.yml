@@ -97,17 +97,17 @@ data:
         items:
 
           - name: "pfSense"
-            logo: "/mnt/k3s_data/dev_test/apps/kustomize/homer/assets/png/pfsense.png"
+            logo: "assets/png/pfsense.png"
             url:  "https://pfsense.drak3.io"
             target: "_blank" 
 
           - name: "Mobius"
-            logo: "./assets/png/truenas.png"
+            logo: "/assets/png/truenas.png"
             url:  "https://mobius.drak3.io"
             target: "_blank"        
 
           - name: "Tesseract"
-            logo: "./assets/png/proxmox.png"
+            logo: "png/proxmox.png"
             url:  "https://tesseract.drak3.io"
             target: "_blank"    
 
