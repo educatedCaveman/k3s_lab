@@ -23,22 +23,22 @@ spec:
           ports:
             - containerPort: 8096
           volumeMounts:
-          - name: JF-video-nfs
+          - name: jf-video-nfs
             mountPath: /mnt/Video
-          - name: JF-music-nfs
+          - name: jf-music-nfs
             mountPath: /mnt/Music
-          - name: JF-config-nfs
+          - name: jf-config-nfs
             mountPath: /config
       volumes:
-        - name: JF-movies-nfs
+        - name: jf-movies-nfs
           hostPath:
             path: /mnt/mobius/Video
             type: Directory
-        - name: JF-music-nfs
+        - name: jf-music-nfs
           hostPath:
             path: /mnt/mobius/Music/library
             type: Directory
-        - name: JF-config-nfs
+        - name: jf-config-nfs
           hostPath:
             path: /mnt/mobius/Music/library
             type: Directory
