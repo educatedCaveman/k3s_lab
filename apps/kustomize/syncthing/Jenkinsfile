@@ -22,7 +22,8 @@ pipeline {
         stage('PRD: Apply Kustomization') {
             when { branch 'master' }
             steps {
-                sh 'kubectl apply -k apps/kustomize/${APP_NAME}/overlays/prd/'
+                // sh 'kubectl apply -k apps/kustomize/${APP_NAME}/overlays/prd/'
+                sh 'kubectl apply -k apps/kustomize/${APP_NAME}/overlays/prd/ --prune -l app=${APP_NAME} -n production'
             }
         }
 

@@ -35,7 +35,7 @@ spec:
             - containerPort: 22000
             - containerPort: 21027
           volumeMounts:
-          - name: syncthing-nfs
+          - name: syncthing-config
             mountPath: /config
           - name: syncthing-music-nfs
             mountPath: /mnt/Music
@@ -44,10 +44,9 @@ spec:
           - name: syncthing-pics-nfs
             mountPath: /mnt/Pictures
       volumes:
-        - name: syncthing-nfs
-          hostPath:
-            path: /mnt/k3s-data/production/apps/kustomize/syncthing/config
-            type: Directory
+        - name: syncthing-config
+          configMap:
+            name: syncthing-configmap
         - name: syncthing-music-nfs
           hostPath:
             path: /mnt/mobius/Music
