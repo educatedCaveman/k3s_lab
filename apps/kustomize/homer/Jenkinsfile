@@ -24,6 +24,7 @@ pipeline {
             when { branch 'dev_test' }
             steps {
                 sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/dev/'
+                // sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/dev/ --prune -l app=homer'
             }
         }
 
