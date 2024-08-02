@@ -2,4 +2,4 @@
 resources:
   - deployment.yml
   - service.yml
-  - configmap.yml
+  # - configmap.yml
