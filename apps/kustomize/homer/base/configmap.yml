@@ -97,7 +97,7 @@ data:
         items:
 
           - name: "pfSense"
-            logo: "./assets/png/pfsense.png"
+            logo: "/mnt/k3s_data/dev_test/apps/kustomize/homer/assets/png/pfsense.png"
             url:  "https://pfsense.drak3.io"
             target: "_blank" 
 
