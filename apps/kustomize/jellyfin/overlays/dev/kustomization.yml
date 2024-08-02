@@ -8,27 +8,27 @@ configMapGenerator:
 # encoding.xml
 - name: jf-encoding-configmap
   files:
-  - config/encoding.xml
+  - encoding.xml
 # network.xml
 - name: jf-network-configmap
   files:
-  - config/network.xml
+  - network.xml
 # system.xml
 - name: jf-system-configmap
   files:
-  - config/system.xml
-# movie_options.xml
-- name: jf-movie-opts-configmap
-  files:
-  - config/media/movies/options.xml
-# music_options.xml
-- name: jf-music-opts-configmap
-  files:
-  - config/media/music/options.xml
-# shows_options.xml
-- name: jf-show-opts-configmap
-  files:
-  - config/media/shows/options.xml
+  - system.xml
+# # movie_options.xml
+# - name: jf-movie-opts-configmap
+#   files:
+#   - media/movies/options.xml
+# # music_options.xml
+# - name: jf-music-opts-configmap
+#   files:
+#   - media/music/options.xml
+# # shows_options.xml
+# - name: jf-show-opts-configmap
+#   files:
+#   - media/shows/options.xml
 
 # needed for pruning in the Jenkinsfile
 generatorOptions:

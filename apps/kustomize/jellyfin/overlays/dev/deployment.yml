@@ -39,14 +39,14 @@ spec:
           - name: system-config
             mountPath:  /config/system.xml
 
-          - name: movies-config
-            mountPath:  /config/data/root/default/Movies
+          # - name: movies-config
+          #   mountPath:  /config/data/root/default/Movies
 
-          - name: music-config
-            mountPath:  /config/data/root/default/Music
+          # - name: music-config
+          #   mountPath:  /config/data/root/default/Music
 
-          - name: shows-config
-            mountPath:  /config/data/root/default/Shows
+          # - name: shows-config
+          #   mountPath:  /config/data/root/default/Shows
 
       volumes:
         - name: jf-video-nfs
