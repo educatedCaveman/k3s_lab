@@ -16,4 +16,4 @@
         recurse:  yes
         owner:    nobody
         group:    nogroup
-        mode:     '1777'
+        mode:     '1766'
