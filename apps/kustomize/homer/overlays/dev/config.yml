@@ -113,11 +113,6 @@ services:
         url:  "https://nvr.drak3.io"
         target: "_blank"
 
-      # - name: "Guacamole"
-      #   logo: "./assets/guacamole.png"
-      #   url:  "https://guac.drak3.io"
-      #   target: "_blank"
-
       - name: "Mobius (iDRAC)"
         logo: "./assets/png/idrac.png"
         url:  "https://idrac.mobius.drak3.io"
@@ -225,11 +220,6 @@ services:
         url:  "http://localhost:8384/"
         target: "_blank"
 
-      # - name: "InfluxDB / Chronograf"
-      #   logo: "./assets/svg/influxdb.svg"
-      #   url:  "https://influx.drak3.io/"
-      #   target: "_blank"
-
       - name: "Grafana"
         logo: "./assets/svg/grafana.svg"
         url:  "https://grafana.drak3.io/"
@@ -240,11 +230,6 @@ services:
         url:  "https://nvr.drak3.io"
         target: "_blank"
 
-      # - name: "Diskover"
-      #   logo: "./assets/png/diskover.png"
-      #   url:  "https://diskover.drak3.io"
-      #   target: "_blank"
-
   - name: "Development Tools"
     icon: "fas fa-server"
     items:
@@ -253,15 +238,6 @@ services:
         logo: "./assets/png/jenkins.png"
         url:  "https://jenkins.drak3.io/"
         target: "_blank"
-
-      # - name: "VS Code"
-      #   logo: "./assets/svg/vscode.svg"
-      #   url:  "https://code.drak3.io"
-      #   target: "_blank"
-
-      # - name: "Portainer"
-      #   logo: "./assets/png/portainer.png"
-      #   url:  "https://portainer.drak3.io/"
 
       - name: "Portainer (Pi)"
         logo: "./assets/png/portainer.png"
@@ -272,11 +248,6 @@ services:
     icon: "fas fa-server"
     items:
 
-      # - name: "Apt Cache NG"
-      #   icon: "fas fa-cubes"
-      #   url:  "https://apt-cache.drak3.io/acng-report.html"
-      #   target: "_blank"
-
       - name: "Singularity"
         logo: "./assets/png/pihole.png"
         url:  "https://pihole.drak3.io/admin/index.php"
@@ -286,40 +257,6 @@ services:
         logo: "./assets/png/pihole.png"
         url:  "https://pihole2.drak3.io/admin/index.php"
         target: "_blank"
-
-      # - name: "Home-Assistant"
-      #   logo: "./assets/svg/home-assistant.svg"
-      #   url:  "https://home-assistant.drak3.io/"
-      #   target: "_blank"
-
-  # - name: "GitHub"
-  #   icon: "fab fa-github"
-  #   items:
-    
-  #     - name: "Scripts"
-  #       logo: "./assets/png/github.png"
-  #       url:  "https://github.com/educatedCaveman/scripts"
-  #       target: "_blank"
-    
-  #     - name: "Dotfiles"
-  #       logo: "./assets/png/github.png"
-  #       url:  "https://github.com/educatedCaveman/dotfiles"
-  #       target: "_blank"
-    
-  #     - name: "Ansible"
-  #       logo: "./assets/png/github.png"
-  #       url:  "https://github.com/educatedCaveman/ansible"
-  #       target: "_blank"
-        
-  #     - name: "Jenkins"
-  #       logo: "./assets/png/github.png"
-  #       url:  "https://github.com/educatedCaveman/Jenkins"
-  #       target: "_blank"
-    
-  #     - name: "Documentation"
-  #       logo: "./assets/png/github.png"
-  #       url:  "https://github.com/educatedCaveman/documentation"
-  #       target: "_blank"
     
   - name: "DEV"
     icon: "fas fa-server"
@@ -329,13 +266,3 @@ services:
         logo: "./assets/png/youtubedl.png"
         url:  "https://ytdl.dev.drak3.io"
         target: "_blank"
-
-      # - name: "Portainer (DEV)"
-      #   logo: "./assets/png/portainer.png"
-      #   url:  "https://portainer.dev.drak3.io/"
-      #   target: "_blank"
-
-      # - name: "Diskover"
-      #   logo: "./assets/png/diskover.png"
-      #   url:  "https://diskover.dev.drak3.io"
-      #   target: "_blank"
