@@ -1,0 +1,89 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+  labels:
+    app: jellyfin
+spec:
+  selector:
+    matchLabels:
+      app: jellyfin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: jellyfin
+          image: lscr.io/linuxserver/jellyfin:10.9.8ubu2204-ls24
+          ports:
+            - containerPort: 8096
+          volumeMounts:
+
+          - name: jf-video-nfs
+            mountPath: /mnt/Video
+
+          - name: jf-music-nfs
+            mountPath: /mnt/Music
+
+          - name: encoding-config
+            mountPath:  /config/encoding.xml
+
+          - name: network-config
+            mountPath:  /config/network.xml
+
+          - name: system-config
+            mountPath:  /config/system.xml
+
+          - name: movies-config
+            mountPath:  /config/data/root/default/Movies
+
+          - name: music-config
+            mountPath:  /config/data/root/default/Music
+
+          - name: shows-config
+            mountPath:  /config/data/root/default/Shows
+
+      volumes:
+        - name: jf-video-nfs
+          hostPath:
+            path: /mnt/mobius/Video
+            type: Directory
+
+        - name: jf-music-nfs
+          hostPath:
+            path: /mnt/mobius/Music/library
+            type: Directory
+
+        # - name: jf-config-nfs
+        #   hostPath:
+        #     path: /mnt/mobius/Music/library
+        #     type: Directory
+
+        - name: encoding-config
+          configMap:
+            name: jf-encoding-configmap
+
+        - name: network-config
+          configMap:
+            name: jf-network-configmap
+
+        - name: system-config
+          configMap:
+            name: jf-system-configmap
+
+        - name: movies-config
+          configMap:
+            name: jf-movie-opts-configmap
+
+        - name: music-config
+          configMap:
+            name: jf-music-opts-configmap
+
+        - name: shows-config
+          configMap:
+            name: jf-show-opts-configmap

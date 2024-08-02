@@ -3,16 +3,37 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: dev-test
 
-# # insert a separate file as a configmap
-# configMapGenerator:
-# - name: CHANGE_ME-configmap
-#   files:
-#   - config.yml
+# insert a separate file as a configmap
+configMapGenerator:
+# encoding.xml
+- name: jf-encoding-configmap
+  files:
+  - config/encoding.xml
+# network.xml
+- name: jf-network-configmap
+  files:
+  - config/network.xml
+# system.xml
+- name: jf-system-configmap
+  files:
+  - config/system.xml
+# movie_options.xml
+- name: jf-movie-opts-configmap
+  files:
+  - config/media/movies/options.xml
+# music_options.xml
+- name: jf-music-opts-configmap
+  files:
+  - config/media/music/options.xml
+# shows_options.xml
+- name: jf-show-opts-configmap
+  files:
+  - config/media/shows/options.xml
 
-# # needed for pruning in the Jenkinsfile
-# generatorOptions:
-#   labels:
-#     app: CHANGE_ME
+# needed for pruning in the Jenkinsfile
+generatorOptions:
+  labels:
+    app: jellyfin
 
 resources:
 - ../../base
@@ -21,4 +42,4 @@ namePrefix: dev-
 
 patches:
 - path: svc_IP.yml
-- path: volumes.yml
+# - path: volumes.yml
