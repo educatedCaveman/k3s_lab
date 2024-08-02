@@ -1,0 +1,268 @@
+## Configuration
+---
+title: "Grand Ol' Dungeon of the Horned God"
+subtitle: "Homer"
+# documentTitle: "Welcome" # Customize the browser tab text
+logo: "./assets/svg/homer.svg"
+# https://fontawesome.com/v4.7.0/icons/
+# Alternatively a fa icon can be provided:
+# icon: "fas fa-skull-crossbones"
+
+header: true # Set to false to hide the header
+footer: false # set false if you want to hide it.
+
+# TODO: try setting this to 4
+columns: "auto" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
+# columns: 4
+connectivityCheck: true # whether you want to display a message when the apps are not accessible anymore (VPN disconnected for example)
+
+# Optional theming
+theme: default # 'default' or one of the themes available in 'src/./assets/themes'.
+
+#default colors from github:
+colors:
+  light:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#f5f5f5"
+    card-background: "#ffffff"
+    text: "#363636"
+    text-header: "#424242"
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link-hover: "#363636"
+    background-image: "./assets/your/light/bg.png"
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#2b2b2b"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link-hover: "#ffdd57"
+    background-image: "./assets/your/dark/bg.png"
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "GitHub"
+    icon: "fab fa-github"
+    url: "https://github.com/educatedCaveman"
+    target: "_blank"
+
+  - name: "Documentation"
+    icon: "fab fa-github"
+    url:  "https://educatedcaveman.github.io/"
+    target: "_blank"
+
+  - name: "Font Awesome Icons"
+    icon: "fab fa-font-awesome"
+    url:  "https://fontawesome.com/icons/"
+    target: "_blank"
+
+  # Jira
+  - name: "Jira"
+    icon: "fab fa-jira"
+    url:  "https://drak3.atlassian.net"
+    target: "_blank"
+
+  # Namecheap
+  - name: "Namecheap"
+    icon: "fas fa-cubes"
+    url:  "https://ap.www.namecheap.com"
+    target: "_blank"
+
+  - name: "Gatus (status)"
+    icon: "fas fa-circle-exclamation"
+    url:  "https://status.drak3.io"
+    target: "_blank"
+
+services:
+  - name: "Servers"
+    icon: "fas fa-server"
+    items:
+
+      - name: "pfSense"
+        logo: "./assets/png/pfsense.png"
+        url:  "https://pfsense.drak3.io"
+        target: "_blank" 
+
+      - name: "Mobius"
+        logo: "./assets/png/truenas.png"
+        url:  "https://mobius.drak3.io"
+        target: "_blank"        
+
+      - name: "Tesseract"
+        logo: "./assets/png/proxmox.png"
+        url:  "https://tesseract.drak3.io"
+        target: "_blank"    
+
+      - name: "Unifi Controller"
+        logo: "./assets/png/unifi-controller.png"
+        url:  "https://unifi.drak3.io"
+        target: "_blank"
+
+      - name: "Unifi Protect"
+        logo: "./assets/png/unifi.png"
+        url:  "https://nvr.drak3.io"
+        target: "_blank"
+
+      - name: "Mobius (iDRAC)"
+        logo: "./assets/png/idrac.png"
+        url:  "https://idrac.mobius.drak3.io"
+        target: "_blank"
+
+      - name: "Tesseract (iDRAC)"
+        logo: "./assets/png/idrac.png"
+        url:  "https://idrac.tesseract.drak3.io"
+        target: "_blank"
+
+      - name: "pfSense (IPMI)"
+        icon: "fas fa-server"
+        url:  "http://192.168.1.10"
+        target: "_blank"
+
+      - name: "Mainsail"
+        logo: "./assets/png/mainsail.png"
+        url:  "https://mainsail.drak3.io"
+        target: "_blank"
+
+  - name: "Media Services"
+    icon: "fas fa-server"
+    items:
+
+      - name: "Plex"
+        logo: "./assets/png/plex.png"
+        url:  "https://plex.drak3.io"
+        target: "_blank"
+
+      - name: "Tautulli"
+        logo: "./assets/png/tautulli.png"
+        url:  "https://tau.drak3.io/"
+        target: "_blank"
+
+      - name: "NextCloud"
+        logo: "./assets/png/nextcloud.png"
+        url:  "https://cloud.drak3.io"
+        target: "_blank"
+
+      - name: "qBittorrent"
+        logo: "./assets/svg/qbittorrent.svg"
+        url:  "https://qbt.drak3.io/"
+        target: "_blank"
+
+      - name: "HandBrake"
+        logo: "./assets/png/handbrake.png"
+        url:  "https://hb.drak3.io"
+        target: "_blank"
+
+      - name: "YouTube DL"
+        logo: "./assets/png/youtubedl.png"
+        url:  "https://ytdl.drak3.io"
+        target: "_blank"
+
+  - name: "Torrent Services"
+    icon: "fas fa-share-alt"
+    items:
+
+      - name: "qBittorrent"
+        logo: "./assets/svg/qbittorrent.svg"
+        url:  "https://qbt.drak3.io/"
+        target: "_blank"
+
+      - name: "Radarr (Movies)"
+        logo: "./assets/png/radarr.png"
+        url:  "https://radarr.drak3.io"
+        target: "_blank"
+
+      - name: "Sonarr (TV)"
+        logo: "./assets/svg/sonarr.svg"
+        url:  "https://sonarr.drak3.io"
+        target: "_blank"
+
+      - name: "Lidarr (Music)"
+        logo: "./assets/png/lidarr.png"
+        url:  "https://lidarr.drak3.io"
+        target: "_blank"
+
+      - name: "Bazarr (Subtitles)"
+        logo: "./assets/png/bazarr.png"
+        url:  "https://bazarr.drak3.io"
+        target: "_blank"
+
+      - name: "Prowlarr (Indexer)"
+        logo: "./assets/png/prowlarr.png"
+        url:  "https://prowlarr.drak3.io"
+        target: "_blank"
+
+  - name: "Data Services"
+    icon: "fas fa-server"
+    items:
+
+      - name: "Gatus"
+        logo: "./assets/png/gatus.png"
+        url:  "https://status.drak3.io/"
+        target: "_blank"
+
+      - name: "Syncthing"
+        logo: "./assets/png/syncthing.png"
+        url:  "https://sync.drak3.io/syncthing/"
+        target: "_blank"
+
+      - name: "Syncthing (local)"
+        logo: "./assets/png/syncthing.png"
+        url:  "http://localhost:8384/"
+        target: "_blank"
+
+      - name: "Grafana"
+        logo: "./assets/svg/grafana.svg"
+        url:  "https://grafana.drak3.io/"
+        target: "_blank"
+
+      - name: "Unifi Protect (feeds)"
+        logo: "./assets/png/unifi.png"
+        url:  "https://nvr.drak3.io"
+        target: "_blank"
+
+  - name: "Development Tools"
+    icon: "fas fa-server"
+    items:
+
+      - name: "Jenkins"
+        logo: "./assets/png/jenkins.png"
+        url:  "https://jenkins.drak3.io/"
+        target: "_blank"
+
+      - name: "Portainer (Pi)"
+        logo: "./assets/png/portainer.png"
+        url:  "https://portainer-pi.drak3.io/"
+        target: "_blank"
+
+  - name: "Admin Tools"
+    icon: "fas fa-server"
+    items:
+
+      - name: "Singularity"
+        logo: "./assets/png/pihole.png"
+        url:  "https://pihole.drak3.io/admin/index.php"
+        target: "_blank"
+
+      - name: "Event Horizon"
+        logo: "./assets/png/pihole.png"
+        url:  "https://pihole2.drak3.io/admin/index.php"
+        target: "_blank"
+    
+  - name: "DEV"
+    icon: "fas fa-server"
+    items:
+
+      - name: "YouTube DL (DEV)"
+        logo: "./assets/png/youtubedl.png"
+        url:  "https://ytdl.dev.drak3.io"
+        target: "_blank"
