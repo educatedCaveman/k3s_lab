@@ -6,12 +6,11 @@ namespace: dev-test
 configMapGenerator:
 - name: homer-configmap
   files:
-  # - myConfiguration.json
-  # - myConfiguration2.json # you can use multiple files
   - config.yml
-  metadata:
-    labels:
-      app: homer
+
+generatorOptions:
+  labels:
+    app: homer
 
 resources:
 - ../../base
