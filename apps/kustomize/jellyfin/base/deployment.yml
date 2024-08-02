@@ -76,14 +76,14 @@ spec:
           configMap:
             name: jf-system-configmap
 
-        - name: movies-config
-          configMap:
-            name: jf-movie-opts-configmap
+        # - name: movies-config
+        #   configMap:
+        #     name: jf-movie-opts-configmap
 
-        - name: music-config
-          configMap:
-            name: jf-music-opts-configmap
+        # - name: music-config
+        #   configMap:
+        #     name: jf-music-opts-configmap
 
-        - name: shows-config
-          configMap:
-            name: jf-show-opts-configmap
+        # - name: shows-config
+        #   configMap:
+        #     name: jf-show-opts-configmap
