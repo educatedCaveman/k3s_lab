@@ -54,7 +54,7 @@ links:
   - name: "GitHub"
     icon: "fab fa-github"
     url: "https://github.com/educatedCaveman"
-    target: "_blank" # optional html tag target attribute
+    target: "_blank"
 
   - name: "Documentation"
     icon: "fab fa-github"
