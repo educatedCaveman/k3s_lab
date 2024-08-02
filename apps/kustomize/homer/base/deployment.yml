@@ -32,11 +32,11 @@ spec:
       volumes:
         - name: homer-png-nfs
           hostPath:
-            path: /mnt/k3s-data/production/apps/homer/assets/png
+            path: /mnt/k3s-data/production/apps/kustomize/homer/assets/png
             type: Directory
         - name: homer-svg-nfs
           hostPath:
-            path: /mnt/k3s-data/production/apps/homer/assets/svg
+            path: /mnt/k3s-data/production/apps/kustomize/homer/assets/svg
             type: Directory
         - name: homer-config
           configMap:
