@@ -19,7 +19,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: jellyfin
-          image: 10.9.8ubu2204-ls24
+          image: lscr.io/linuxserver/jellyfin:10.9.8ubu2204-ls24
           ports:
             - containerPort: 8096
           volumeMounts:
