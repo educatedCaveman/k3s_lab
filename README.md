@@ -40,7 +40,7 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | 192.168.13.1   | n/a            | router            |                                           |
 | 192.168.13.2   | 192.168.13.10  | k3s managers      | presently, only \*.2 - \*.4 are used      |
 | 192.168.13.11  | 192.168.13.19  | k3s workers       | presently, only \*.11 and \*.12 are used  |
-| 192.168.13.20  | 192.168.13.25  | k3s workers       | presently, only \*.20 - \*.22 are used    |
+| 192.168.13.20  | 192.168.13.25  | k3s workers       |                                           |
 | 192.168.13.26  | 192.168.13.239 | k3s services      | MetalLB virtual IPs                       |
 | 192.168.13.240 | 192.168.13.249 | k3s services      | DHCP                                      |
 | 192.168.13.250 | 192.168.13.251 | k3s services      | reserved, unused. for something important |
@@ -51,16 +51,19 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Nodes
 
-| Name           | Hostname   | IP              | VM ID | CPU | MEM | MAC               | Notes                        |
-| -------------- | ---------- | --------------- | ----- | --- | --- | ----------------- | ---------------------------- |
-| k3s-manager-01 | apis-1     | `192.168.13.2`  | 302   | 4   | 4   | BC:24:11:EB:00:CE | n/a                          |
-| k3s-manager-02 | apis-2     | `192.168.13.3`  | 303   | 4   | 4   | BC:24:11:3E:49:42 | n/a                          |
-| k3s-manager-03 | apis-3     | `192.168.13.4`  | 304   | 4   | 4   | BC:24:11:FB:DE:2B | n/a                          |
-| k3s-worker-01  | vespae-1   | `192.168.13.11` | 311   | 8   | 8   | BC:24:11:BD:19:E9 | n/a                          |
-| k3s-worker-02  | vespae-2   | `192.168.13.12` | 312   | 8   | 8   | BC:24:11:0F:C4:04 | n/a                          |
-| k3s-data-01    | formicae-1 | `192.168.13.20` | 320   | 4   | 4   | BC:24:11:EE:E6:3A | 512GB + 1TB attached storage |
-| k3s-data-02    | formicae-2 | `192.168.13.21` | 321   | 4   | 4   | BC:24:11:D4:B3:71 | 512GB + 1TB attached storage |
-| k3s-data-03    | formicae-3 | `192.168.13.22` | 322   | 4   | 4   | BC:24:11:F4:85:A1 | 512GB + 1TB attached storage |
+| Name           | Hostname   | IP              | VM ID | CPU | MEM | MAC               | Notes                           |
+| -------------- | ---------- | --------------- | ----- | --- | --- | ----------------- | ------------------------------- |
+| k3s-manager-01 | apis-1     | `192.168.13.2`  | 302   | 4   | 4   | BC:24:11:EB:00:CE | n/a                             |
+| k3s-manager-02 | apis-2     | `192.168.13.3`  | 303   | 4   | 4   | BC:24:11:3E:49:42 | n/a                             |
+| k3s-manager-03 | apis-3     | `192.168.13.4`  | 304   | 4   | 4   | BC:24:11:FB:DE:2B | n/a                             |
+| k3s-worker-01  | vespae-1   | `192.168.13.11` | 311   | 8   | 8   | BC:24:11:BD:19:E9 | n/a                             |
+| k3s-worker-02  | vespae-2   | `192.168.13.12` | 312   | 8   | 8   | BC:24:11:0F:C4:04 | n/a                             |
+| k3s-data-01    | formicae-1 | `192.168.13.20` | 320   | 4   | 4   | BC:24:11:EE:E6:3A | 500GB NVMe device passed though |
+| k3s-data-02    | formicae-2 | `192.168.13.21` | 321   | 4   | 4   | BC:24:11:D4:B3:71 | 500GB NVMe device passed though |
+| k3s-data-03    | formicae-3 | `192.168.13.22` | 322   | 4   | 4   | BC:24:11:F4:85:A1 | 500GB NVMe device passed though |
+| k3s-data-04    | formicae-4 | `192.168.13.23` | 323   | 4   | 4   | BC:24:11:12:A2:C0 | 500GB NVMe device passed though |
+| k3s-data-05    | formicae-5 | `192.168.13.24` | 324   | 4   | 4   | BC:24:11:BB:DC:EC | 500GB NVMe device passed though |
+| k3s-data-06    | formicae-6 | `192.168.13.25` | 325   | 4   | 4   | BC:24:11:9E:5B:9F | 500GB NVMe device passed though |
 
 ### Service Useage
 
