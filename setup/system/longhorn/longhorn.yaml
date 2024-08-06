@@ -4255,14 +4255,16 @@ metadata:
   name: longhorn-frontend
   namespace: longhorn-system
 spec:
-  type: ClusterIP
+  # type: ClusterIP
+  type: NodePort
   selector:
     app: longhorn-ui
   ports:
   - name: http
     port: 80
     targetPort: http
-    nodePort: null
+    # nodePort: null
+    nodePort: 30000
 ---
 # Source: longhorn/templates/services.yaml
 apiVersion: v1

@@ -1,0 +1,23 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  # labels:
+  #   app.kubernetes.io/name: longhorn
+  #   app.kubernetes.io/instance: longhorn
+  #   app.kubernetes.io/version: v1.6.2
+  #   app: longhorn-ui
+  name: longhorn-dashboard
+  namespace: longhorn-system
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "longhorn-ui-metallb-ip"
+spec:
+  # type: ClusterIP
+  selector:
+    app: longhorn-ui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+  loadBalancerIP: 192.168.13.239
