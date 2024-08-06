@@ -8,6 +8,7 @@ configMapGenerator:
 - name: homer-configmap
   files:
   - config.yml
+  - ../../assets
 
 # needed for pruning in the Jenkinsfile
 generatorOptions:

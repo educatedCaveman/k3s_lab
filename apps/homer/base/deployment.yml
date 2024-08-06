@@ -23,21 +23,26 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-          - name: homer-png-nfs
-            mountPath: /www/assets/png
-          - name: homer-svg-nfs
-            mountPath: /www/assets/svg
-          - name: homer-config
+          # - name: homer-png-nfs
+          #   mountPath: /www/assets/png
+          # - name: homer-svg-nfs
+          #   mountPath: /www/assets/svg
+          - name: homer-img
             mountPath: /www/assets
+          - name: homer-config
+            mountPath: /www/assets/config
       volumes:
-        - name: homer-png-nfs
-          hostPath:
-            path: /mnt/k3s-data/production/apps/kustomize/homer/assets/png
-            type: Directory
-        - name: homer-svg-nfs
-          hostPath:
-            path: /mnt/k3s-data/production/apps/kustomize/homer/assets/svg
-            type: Directory
+        # - name: homer-png-nfs
+        #   hostPath:
+        #     path: /mnt/k3s-data/production/apps/kustomize/homer/assets/png
+        #     type: Directory
+        # - name: homer-svg-nfs
+        #   hostPath:
+        #     path: /mnt/k3s-data/production/apps/kustomize/homer/assets/svg
+        #     type: Directory
         - name: homer-config
           configMap:
             name: homer-configmap
+        - name: homer-img
+          configMap:
+            name: homer-img-configmap
