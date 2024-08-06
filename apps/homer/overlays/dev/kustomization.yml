@@ -8,6 +8,8 @@ configMapGenerator:
 - name: homer-configmap
   files:
   - config.yml
+- name: homer-img-configmap
+  files:
   - ../../assets
 
 # needed for pruning in the Jenkinsfile
@@ -21,5 +23,5 @@ resources:
 namePrefix: dev-
 
 patches:
-- path: volumes.yml
+# - path: volumes.yml
 - path: svc_port.yml
