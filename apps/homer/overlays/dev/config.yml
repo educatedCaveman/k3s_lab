@@ -89,7 +89,7 @@ services:
     items:
 
       - name: "pfSense"
-        logo: "./assets/png/pfsense.png"
+        logo: "assets/png/pfsense.png"
         url:  "https://pfsense.drak3.io"
         target: "_blank" 
 
