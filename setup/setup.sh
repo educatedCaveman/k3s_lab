@@ -3,6 +3,8 @@
 GITHUB_DIR="/home/drake/github"
 K3S_ANSIBLE_DIR="${GITHUB_DIR}/k3s-ansible"
 
+ln -s $HOME/github/k3s_lab/setup/my-cluster/ $HOME/github/k3s_lab/k3s-ansible/inventory/
+
 # set up cluster
 cd "${K3S_ANSIBLE_DIR}" || exit 1
 ansible-playbook ./site.yml -i ./inventory/my-cluster/hosts.ini
