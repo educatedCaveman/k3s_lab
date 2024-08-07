@@ -32,19 +32,19 @@ spec:
             mountPath: /TV
           - name: jf-music
             mountPath: /Music
-          - name: jf-config-data
+          - name: jf-config
             mountPath:  /config
           env:
-          - name: jf-puid
-            valueFrom:
-              configMapKeyRef:
-                name: jf-env
-                key:  PUID
-          - name: jf-pgid
-            valueFrom:
-              configMapKeyRef:
-                name: jf-env
-                key:  PGID
+          # - name: jf-puid
+          #   valueFrom:
+          #     configMapKeyRef:
+          #       name: jf-env
+          #       key:  PUID
+          # - name: jf-pgid
+          #   valueFrom:
+          #     configMapKeyRef:
+          #       name: jf-env
+          #       key:  PGID
           - name: jf-tz
             valueFrom:
               configMapKeyRef:
@@ -60,6 +60,6 @@ spec:
       - name: jf-music
         hostPath:
           path: /mnt/mobius/Music/library
-      - name: jf-config-data
+      - name: jf-config
         persistentVolumeClaim:
           claimName:  jf-config-data
