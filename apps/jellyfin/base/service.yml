@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyfin
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "jellyfin-metallb-ip"  
+spec:
+  ipFamilyPolicy: PreferDualStack
+  selector:
+    app: jellyfin
+  ports:
+    - name: jf-web-ui
+      port: 8096
+      targetPort: 8096
+    - name: jf-web-ui-https
+      port: 8920
+      targetPort: 8920
+    - name: jf-local-discovery
+      port: 7359
+      targetPort: 7359
+      protocol: UDP
+    - name: jf-dnla
+      port: 1900
+      targetPort: 1900
+      protocol: UDP
+  type: LoadBalancer
