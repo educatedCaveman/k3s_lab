@@ -4,4 +4,4 @@ kind: Service
 metadata:
   name: homer
 spec:
-  loadBalancerIP: 192.168.13.30
+  loadBalancerIP: 192.168.13.26
