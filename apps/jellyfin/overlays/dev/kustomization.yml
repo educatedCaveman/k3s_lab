@@ -3,16 +3,16 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: dev
 
-# insert a separate file as a configmap
-configMapGenerator:
-- name: jf-baseconfig-configmap
-  files:
-  - system.xml
+# # insert a separate file as a configmap
+# configMapGenerator:
+# - name: jf-system-xml-configmap
+#   files:
+#   - configs/system.xml
 
-# needed for pruning in the Jenkinsfile
-generatorOptions:
-  labels:
-    app: jellyfin
+# # needed for pruning in the Jenkinsfile
+# generatorOptions:
+#   labels:
+#     app: jellyfin
 
 resources:
 - ../../base
@@ -20,5 +20,4 @@ resources:
 namePrefix: dev-
 
 patches:
-# - path: pvc.yml
 - path: svc_IP.yml
