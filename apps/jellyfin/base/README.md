@@ -41,3 +41,13 @@ config/
 ├── migrations.xml
 ├── network.xml
 └── system.xml
+
+
+
+
+volume mounts:
+
+config/cache/           2   GiB
+config/data/data/       20  GiB
+config/data/metadata/   5   GiB
+config/log/             512 MiB
