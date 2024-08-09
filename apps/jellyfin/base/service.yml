@@ -13,15 +13,4 @@ spec:
     - name: jf-web-ui
       port: 8096
       targetPort: 8096
-    # - name: jf-web-ui-https
-    #   port: 8920
-    #   targetPort: 8920
-    # - name: jf-local-discovery
-    #   port: 7359
-    #   targetPort: 7359
-    #   protocol: UDP
-    # - name: jf-dnla
-    #   port: 1900
-    #   targetPort: 1900
-    #   protocol: UDP
   type: LoadBalancer

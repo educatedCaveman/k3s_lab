@@ -10,7 +10,7 @@
   <ExtractTrickplayImagesDuringLibraryScan>false</ExtractTrickplayImagesDuringLibraryScan>
   <PathInfos>
     <MediaPathInfo>
-      <Path>/Movies</Path>
+      <Path>/TV</Path>
     </MediaPathInfo>
   </PathInfos>
   <SaveLocalMetadata>false</SaveLocalMetadata>
@@ -38,7 +38,41 @@
   <AllowEmbeddedSubtitles>AllowAll</AllowEmbeddedSubtitles>
   <TypeOptions>
     <TypeOptions>
-      <Type>Movie</Type>
+      <Type>Series</Type>
+      <MetadataFetchers>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Season</Type>
+      <MetadataFetchers>
+        <string>TheMovieDb</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>TheMovieDb</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Episode</Type>
       <MetadataFetchers>
         <string>TheMovieDb</string>
         <string>The Open Movie Database</string>
