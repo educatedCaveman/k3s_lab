@@ -19,8 +19,8 @@
   <EnableEmbeddedExtrasTitles>false</EnableEmbeddedExtrasTitles>
   <EnableEmbeddedEpisodeInfos>false</EnableEmbeddedEpisodeInfos>
   <AutomaticRefreshIntervalDays>0</AutomaticRefreshIntervalDays>
-  <PreferredMetadataLanguage />
-  <MetadataCountryCode />
+  <PreferredMetadataLanguage>en</PreferredMetadataLanguage>
+  <MetadataCountryCode>US</MetadataCountryCode>
   <SeasonZeroDisplayName>Specials</SeasonZeroDisplayName>
   <MetadataSavers />
   <DisabledLocalMetadataReaders />
