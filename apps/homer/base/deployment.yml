@@ -23,69 +23,49 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-
           - name: homer-config
             mountPath: /www/assets
-
           - name: homer-png
             mountPath: /www/assets/png
-
           - name: homer-svg
             mountPath: /www/assets/svg
-
       volumes:
         - name: homer-config
           configMap:
             name: homer-configmap
-
         - name: homer-svg
           configMap:
             name: homer-svg-configmap
-
         - name: homer-png
           projected:
             sources:
             - configMap:
                 name: homer-png-configmap-b
-
             - configMap:
-                name: homer-png-configmap-g
-                
+                name: homer-png-configmap-g                
             - configMap:
                 name: homer-png-configmap-h
-
             - configMap:
                 name: homer-png-configmap-i
-
             - configMap:
                 name: homer-png-configmap-j
-
             - configMap:
                 name: homer-png-configmap-l
-
             - configMap:
                 name: homer-png-configmap-n
-
             - configMap:
                 name: homer-png-configmap-m
-
             - configMap:
                 name: homer-png-configmap-p1
-
             - configMap:
                 name: homer-png-configmap-p2
-
             - configMap:
                 name: homer-png-configmap-r
-
             - configMap:
                 name: homer-png-configmap-s
-
             - configMap:
                 name: homer-png-configmap-t
-
             - configMap:
                 name: homer-png-configmap-u
-
             - configMap:
                 name: homer-png-configmap-y

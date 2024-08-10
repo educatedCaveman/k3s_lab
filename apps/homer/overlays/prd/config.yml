@@ -3,7 +3,7 @@
 title: "Grand Ol' Dungeon of the Horned God"
 subtitle: "Homer"
 # documentTitle: "Welcome" # Customize the browser tab text
-logo: "./assets/svg/homer.svg"
+logo: "./assets/png/homer.png"
 # https://fontawesome.com/v4.7.0/icons/
 # Alternatively a fa icon can be provided:
 # icon: "fas fa-skull-crossbones"
@@ -89,7 +89,7 @@ services:
     items:
 
       - name: "pfSense"
-        logo: "./assets/png/pfsense.png"
+        logo: "assets/png/pfsense.png"
         url:  "https://pfsense.drak3.io"
         target: "_blank" 
 

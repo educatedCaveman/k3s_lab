@@ -21,8 +21,8 @@ pipeline {
         stage('DEV: Apply Kustomization') {
             when { branch 'dev_test' }
             steps {
-                // sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/dev/'
-                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/dev/ --prune -l app=${APP_NAME} -n dev'
+                sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/dev/'
+                // sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/dev/ --prune -l app=${APP_NAME} -n dev'
             }
         }
 
@@ -36,8 +36,8 @@ pipeline {
         stage('PRD: Apply Kustomization') {
             when { branch 'master' }
             steps {
-                // sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/prd/'
-                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/prd/ --prune -l app=${APP_NAME} -n prd'
+                sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/prd/'
+                // sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/prd/ --prune -l app=${APP_NAME} -n prd'
             }
         }
 

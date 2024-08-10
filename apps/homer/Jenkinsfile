@@ -12,32 +12,32 @@ pipeline {
 
     stages {
         // DEV
-        stage('DEV: deploy code/configs') {
-            when { branch 'dev_test' }
-            steps {
-                sh 'ansible-playbook deploy.yml --extra-vars "branch=dev_test dir=dev-test"'
-            }
-        }
+        // stage('DEV: deploy code/configs') {
+        //     when { branch 'dev_test' }
+        //     steps {
+        //         sh 'ansible-playbook deploy.yml --extra-vars "branch=dev_test dir=dev-test"'
+        //     }
+        // }
         stage('DEV: Apply Kustomization') {
             when { branch 'dev_test' }
             steps {
-                // sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/dev/'
-                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/dev/ --prune -l app=${APP_NAME} -n dev-test'
+                sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/dev/'
+                // sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/dev/ --prune -l app=${APP_NAME} -n dev'
             }
         }
 
         // PRD
-        stage('PRD: deploy code/configs') {
-            when { branch 'master' }
-            steps {
-                sh 'ansible-playbook deploy.yml --extra-vars "branch=master dir=production"'
-            }
-        }
+        // stage('PRD: deploy code/configs') {
+        //     when { branch 'master' }
+        //     steps {
+        //         sh 'ansible-playbook deploy.yml --extra-vars "branch=master dir=production"'
+        //     }
+        // }
         stage('PRD: Apply Kustomization') {
             when { branch 'master' }
             steps {
-                // sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/prd/'
-                sh 'kubectl apply -k ${WORKSPACE}/apps/kustomize/${APP_NAME}/overlays/prd/ --prune -l app=${APP_NAME} -n production'
+                sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/prd/'
+                // sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/prd/ --prune -l app=${APP_NAME} -n prd'
             }
         }
 
