@@ -67,12 +67,13 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Service Useage
 
-| Service  | DEV IP:port          | PRD IP:port          | Notes                 |
-| -------- | -------------------- | -------------------- | --------------------- |
-| Homer    | `192.168.13.26:8080` | `192.168.13.27:8080` | PRD doesn't exist yet |
-| Jellyfin | `192.168.13.28:8096` |                      | WIP                   |
-| NGINX    | `192.168.13.101:80`  |                      | for testing           |
+| Service           | DEV IP:port          | PRD IP:port          | Notes                 |
+| ----------------- | -------------------- | -------------------- | --------------------- |
+| Homer             | `192.168.13.26:8080` | `192.168.13.27:8080` | PRD doesn't exist yet |
+| Jellyfin          | `192.168.13.28:8096` |                      | WIP                   |
+| NGINX             | `192.168.13.101:80`  |                      | for testing           |
+| Unifi Network App | n/a                  | `192.168.13.239`     | WIP                   |
 
 ### Remaining IPs
 
-`192.168.13.22` - `192.168.13.239`
+`192.168.13.22` - `192.168.13.238`

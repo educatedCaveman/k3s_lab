@@ -1,0 +1,71 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unifi
+  labels:
+    app: unifi
+spec:
+  selector:
+    matchLabels:
+      app: unifi
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: unifi
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: unifi-network-application
+          image: lscr.io/linuxserver/unifi-network-application:8.3.32-ls56
+          ports:
+            - containerPort: 8443
+            - containerPort: 3478
+            - containerPort: 10001
+            - containerPort: 8080
+            - containerPort: 1900
+            - containerPort: 8843
+            - containerPort: 8880
+            - containerPort: 6789
+            - containerPort: 5514
+          volumeMounts:
+          - name: unifi-app-config
+            mountPath: /config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PUID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+          - name: MONGO_USER
+            value:  unifi
+          - name: MONGO_PASS
+            value:  sAqTwsP6NcvsJc9un5Kbv8yK4eVTf87C
+          - name: MONGO_HOST
+            value:  unifi-db
+          - name: MONGO_PORT
+            value:  "27017"
+          - name: MONGO_DBNAME
+            value:  unifi
+        - name: unifi-db
+          image:  docker.io/mongo:7.0.12
+          volumeMounts:
+          - name: unifi-db-db
+            mountPath:  /data/db
+          - name: unifi-db-mongo-js
+            mountPath:  /docker-entrypoint-initdb.d/init-mongo.js
+            subPath:  init-mongo.js
+      volumes:
+        - name: unifi-db-mongo-js
+          configMap:          
+            name: unifi-mongo-init-configmap
+            defaultMode:  0777
+        - name: unifi-db-db
+          persistentVolumeClaim:
+            claimName: unifi-mongo-db
+        - name: unifi-app-config
+          persistentVolumeClaim:
+            claimName: unifi-config
