@@ -1,7 +1,10 @@
-this directory is where the core files go.  things like deployments, services, etc.
+# Jellyfin
 
+This app appears to be one of those which are definitely _NOT_ meant to be configured solely by config files. After tinkering, it seems like trying to insert all the configs is a lost cause, at least for now. Also, given the config-driven approach seems unfeasable, and the application is also media-driven, I'm going to have this as a prd-only app.
 
+## Jellyfin Directory Structure
 
+```
 config/
 ├── cache
 │   ├── temp
@@ -41,13 +44,15 @@ config/
 ├── migrations.xml
 ├── network.xml
 └── system.xml
+```
 
+### PVCs
 
+before giving up, I tried setting up several volumes with the sizes shown below.
 
-
-volume mounts:
-
-config/cache/           2   GiB
-config/data/data/       20  GiB
-config/data/metadata/   5   GiB
-config/log/             512 MiB
+| Munt Path               |    Size |
+| ----------------------- | ------: |
+| `config/cache/`         |   2 GiB |
+| `config/data/data/`     |  20 GiB |
+| `config/data/metadata/` |   5 GiB |
+| `config/log/`           | 512 MiB |

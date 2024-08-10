@@ -24,40 +24,13 @@ spec:
             - containerPort: 8096
           volumeMounts:
           - name: jf-movies
-            mountPath: /Movies
+            mountPath:  /Movies
           - name: jf-shows
-            mountPath: /TV
+            mountPath:  /TV
           - name: jf-music
-            mountPath: /Music
-          - name: jf-log
-            mountPath:  /config/log
-          - name: jf-cache
-            mountPath:  /config/cache
-          - name: jf-data
-            mountPath:  /config/data/data
-          - name: jf-meta
-            mountPath:  /config/data/metadata
-          - name: jf-system-xml-config
-            mountPath:  /config/system.xml
-            subPath:  system.xml
-          # - name: jf-encoding-xml-config
-          #   mountPath:  /config/encoding.xml
-          #   subPath:  encoding.xml
-          # - name: jf-migrations-xml-config
-          #   mountPath:  /config/migrations.xml
-          #   subPath:  migrations.xml
-          - name: jf-network-xml-config
-            mountPath:  /config/network.xml
-            subPath:  network.xml
-          - name: jf-movie-xml-config
-            mountPath:  /config/data/root/default/Movies/options.xml
-            subPath:  options.xml
-          - name: jf-music-xml-config
-            mountPath:  /config/data/root/default/Music/options.xml
-            subPath:  options.xml
-          - name: jf-show-xml-config
-            mountPath:  /config/data/root/default/Shows/options.xml
-            subPath:  options.xml
+            mountPath:  /Music
+          - name: jf-config
+            mountPath:  /config
           env:
           - name: jf-puid
             valueFrom:
@@ -84,49 +57,7 @@ spec:
       - name: jf-music
         hostPath:
           path: /mnt/mobius/Music/library
-      # /config/data/data
-      - name: jf-data
+      - name: jf-config
         persistentVolumeClaim:
           claimName:  jf-config-data
-      # /config/data/metadata
-      - name: jf-meta
-        persistentVolumeClaim:
-          claimName:  jf-config-meta      
-      # /config/cache
-      - name: jf-cache
-        persistentVolumeClaim:
-          claimName:  jf-config-cache      
-      # /config/log
-      - name: jf-log
-        persistentVolumeClaim:
-          claimName:  jf-config-log
-
-      - name: jf-system-xml-config
-        configMap:
-          name: jf-system-xml-configmap
-          defaultMode:  0777
-      - name: jf-encoding-xml-config
-        configMap:
-          name: jf-encoding-xml-configmap
-          defaultMode:  0777
-      - name: jf-migrations-xml-config
-        configMap:
-          name: jf-migrations-xml-configmap
-          defaultMode:  0777
-      - name: jf-network-xml-config
-        configMap:
-          name: jf-network-xml-configmap
-          defaultMode:  0777
-      - name: jf-movie-xml-config
-        configMap:
-          name: jf-movie-xml-configmap
-          defaultMode:  0777
-      - name: jf-music-xml-config
-        configMap:
-          name: jf-music-xml-configmap
-          defaultMode:  0777
-      - name: jf-show-xml-config
-        configMap:
-          name: jf-show-xml-configmap
-          defaultMode:  0777
           
