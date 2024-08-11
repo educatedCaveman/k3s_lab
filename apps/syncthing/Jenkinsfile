@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         WEBHOOK = credentials('JENKINS_DISCORD')
-        APP_NAME = 'CHANGE_ME'
+        APP_NAME = 'syncthing'
     }
 
     //triggering periodically so the code is always present
