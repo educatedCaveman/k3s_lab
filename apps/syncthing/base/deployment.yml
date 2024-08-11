@@ -54,5 +54,5 @@ spec:
             path: /mnt/mobius/Music
             type: Directory
         - name: syncthing-config
-          persistenVolumeClaim:
+          persistentVolumeClaim:
             claimName:  sync-config-pvc
