@@ -20,5 +20,4 @@ resources:
 namePrefix: prd-
 
 patches:
-- path: volumes.yml
 - path: svc_IP.yml

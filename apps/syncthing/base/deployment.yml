@@ -2,31 +2,52 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: CHANGE_ME
+  name: syncthing
   labels:
-    app: CHANGE_ME
+    app: syncthing
 spec:
   selector:
     matchLabels:
-      app: CHANGE_ME
+      app: syncthing
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: CHANGE_ME
+        app: syncthing
     spec:
       restartPolicy: Always
       containers:
-        - name: CHANGE_ME
-          image: CHANGE_ME
+        - name: syncthing
+          image: lscr.io/linuxserver/syncthing:1.27.2
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York          
           ports:
             - containerPort: 8080
+            - containerPort: 22000
+            - containerPort: 21027
           volumeMounts:
-          - name: CHANGE_ME-nfs
-            mountPath: /www/assets
+          - name: syncthing-docs-nfs
+            mountPath: /Documents
+          - name: syncthing-pics-nfs
+            mountPath: /Pictures
+          - name: syncthing-music-nfs
+            mountPath: /Music
       volumes:
-        - name: CHANGE_ME-nfs
+        - name: syncthing-docs-nfs
           hostPath:
-            path: /mnt/k3s-data/production/apps/CHANGE_ME
+            path: /mnt/mobius/Documents
+            type: Directory
+        - name: syncthing-pics-nfs
+          hostPath:
+            path: /mnt/mobius/Pictures
+            type: Directory
+        - name: syncthing-music-nfs
+          hostPath:
+            path: /mnt/mobius/Music
             type: Directory
