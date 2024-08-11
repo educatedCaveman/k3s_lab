@@ -1,0 +1,1 @@
+apps/unifi/base/mongo_secret.yml filter=git-crypt diff=git-crypt
