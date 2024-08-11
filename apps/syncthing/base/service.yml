@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: CHANGE_ME
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "CHANGE_ME-metallb-ip"  
+spec:
+  ipFamilyPolicy: PreferDualStack
+  selector:
+    app: CHANGE_ME
+  ports:
+    - port: CHANGE_ME
+      targetPort: CHANGE_ME
+  type: LoadBalancer

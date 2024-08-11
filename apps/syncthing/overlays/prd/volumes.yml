@@ -1,0 +1,12 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: CHANGEME
+spec:
+  template:
+    spec:
+      volumes:
+        - name: CHANGEME-nfs
+          hostPath:
+            path: /mnt/k3s-data/production/apps/CHANGEME
