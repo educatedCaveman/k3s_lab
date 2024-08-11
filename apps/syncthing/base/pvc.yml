@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sync-config-pcv
+  name: sync-config-pvc
 spec:
   accessModes:
     - ReadWriteMany

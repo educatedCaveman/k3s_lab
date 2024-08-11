@@ -38,6 +38,8 @@ spec:
             mountPath: /Pictures
           - name: syncthing-music-nfs
             mountPath: /Music
+          - name: syncthing-config
+            mountPath:  /config
       volumes:
         - name: syncthing-docs-nfs
           hostPath:
@@ -51,3 +53,6 @@ spec:
           hostPath:
             path: /mnt/mobius/Music
             type: Directory
+        - name: syncthing-config
+          persistenVolumeClaim:
+            claimName:  sync-config-pvc
