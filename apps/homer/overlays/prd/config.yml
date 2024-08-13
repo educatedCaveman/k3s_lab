@@ -56,20 +56,9 @@ links:
     url: "https://github.com/educatedCaveman"
     target: "_blank"
 
-  - name: "Documentation"
-    icon: "fab fa-github"
-    url:  "https://educatedcaveman.github.io/"
-    target: "_blank"
-
   - name: "Font Awesome Icons"
     icon: "fab fa-font-awesome"
     url:  "https://fontawesome.com/icons/"
-    target: "_blank"
-
-  # Jira
-  - name: "Jira"
-    icon: "fab fa-jira"
-    url:  "https://drak3.atlassian.net"
     target: "_blank"
 
   # Namecheap
@@ -81,6 +70,11 @@ links:
   - name: "Gatus (status)"
     icon: "fas fa-circle-exclamation"
     url:  "https://status.drak3.io"
+    target: "_blank"
+
+  - name: "DuckDuckGo"
+    icon: "fas fa-search"
+    url:  "https://start.duckduckgo.com/"
     target: "_blank"
 
 services:
