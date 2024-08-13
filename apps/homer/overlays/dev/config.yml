@@ -73,7 +73,7 @@ links:
     target: "_blank"
 
   - name: "DuckDuckGo"
-    logo: "fas fa-magnifying-glass"
+    icon: "fas fa-search"
     url:  "https://start.duckduckgo.com/"
     target: "_blank"
 
