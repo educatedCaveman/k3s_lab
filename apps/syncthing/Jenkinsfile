@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         WEBHOOK = credentials('JENKINS_DISCORD')
-        APP_NAME = 'unifi'
+        APP_NAME = 'syncthing'
     }
 
     //triggering periodically so the code is always present
@@ -15,10 +15,8 @@ pipeline {
             when { branch 'master' }
             steps {
                 sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/prd/'
-                // sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/prd/ --prune -l app=${APP_NAME} -n prd'
             }
         }
-
     }
     post {
         always {

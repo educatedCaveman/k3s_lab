@@ -20,37 +20,27 @@ spec:
       containers:
         - name: syncthing
           image: lscr.io/linuxserver/syncthing:1.27.10
-          # # env:
-          # #   - name: PUID
-          # #     value: 1000
-          # #   - name: PGID
-          # #     value: 1000
-          # #   - name: TZ
-          # #     value: America/New_York
-          # envFrom:      
-          # - configMapRef:
-          #   name: syncthing-env-config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York          
           ports:
-            - containerPort: 8384
+            - containerPort: 8080
             - containerPort: 22000
             - containerPort: 21027
           volumeMounts:
-          # - name: syncthing-config
-          #   mountPath: /config
-          - name: syncthing-music-nfs
-            mountPath: /mnt/Music
           - name: syncthing-docs-nfs
-            mountPath: /mnt/Documents
+            mountPath: /Documents
           - name: syncthing-pics-nfs
-            mountPath: /mnt/Pictures
+            mountPath: /Pictures
+          - name: syncthing-music-nfs
+            mountPath: /Music
+          - name: syncthing-config
+            mountPath:  /config
       volumes:
-        # - name: syncthing-config
-        #   configMap:
-        #     name: syncthing-configmap
-        - name: syncthing-music-nfs
-          hostPath:
-            path: /mnt/mobius/Music
-            type: Directory
         - name: syncthing-docs-nfs
           hostPath:
             path: /mnt/mobius/Documents
@@ -59,3 +49,10 @@ spec:
           hostPath:
             path: /mnt/mobius/Pictures
             type: Directory
+        - name: syncthing-music-nfs
+          hostPath:
+            path: /mnt/mobius/Music
+            type: Directory
+        - name: syncthing-config
+          persistentVolumeClaim:
+            claimName:  sync-config-pvc
