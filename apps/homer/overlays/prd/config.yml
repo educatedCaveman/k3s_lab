@@ -77,6 +77,11 @@ links:
     url:  "https://start.duckduckgo.com/"
     target: "_blank"
 
+  - name: "Renovate Dashboard"
+    icon: "fas fa-code"
+    url:  "https://developer.mend.io/github/educatedCaveman"
+    target: "_blank"
+
 services:
   - name: "Servers"
     icon: "fas fa-server"
