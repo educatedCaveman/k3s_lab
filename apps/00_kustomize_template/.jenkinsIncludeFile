@@ -1,2 +1,2 @@
 # only changes under this directory will trigger a build
-apps/<CHANGE_ME>/**
+apps/kubernetes_dashboard/**
