@@ -40,7 +40,6 @@ pipeline {
                 // sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/prd/ --prune -l app=${APP_NAME} -n prd'
             }
         }
-
     }
     post {
         always {
