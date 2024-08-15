@@ -71,9 +71,10 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | ----------------- | -------------------- | --------------------- | --------------------- |
 | Homer             | `192.168.13.26:8080` | `192.168.13.27:8080`  | PRD doesn't exist yet |
 | Jellyfin          | n/a                  | `192.168.13.28:8096`  | PRD-only              |
+| Syncthing         | n/a                  | `192.168.13.29:8384`  |                       |
+| Flaresolverr      | n/a                  | `192.168.13.30:8191`  |                       |
 | NGINX             | `192.168.13.101:80`  | n/a                   | for testing           |
 | Unifi Network App | n/a                  | `192.168.13.239:8443` |                       |
-| Syncthing         | n/a                  | `192.168.13.29:8384`  |                       |
 
 ### Remaining IPs
 

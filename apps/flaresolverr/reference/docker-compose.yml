@@ -1,0 +1,17 @@
+---
+# Arrs: https://wiki.servarr.com/
+version: "3"
+services:
+  # other containers removed from this initial compose file
+  # also, changed the version tag to latest to appease renovate
+
+  # https://github.com/FlareSolverr/FlareSolverr#installation
+  flaresolverr:
+    # image: ghcr.io/flaresolverr/flaresolverr:v3.3.16
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    hostname: flaresolverr
+    environment:
+      - LOG_LEVEL=info
+    restart: unless-stopped
+    ports: 
+      - 8191:8191
