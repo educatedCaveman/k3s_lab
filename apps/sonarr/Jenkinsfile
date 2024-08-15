@@ -1,0 +1,31 @@
+pipeline {
+    agent any 
+
+    environment {
+        WEBHOOK = credentials('JENKINS_DISCORD')
+        APP_NAME = 'sonarr'
+    }
+
+    //triggering periodically so the code is always present
+    // run every friday at 3AM
+    triggers { cron('0 3 * * 5') }
+
+    stages {
+        // PRD
+        stage('PRD: Apply Kustomization') {
+            when { branch 'master' }
+            steps {
+                sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NAME}/overlays/prd/'
+            }
+        }
+    }
+    post {
+        always {
+            discordSend \
+                description: "${JOB_NAME} - build #${BUILD_NUMBER}", \
+                result: currentBuild.currentResult, \
+                webhookURL: "${WEBHOOK}"
+        }
+    }
+}
+
