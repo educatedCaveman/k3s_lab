@@ -1,0 +1,26 @@
+---
+# Arrs: https://wiki.servarr.com/
+version: "3"
+services:
+
+  # other containers removed from this initial compose file
+  # also, changed the version tag to latest to appease renovate
+
+  # https://github.com/linuxserver/docker-radarr
+  radarr:
+    # this image should trigger an update
+    # image: lscr.io/linuxserver/radarr:5.2.6.8376-ls197
+    image: lscr.io/linuxserver/radarr:latest
+    hostname: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /docker/docker-compose/privateer/config/radarr:/config
+      - /mnt/mobius/Video/Movies:/movies
+      - /mnt/mobius/staging/qbittorrent:/downloads
+      - /mnt/mobius/staging/qbittorrent:/mnt/mobius/staging/qbittorrent
+    restart: unless-stopped
+    ports: 
+      - 7878:7878

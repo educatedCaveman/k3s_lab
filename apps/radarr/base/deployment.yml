@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+  labels:
+    app: radarr
+spec:
+  selector:
+    matchLabels:
+      app: radarr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: radarr
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: radarr
+          image: lscr.io/linuxserver/radarr:5.8.3.8933-ls232
+          ports:
+            - containerPort: 7878
+          volumeMounts:
+          - name: radarr-movies-nfs
+            mountPath:  /movies
+          - name: radarr-downloads-nfs
+            mountPath:  /downloads
+          - name: radarr-config
+            mountPath:  /config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+      volumes:
+        - name: radarr-movies-nfs
+          hostPath:
+            path: /mnt/mobius/Video/Movies
+            type: Directory
+        - name: radarr-downloads-nfs
+          hostPath:
+            path: /mnt/mobius/staging/qbittorrent
+            type: Directory
+        - name: radarr-config
+          persistentVolumeClaim:
+            claimName:  radarr-config-pvc
