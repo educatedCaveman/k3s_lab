@@ -24,7 +24,7 @@ spec:
             - containerPort: 8989
           volumeMounts:
           - name: sonarr-shows-nfs
-            mountPath:  /movies
+            mountPath:  /tv
           - name: sonarr-downloads-nfs
             mountPath:  /downloads
           - name: sonarr-config
