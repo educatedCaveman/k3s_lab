@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bazarr
+  labels:
+    app: bazarr
+spec:
+  selector:
+    matchLabels:
+      app: bazarr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: bazarr
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: bazarr
+          image: lscr.io/linuxserver/bazarr:v1.4.3-ls262
+          ports:
+            - containerPort: 6767
+          volumeMounts:
+          - name: bazarr-movies-nfs
+            mountPath:  /movies
+          - name: bazarr-tv-nfs
+            mountPath:  /tv
+          - name: bazarr-config
+            mountPath:  /config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+      volumes:
+        - name: bazarr-movies-nfs
+          hostPath:
+            path: /mnt/mobius/Video/Movies
+            type: Directory
+        - name: bazarr-tv-nfs
+          hostPath:
+            path: /mnt/mobius/Video/TV-shows
+            type: Directory
+        - name: bazarr-config
+          persistentVolumeClaim:
+            claimName:  bazarr-config-pvc

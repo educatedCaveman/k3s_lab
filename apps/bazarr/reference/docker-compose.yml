@@ -1,0 +1,23 @@
+---
+# Arrs: https://wiki.servarr.com/
+version: "3"
+services:
+  # other containers removed from this initial compose file
+  # also, changed the version tag to latest to appease renovate
+
+  # https://github.com/linuxserver/docker-bazarr
+  bazarr:
+    # image: lscr.io/linuxserver/bazarr:v1.4.0-ls228
+    image: lscr.io/linuxserver/bazarr:latest
+    hostname: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /docker/docker-compose/privateer/config/bazarr:/config
+      - /mnt/mobius/Video/Movies:/movies
+      - /mnt/mobius/Video/TV-shows:/tv
+    restart: unless-stopped
+    ports: 
+      - 6767:6767
