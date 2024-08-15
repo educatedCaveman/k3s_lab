@@ -10,6 +10,8 @@ spec:
   selector:
     app: CHANGE_ME
   ports:
-    - port: CHANGE_ME
+    - name: CHANGE_ME
+      port: CHANGE_ME
       targetPort: CHANGE_ME
+      protocol: TCP_or_UDP
   type: LoadBalancer

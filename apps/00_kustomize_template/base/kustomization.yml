@@ -2,3 +2,5 @@
 resources:
   - deployment.yml
   - service.yml
+  - env-configmap.yml
+  - pvc.yml
