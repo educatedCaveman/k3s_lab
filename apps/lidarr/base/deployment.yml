@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lidarr
+  labels:
+    app: lidarr
+spec:
+  selector:
+    matchLabels:
+      app: lidarr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: lidarr
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: lidarr
+          image: lscr.io/linuxserver/lidarr:2.4.3.4248-ls6
+          ports:
+            - containerPort: 8686
+          volumeMounts:
+          - name: lidarr-music-nfs
+            mountPath:  /music
+          - name: lidarr-downloads-nfs
+            mountPath:  /downloads
+          - name: lidarr-config
+            mountPath:  /config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+      volumes:
+        - name: lidarr-music-nfs
+          hostPath:
+            path: /mnt/mobius/Music/library
+            type: Directory
+        - name: lidarr-downloads-nfs
+          hostPath:
+            path: /mnt/mobius/staging/qbittorrent
+            type: Directory
+        - name: lidarr-config
+          persistentVolumeClaim:
+            claimName:  lidarr-config-pvc

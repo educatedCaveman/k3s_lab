@@ -1,0 +1,25 @@
+---
+# Arrs: https://wiki.servarr.com/
+version: "3"
+services:
+
+  # other containers removed from this initial compose file
+  # also, changed the version tag to latest to appease renovate
+
+  # https://github.com/linuxserver/docker-lidarr
+  lidarr:
+    # image: lscr.io/linuxserver/lidarr:2.0.7.3849-ls148
+    image: lscr.io/linuxserver/lidarr:latest
+    hostname: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /docker/docker-compose/privateer/config/lidarr:/config
+      - /mnt/mobius/Music/library:/music
+      - /mnt/mobius/staging/qbittorrent:/downloads
+      - /mnt/mobius/staging/qbittorrent:/mnt/mobius/staging/qbittorrent
+    restart: unless-stopped
+    ports: 
+      - 8686:8686
