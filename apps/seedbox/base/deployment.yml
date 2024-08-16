@@ -34,13 +34,23 @@ spec:
           - name: OPENVPN_CONFIG
             value:  my_expressvpn_netherlands_-_the_hague_udp
           - name: OPENVPN_USERNAME
-            value:  _TBD_
+            valueFrom:
+              secretKeyRef:
+                name: express-vpn-creds
+                key: username
           - name: OPENVPN_PASSWORD
-            value:  _TBD_
+            valueFrom:
+              secretKeyRef:
+                name: express-vpn-creds
+                key: password
           - name: LOCAL_NETWORK
             value:  192.168.0.0/16
           - name: TRANSMISSION_WEB_UI
             value:  flood-for-transmission
+          # envFrom:
+          # - secretRef:
+          #     name: express-vpn-login
+          #     optional: false
           securityContext:
             capabilities: # Needed for VPN
               add:
