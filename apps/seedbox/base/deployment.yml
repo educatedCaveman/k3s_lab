@@ -47,6 +47,12 @@ spec:
             value:  192.168.0.0/16
           - name: TRANSMISSION_WEB_UI
             value:  flood-for-transmission
+          - name: PUID
+            value:  65534
+          - name: PGID
+            value:  65534
+          - name: TZ
+            value:  America/New_York
           # envFrom:
           # - secretRef:
           #     name: express-vpn-login
