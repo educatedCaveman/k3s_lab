@@ -1,0 +1,55 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seedbox
+  labels:
+    app: seedbox
+spec:
+  selector:
+    matchLabels:
+      app: seedbox
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: seedbox
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: seedbox
+          image: haugene/transmission-openvpn:5.3.1
+          ports:
+            - containerPort: 9091
+          volumeMounts:
+          - name: seedbox-data-nfs
+            mountPath: /data
+          - name: seedbox-config
+            mountPath:  /config
+          env:
+          - name: OPENVPN_PROVIDER
+            value:  EXPRESSVPN
+          # this will be changed
+          - name: OPENVPN_CONFIG
+            value:  my_expressvpn_netherlands_-_the_hague_udp
+          - name: OPENVPN_USERNAME
+            value:  _TBD_
+          - name: OPENVPN_PASSWORD
+            value:  _TBD_
+          - name: LOCAL_NETWORK
+            value:  192.168.0.0/16
+          - name: TRANSMISSION_WEB_UI
+            value:  flood-for-transmission
+          securityContext:
+            capabilities: # Needed for VPN
+              add:
+                - NET_ADMIN
+      volumes:
+        - name: seedbox-data-nfs
+          hostPath:
+            path: /mnt/mobius/temp/torrents
+            type: Directory
+        - name: seedbox-config
+          persistentVolumeClaim:
+            claimName:  seedbox-config-pvc

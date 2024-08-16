@@ -78,6 +78,7 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | Sonarr            | n/a                  | `192.168.13.33:8989`  |                       |
 | Lidarr            | n/a                  | `192.168.13.34:8686`  |                       |
 | Bazarr            | n/a                  | `192.168.13.35:6767`  |                       |
+| Transmission-VPN  | n/a                  | `192.168.13.36:9091`  | WIP                   |
 | NGINX             | `192.168.13.101:80`  | n/a                   | for testing           |
 | Unifi Network App | n/a                  | `192.168.13.239:8443` |                       |
 
