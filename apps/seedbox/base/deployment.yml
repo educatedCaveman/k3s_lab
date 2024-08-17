@@ -23,14 +23,13 @@ spec:
           ports:
             - containerPort: 9091
           volumeMounts:
-          - name: seedbox-data-nfs
+          - name: seedbox-data
             mountPath: /data
           - name: seedbox-config
             mountPath:  /config
           env:
           - name: OPENVPN_PROVIDER
             value:  EXPRESSVPN
-          # this will be changed
           - name: OPENVPN_CONFIG
             value:  my_expressvpn_netherlands_-_the_hague_udp
           - name: OPENVPN_USERNAME
@@ -47,28 +46,26 @@ spec:
             value:  192.168.0.0/16
           - name: TRANSMISSION_WEB_UI
             value:  flood-for-transmission
-          - name: PUID
-            value:  "1000"
-          - name: PGID
-            value:  "1000"
+          # - name: PUID
+          #   value:  "65534"
+          # - name: PGID
+          #   value:  "65534"
           - name: TZ
             value:  America/New_York
-          # envFrom:
-          # - secretRef:
-          #     name: express-vpn-login
-          #     optional: false
           securityContext:
             capabilities: # Needed for VPN
               add:
                 - NET_ADMIN
-            runAsUser:  "1000"
-            runAsGroup: "1000"
-            fsGroup:  "1000"
+            privileged: true
+      securityContext:
+        fsGroup: 65534
       volumes:
-        - name: seedbox-data-nfs
-          hostPath:
-            path: /mnt/mobius/temp/torrents
-            type: Directory
+        # - name: seedbox-data-nfs
+        #   hostPath:
+        #     path: /mnt/mobius/temp/torrents
         - name: seedbox-config
           persistentVolumeClaim:
             claimName:  seedbox-config-pvc
+        - name: seedbox-data
+          persistentVolumeClaim:
+            claimName:  seedbox-nfs-data-pvc
