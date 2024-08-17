@@ -46,10 +46,6 @@ spec:
             value:  192.168.0.0/16
           - name: TRANSMISSION_WEB_UI
             value:  flood-for-transmission
-          # - name: PUID
-          #   value:  "65534"
-          # - name: PGID
-          #   value:  "65534"
           - name: TZ
             value:  America/New_York
           securityContext:
@@ -57,12 +53,7 @@ spec:
               add:
                 - NET_ADMIN
             privileged: true
-      securityContext:
-        fsGroup: 65534
       volumes:
-        # - name: seedbox-data-nfs
-        #   hostPath:
-        #     path: /mnt/mobius/temp/torrents
         - name: seedbox-config
           persistentVolumeClaim:
             claimName:  seedbox-config-pvc

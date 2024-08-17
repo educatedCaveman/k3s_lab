@@ -5,11 +5,11 @@ metadata:
   name: seedbox-nfs-pv
 spec:
   capacity:
-    storage: 500Gi  # Adjust as needed
+    storage: 500Gi
   storageClassName: nfs
   accessModes:
     - ReadWriteMany
   nfs:
-    path: /mnt/storage_node/temp/transmission  # Your NFS server path
-    server: 192.168.11.2  # Your NFS server IP
+    path: /mnt/storage_node/temp/transmission
+    server: 192.168.11.2
   persistentVolumeReclaimPolicy: Retain
