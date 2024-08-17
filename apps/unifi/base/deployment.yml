@@ -26,8 +26,22 @@ spec:
           - name: unifi-db-mongo-js
             mountPath:  /docker-entrypoint-initdb.d/init-mongo.js
             subPath:  init-mongo.js
+          resources:
+            limits:
+              cpu: 4
+              memory: 2Gi
+            requests:
+              cpu: 500m
+              memory: 512Mi
         - name: unifi-network-application
           image: lscr.io/linuxserver/unifi-network-application:8.3.32-ls56
+          resources:
+            limits:
+              cpu: 4
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 128Mi
           ports:
             - containerPort: 8443
             - containerPort: 3478
