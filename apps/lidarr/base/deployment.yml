@@ -20,6 +20,13 @@ spec:
       containers:
         - name: lidarr
           image: lscr.io/linuxserver/lidarr:2.4.3.4248-ls6
+          resources:
+            limits:
+              cpu: 1
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
           ports:
             - containerPort: 8686
           volumeMounts:

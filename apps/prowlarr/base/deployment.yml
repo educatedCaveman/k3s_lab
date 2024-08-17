@@ -20,6 +20,13 @@ spec:
       containers:
         - name: prowlarr
           image: lscr.io/linuxserver/prowlarr:1.21.2.4649-ls82
+          resources:
+            limits:
+              cpu: 1
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
           ports:
             - containerPort: 9696
           volumeMounts:
