@@ -20,6 +20,13 @@ spec:
       containers:
         - name: syncthing
           image: lscr.io/linuxserver/syncthing:1.27.10
+          resources:
+            limits:
+              cpu: 1
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
           env:
           - name: PUID
             value:  "1000"
