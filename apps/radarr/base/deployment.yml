@@ -43,7 +43,7 @@ spec:
             type: Directory
         - name: radarr-downloads-nfs
           hostPath:
-            path: /mnt/mobius/staging/qbittorrent
+            path: /mnt/mobius/temp/transmission
             type: Directory
         - name: radarr-config
           persistentVolumeClaim:
