@@ -1,0 +1,60 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: kometa
+  namespace: prd
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: kometa
+              image: kometateam/kometa:v2.0.2
+              imagePullPolicy: IfNotPresent
+              args: [ "--run", "--read-only-config"]
+              resources:
+                limits:
+                  cpu: 2
+                  memory: 1Gi
+                requests:
+                  cpu: 100m
+                  memory: 125Mi
+              volumeMounts:
+                - name: kometa-config-dir
+                  mountPath: /config
+                - name: kometa-config
+                  mountPath: /config/config.yml
+                  subPath:  config.yml
+              env:
+              - name: TZ
+                value:  America/New_York
+              - name: KOMETA_PLEX_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: kometa-keys
+                    key:  plex_token
+              - name: KOMETA_TMDB_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: kometa-keys
+                    key:  tmdb_key
+              - name: KOMETA_RADARR_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: kometa-keys
+                    key:  radarr_token
+              - name: KOMETA_SONARR_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: kometa-keys
+                    key:  sonarr_token
+          volumes:
+            - name: kometa-config-dir
+              persistentVolumeClaim:
+                claimName: kometa-config-pvc
+            - name: kometa-config
+              configMap:
+                name: kometa-configmap
+          restartPolicy: OnFailure
