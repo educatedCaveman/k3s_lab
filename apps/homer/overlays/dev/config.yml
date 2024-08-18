@@ -82,6 +82,11 @@ links:
     url:  "https://developer.mend.io/github/educatedCaveman"
     target: "_blank"
 
+  - name: "Base64"
+    icon: "fas fa-shuffle"
+    url:  "https://www.base64encode.org/"
+    target: "_blank"
+
 services:
   - name: "Servers"
     icon: "fas fa-server"
