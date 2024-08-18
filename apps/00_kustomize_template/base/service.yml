@@ -6,7 +6,7 @@ metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: "CHANGE_ME-metallb-ip"  
 spec:
-  ipFamilyPolicy: PreferDualStack
+  ipFamilyPolicy: SingleStack
   selector:
     app: CHANGE_ME
   ports:
