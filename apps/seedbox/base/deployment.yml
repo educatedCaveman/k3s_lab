@@ -34,7 +34,7 @@ spec:
             mountPath: /data
           - name: seedbox-config
             mountPath:  /config
-          - name: seedbox-config
+          - name: seedbox-flood-ui-config
             mountPath:  /opt/transmission-ui/flood-for-transmission/config.json
             subPath:  config.json
           env:
