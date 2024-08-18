@@ -142,6 +142,11 @@ services:
         url:  "https://plex.drak3.io"
         target: "_blank"
 
+      - name: "Jellyfin"
+        logo: "./assets/svg/jellyfin.svg"
+        url:  "https://jellyfin.drak3.io"
+        target: "_blank"
+
       # - name: "Tautulli"
       #   logo: "./assets/png/tautulli.png"
       #   url:  "https://tau.drak3.io/"

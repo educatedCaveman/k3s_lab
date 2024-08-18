@@ -82,6 +82,7 @@ configMapGenerator:
 - name: homer-svg-configmap
   files:
   - svg/sonarr.svg
+  - svg/jellyfin.svg
 
 # needed for pruning in the Jenkinsfile
 generatorOptions:
