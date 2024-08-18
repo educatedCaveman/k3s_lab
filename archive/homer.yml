@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: homer
 spec:
-  ipFamilyPolicy: PreferDualStack
+  ipFamilyPolicy: SingleStack
   selector:
     app: homer
   ports:
