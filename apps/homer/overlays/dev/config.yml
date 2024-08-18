@@ -142,25 +142,25 @@ services:
         url:  "https://plex.drak3.io"
         target: "_blank"
 
-      - name: "Tautulli"
-        logo: "./assets/png/tautulli.png"
-        url:  "https://tau.drak3.io/"
-        target: "_blank"
+      # - name: "Tautulli"
+      #   logo: "./assets/png/tautulli.png"
+      #   url:  "https://tau.drak3.io/"
+      #   target: "_blank"
 
       - name: "NextCloud"
         logo: "./assets/png/nextcloud.png"
         url:  "https://cloud.drak3.io"
         target: "_blank"
 
-      - name: "qBittorrent"
-        logo: "./assets/svg/qbittorrent.svg"
-        url:  "https://qbt.drak3.io/"
-        target: "_blank"
+      # - name: "qBittorrent"
+      #   logo: "./assets/svg/qbittorrent.svg"
+      #   url:  "https://qbt.drak3.io/"
+      #   target: "_blank"
 
-      - name: "HandBrake"
-        logo: "./assets/png/handbrake.png"
-        url:  "https://hb.drak3.io"
-        target: "_blank"
+      # - name: "HandBrake"
+      #   logo: "./assets/png/handbrake.png"
+      #   url:  "https://hb.drak3.io"
+      #   target: "_blank"
 
       - name: "YouTube"
         logo: "./assets/png/youtube.png"
@@ -232,7 +232,7 @@ services:
 
       - name: "Unifi Protect (feeds)"
         logo: "./assets/png/unifi.png"
-        url:  "https://nvr.drak3.io"
+        url:  "https://nvr.drak3.io/protect/liveview/6084571d00504103e70003fb"
         target: "_blank"
 
   - name: "Development Tools"

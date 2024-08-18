@@ -14,13 +14,16 @@ configMapGenerator:
   files:
   - png/bazarr.png
 
+- name: homer-png-configmap-f
+  files:
+  - png/flood.png
+
 - name: homer-png-configmap-g
   files:
   - png/gatus.png
 
 - name: homer-png-configmap-h
   files:
-  - png/handbrake.png
   - png/homer.png
 
 - name: homer-png-configmap-i
@@ -66,7 +69,6 @@ configMapGenerator:
 - name: homer-png-configmap-t
   files:
   - png/truenas.png
-  - png/tautulli.png
 
 - name: homer-png-configmap-u
   files:
@@ -75,13 +77,11 @@ configMapGenerator:
 
 - name: homer-png-configmap-y
   files:
-  - png/youtubedl.png
+  - png/youtube.png
 
 - name: homer-svg-configmap
   files:
-  - svg/qbittorrent.svg
   - svg/sonarr.svg
-  - svg/grafana.svg
 
 # needed for pruning in the Jenkinsfile
 generatorOptions:
