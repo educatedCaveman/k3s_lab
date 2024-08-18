@@ -20,6 +20,13 @@ spec:
       containers:
         - name: flaresolverr
           image: ghcr.io/flaresolverr/flaresolverr:v3.3.21
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
           ports:
             - containerPort: 8191
           env:
