@@ -6,7 +6,7 @@ metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: "homer-metallb-ip"  
 spec:
-  ipFamilyPolicy: PreferDualStack
+  ipFamilyPolicy: SingleStack
   selector:
     app: homer
   ports:
