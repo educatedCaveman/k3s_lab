@@ -3,16 +3,16 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: prd
 
-# # insert a separate file as a configmap
-# configMapGenerator:
-# - name: CHANGE_ME-configmap
-#   files:
-#   - config.yml
+# insert a separate file as a configmap
+configMapGenerator:
+- name: seedbox-flood-ui-configmap
+  files:
+  - config.json
 
-# # needed for pruning in the Jenkinsfile
-# generatorOptions:
-#   labels:
-#     app: CHANGE_ME
+# needed for pruning in the Jenkinsfile
+generatorOptions:
+  labels:
+    app: seedbox
 
 resources:
 - ../../base

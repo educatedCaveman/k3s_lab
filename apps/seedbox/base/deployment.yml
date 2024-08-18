@@ -34,6 +34,9 @@ spec:
             mountPath: /data
           - name: seedbox-config
             mountPath:  /config
+          - name: seedbox-config
+            mountPath:  /opt/transmission-ui/flood-for-transmission/config.json
+            subPath:  config.json
           env:
           - name: OPENVPN_PROVIDER
             value:  EXPRESSVPN
@@ -67,3 +70,7 @@ spec:
         - name: seedbox-data
           persistentVolumeClaim:
             claimName:  seedbox-nfs-data-pvc
+        - name: seedbox-flood-ui-config
+          configMap:
+            name: seedbox-flood-ui-configmap
+            # defaultMode:  0777
