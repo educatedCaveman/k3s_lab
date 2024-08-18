@@ -20,6 +20,13 @@ spec:
       containers:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:10.9.9ubu2204-ls25
+          resources:
+            limits:
+              cpu: 4
+              memory: 4Gi
+            requests:
+              cpu: 1
+              memory: 512Mi
           ports:
             - containerPort: 8096
           volumeMounts:
