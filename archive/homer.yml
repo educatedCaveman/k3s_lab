@@ -39,7 +39,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: homer
-          image: b4bz/homer:latest@sha256:c1f5bfcfd2fe2ea07b8c5a574d9deb5aa5054f2f3582a1a3f8833394d2a06656
+          # image: b4bz/homer:latest@sha256:c1f5bfcfd2fe2ea07b8c5a574d9deb5aa5054f2f3582a1a3f8833394d2a06656
           ports:
             - containerPort: 8080
           volumeMounts:

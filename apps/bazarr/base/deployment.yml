@@ -22,8 +22,8 @@ spec:
           image: lscr.io/linuxserver/bazarr:v1.4.3-ls262
           resources:
             limits:
-              cpu: 1
-              memory: 512Mi
+              cpu: 2
+              memory: 1Gi
             requests:
               cpu: 100m
               memory: 50Mi

@@ -82,6 +82,11 @@ links:
     url:  "https://developer.mend.io/github/educatedCaveman"
     target: "_blank"
 
+  - name: "Base64"
+    icon: "fas fa-shuffle"
+    url:  "https://www.base64encode.org/"
+    target: "_blank"
+
 services:
   - name: "Servers"
     icon: "fas fa-server"
@@ -122,10 +127,11 @@ services:
         url:  "https://idrac.tesseract.drak3.io"
         target: "_blank"
 
-      - name: "pfSense (IPMI)"
-        icon: "fas fa-server"
-        url:  "http://192.168.1.10"
-        target: "_blank"
+      # I can't remember the password...
+      # - name: "pfSense (IPMI)"
+      #   icon: "fas fa-server"
+      #   url:  "http://192.168.1.10"
+      #   target: "_blank"
 
       - name: "Mainsail"
         logo: "./assets/png/mainsail.png"
@@ -141,38 +147,48 @@ services:
         url:  "https://plex.drak3.io"
         target: "_blank"
 
-      - name: "Tautulli"
-        logo: "./assets/png/tautulli.png"
-        url:  "https://tau.drak3.io/"
+      - name: "Jellyfin"
+        logo: "./assets/svg/jellyfin.svg"
+        url:  "https://jellyfin.drak3.io"
         target: "_blank"
+
+      # - name: "Tautulli"
+      #   logo: "./assets/png/tautulli.png"
+      #   url:  "https://tau.drak3.io/"
+      #   target: "_blank"
 
       - name: "NextCloud"
         logo: "./assets/png/nextcloud.png"
         url:  "https://cloud.drak3.io"
         target: "_blank"
 
-      - name: "qBittorrent"
-        logo: "./assets/svg/qbittorrent.svg"
-        url:  "https://qbt.drak3.io/"
-        target: "_blank"
+      # - name: "qBittorrent"
+      #   logo: "./assets/svg/qbittorrent.svg"
+      #   url:  "https://qbt.drak3.io/"
+      #   target: "_blank"
 
-      - name: "HandBrake"
-        logo: "./assets/png/handbrake.png"
-        url:  "https://hb.drak3.io"
-        target: "_blank"
+      # - name: "HandBrake"
+      #   logo: "./assets/png/handbrake.png"
+      #   url:  "https://hb.drak3.io"
+      #   target: "_blank"
 
-      - name: "YouTube DL"
-        logo: "./assets/png/youtubedl.png"
-        url:  "https://ytdl.drak3.io"
+      - name: "YouTube"
+        logo: "./assets/png/youtube.png"
+        url:  "https://www.youtube.com/feed/subscriptions"
         target: "_blank"
 
   - name: "Torrent Services"
     icon: "fas fa-share-alt"
     items:
 
-      - name: "qBittorrent"
-        logo: "./assets/svg/qbittorrent.svg"
-        url:  "https://qbt.drak3.io/"
+      # - name: "qBittorrent"
+      #   logo: "./assets/svg/qbittorrent.svg"
+      #   url:  "https://qbt.drak3.io/"
+      #   target: "_blank"
+
+      - name: "Flood"
+        logo: "./assets/png/flood.png"
+        url:  "https://flood.drak3.io/"
         target: "_blank"
 
       - name: "Radarr (Movies)"
@@ -219,14 +235,14 @@ services:
         url:  "http://localhost:8384/"
         target: "_blank"
 
-      - name: "Grafana"
-        logo: "./assets/svg/grafana.svg"
-        url:  "https://grafana.drak3.io/"
-        target: "_blank"
+      # - name: "Grafana"
+      #   logo: "./assets/svg/grafana.svg"
+      #   url:  "https://grafana.drak3.io/"
+      #   target: "_blank"
 
       - name: "Unifi Protect (feeds)"
         logo: "./assets/png/unifi.png"
-        url:  "https://nvr.drak3.io"
+        url:  "https://nvr.drak3.io/protect/liveview/6084571d00504103e70003fb"
         target: "_blank"
 
   - name: "Development Tools"
@@ -261,7 +277,7 @@ services:
     icon: "fas fa-server"
     items:
 
-      - name: "YouTube DL (DEV)"
-        logo: "./assets/png/youtubedl.png"
-        url:  "https://ytdl.dev.drak3.io"
+      - name: "Homer (DEV)"
+        logo: "./assets/png/homer.png"
+        url:  "https://homer.dev.drak3.io"
         target: "_blank"
