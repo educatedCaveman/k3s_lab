@@ -10,7 +10,7 @@ services:
   sonarr:
     # this image should trigger an update
     # image: lscr.io/linuxserver/sonarr:3.0.10.1567-ls218
-    image: lscr.io/linuxserver/sonarr:latest
+    image: lscr.io/linuxserver/sonarr:4.0.8.1874-ls250@sha256:bffa87787eacff9023df4400f521c159566d14b5a280caec8b54196071e6038e
     hostname: sonarr
     environment:
       - PUID=1000
