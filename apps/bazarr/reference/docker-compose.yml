@@ -8,7 +8,7 @@ services:
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
     # image: lscr.io/linuxserver/bazarr:v1.4.0-ls228
-    image: lscr.io/linuxserver/bazarr:latest
+    # image: lscr.io/linuxserver/bazarr:latest
     hostname: bazarr
     environment:
       - PUID=1000

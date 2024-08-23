@@ -10,7 +10,7 @@ services:
   radarr:
     # this image should trigger an update
     # image: lscr.io/linuxserver/radarr:5.2.6.8376-ls197
-    image: lscr.io/linuxserver/radarr:latest
+    # image: lscr.io/linuxserver/radarr:latest
     hostname: radarr
     environment:
       - PUID=1000
