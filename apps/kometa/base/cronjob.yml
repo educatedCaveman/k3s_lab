@@ -11,7 +11,7 @@ spec:
         spec:
           containers:
             - name: kometa
-              image: kometateam/kometa:v2.0.2
+              image: kometateam/kometa:v2.0.2@sha256:2f4515f85b76c83e5bf2c6618af22f4c0c453e4bd5b8f9a00595a0f81f603bef
               imagePullPolicy: IfNotPresent
               args: [ "--run", "--read-only-config"]
               resources:
