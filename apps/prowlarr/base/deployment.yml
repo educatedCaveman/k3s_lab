@@ -19,7 +19,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: prowlarr
-          image: lscr.io/linuxserver/prowlarr:1.21.2.4649-ls82
+          image: lscr.io/linuxserver/prowlarr:1.21.2.4649-ls82@sha256:c80a2dcfefd85c62da2373c5bf0138bb9d1c647c4b3d8f994ce263f5e8b1db81
           resources:
             limits:
               cpu: 8
