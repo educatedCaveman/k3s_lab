@@ -2,53 +2,64 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: CHANGE_ME
+  name: rflood
   labels:
-    app: CHANGE_ME
+    app: rflood
 spec:
   selector:
     matchLabels:
-      app: CHANGE_ME
+      app: rflood
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: CHANGE_ME
+        app: rflood
     spec:
       restartPolicy: Always
       containers:
-        - name: CHANGE_ME
-          image: CHANGE_ME
+        - name: rflood
+          image: ghcr.io/hotio/rflood
           ports:
-            - containerPort: 8080
-          volumeMounts:
-          - name: CHANGE_ME-nfs
-            mountPath: /www/assets
+            - containerPort: 3000
+            - containerPort: 5000
           env:
-          - name: key_CHANGE_ME
-            value:  value_CHANGE_ME
-          - name: env_CHANGE_ME
-            valueFrom:
-              configMapKeyRef:
-                name: env_CHANGE_ME
-                key:  key_CHANGE_ME
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: UMASK
+            value:  "002"
+          - name: TZ
+            value:  America/New_York
+          - name: FLOOD_AUTH
+            value:  false
+          # - name: ARGS
+          #   value:  ""
+          # - name: FLOOD_ARGS
+          #   value:  ""
+          # we don't want this built-in wireguard VPN
+          - name: VPN_ENABLED
+            value:  false
+          - name: UNBOUND_ENABLED
+            value:  false
+          securityContext:
+            capabilities: # Needed for VPN
+              add:
+                - NET_ADMIN
+            privileged: true
+          volumeMounts:
+          - name: rflood-config
+            mountPath:  /config
+          - name: rflood-data
+            mountPath:  /data
+        # - name: openvpn
+        #   image: openvpn/openvpn-as
+        #   # TODO:
       volumes:
-        - name: CHANGE_ME-nfs
-          hostPath:
-            path: /mnt/k3s-data/production/apps/CHANGE_ME
-            type: Directory
-        - name: CHANGE_ME_config_map
-          configMap:
-            name: CHANGE_ME_config_map
-            defaultMode:  0777
-        - name: CHANGE_ME_pvc
+        - name: rflood-config
           persistentVolumeClaim:
-            claimName:  CHANGE_ME_pvc
-        - name: CHANGE_ME_png
-          projected:
-            sources:
-            - configMap:
-                name: CHANGE_ME_png-b
-            - configMap:
-                name: CHANGE_ME_png-g 
+            claimName:  rflood-config-pvc
+        - name: rflood-data
+          persistentVolumeClaim:
+            claimName:  seedbox-nfs-data-pvc

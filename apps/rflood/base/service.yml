@@ -2,16 +2,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: CHANGE_ME
+  name: rflood
   annotations:
-    metallb.universe.tf/allow-shared-ip: "CHANGE_ME-metallb-ip"  
+    metallb.universe.tf/allow-shared-ip: "rflood-metallb-ip"  
 spec:
   ipFamilyPolicy: SingleStack
   selector:
-    app: CHANGE_ME
+    app: rflood
   ports:
-    - name: CHANGE_ME
-      port: CHANGE_ME
-      targetPort: CHANGE_ME
-      protocol: TCP_or_UDP
+    - name: flood
+      port: 3000
+      targetPort: 3000
+    - name: rtorrent
+      port: 5000
+      targetPort: 5000
   type: LoadBalancer
