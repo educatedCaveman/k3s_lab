@@ -6,6 +6,16 @@
   "kubernetes": {
     "fileMatch": ["\\.yml$"]
   },
-  "baseBranches": ["dev_test", "master"]
+  "baseBranches": ["dev_test", "master"],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "lscr.io/linuxserver/jellyfin", 
+        "lscr.io/linuxserver/lidarr"
+      ],
+      "versioning": ["regex:^(?<major>\\d{1,2})\\.((?<minor>\\d+))?(\\.(?<patch>\\d+))?(-(?<compatibility>.*))?$"]
+    }
+  ]
 }
   
