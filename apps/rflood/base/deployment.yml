@@ -19,6 +19,21 @@ spec:
       restartPolicy: Always
       hostname: rflood
       subdomain: internal
+      # securityContext:
+      #   sysctls:
+      #   - name: net.ipv4.conf.all.src_valid_mark
+      #     value:  "1"
+        # - name: net.ipv6.conf.all.disable_ipv6
+        #   value:  "1"
+      initContainers:
+      - name: init-rflood-wg0-config
+        image: busybox
+        command: ["sh", "-c", "mkdir -p /config/wireguard && cp /wireguard/wg0.conf /config/wireguard/wg0.conf"]
+        volumeMounts:
+        - name: rflood-config
+          mountPath:  /config
+        - name: rflood-wg0-config-file
+          mountPath:  /wireguard
       containers:
         - name: rflood
           # using "latest" because the versions are something like "release-1f62614"
@@ -46,26 +61,13 @@ spec:
             value:  "false"
           - name: VPN_ENABLED
             value:  "true"
+          - name: VPN_PROVIDER
+            value:  "pia"
           - name: VPN_CONF
             value:  "wg0"
           # i think by using 192.168.0.0/16, it will allow connection from other VLANs
           - name: VPN_LAN_NETWORK
             value:  "192.168.0.0/16"
-          - name: VPN_LAN_LEAK_ENABLED
-            value:  "fakse"
-          # listed ports will be blocked for VPN, but allowed for local
-          # - name: VPN_EXPOSE_PORTS_ON_LAN
-          #   value: ""
-          - name: VPN_AUTO_PORT_FORWARD
-            value:  "true"
-          # - name: VPN_AUTO_PORT_FORWARD_TO_PORTS
-          #   value: ""
-          - name: VPN_KEEP_LOCAL_DNS
-            value:  "false"
-          - name: VPN_FIREWALL_TYPE
-            value:  "auto"
-          - name: VPN_HEALTHCHECK_ENABLED
-            value:  "true"
           - name: VPN_PIA_USER
             valueFrom:
               secretKeyRef:
@@ -77,29 +79,15 @@ spec:
                 name: pia-vpn-creds
                 key: password
           - name: VPN_PIA_PREFERRED_REGION
-            value: "Netherlands"
-          - name: VPN_PIA_PORT_FORWARD_PERSIST
-            value:  "false"
-          - name: PRIVOXY_ENABLED
-            value:  "false"
-          - name: UNBOUND_ENABLED
-            value:  "false"
+            value: "nl_amsterdam"
           securityContext:
             capabilities: # Needed for VPN
               add:
                 - NET_ADMIN
             # privileged: true
-            # sysctls:
-            # - name: net.ipv4.conf.all.src_valid_mark
-            #   value:  "1"
-            # - name: net.ipv6.conf.all.disable_ipv6
-            #   value:  "1"
           volumeMounts:
           - name: rflood-config
             mountPath:  /config
-          # - name: rflood-wg0-config-file
-          #   mountPath:  /config/wireguard/wg0.conf
-          #   subPath:  wg0.conf
           - name: rflood-data
             mountPath:  /data
       volumes:
@@ -109,6 +97,6 @@ spec:
         - name: rflood-data
           persistentVolumeClaim:
             claimName:  rflood-nfs-data-pvc
-        # - name: rflood-wg0-config-file
-        #   secret:
-        #     secretName: rflood-wg0-config
+        - name: rflood-wg0-config-file
+          secret:
+            secretName: rflood-wg0-config

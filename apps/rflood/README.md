@@ -31,6 +31,71 @@ There should then be a config file to be used as necessary. Presently, I think t
 ### Sysctl
 some `sysctl` values need setting. [this](https://phoenixnap.com/kb/sysctl) page is a good summary of the commands.
 
+### Config notes
+1. setting fewer of the options seems to work best.
+2. the winning combo seems to be:
+    - set these:
+        - `PUID`
+        - `PGID`
+        - `UMASK`
+        - `TZ`
+        - `FLOOD_AUTH`
+        - `VPN_ENABLED`
+        - `VPN_PROVIDER`
+        - `VPN_CONF`
+        - `VPN_LAN_NETWORK`
+        - `VPN_PIA_USER`
+        - `VPN_PIA_PASS`
+    - but NOT these:
+        - `VPN_EXPOSE_PORTS_ON_LAN`
+        - `VPN_AUTO_PORT_FORWARD`
+        - `VPN_AUTO_PORT_FORWARD_TO_PORTS`
+        - `VPN_KEEP_LOCAL_DNS`
+        - `VPN_FIREWALL_TYPE`
+        - `VPN_HEALTHCHECK_ENABLED`
+        - `VPN_PIA_DIP_TOKEN`
+        - `VPN_PIA_PORT_FORWARD_PERSIST`
+        - `PRIVOXY_ENABLED`
+        - `UNBOUND_ENABLED`
+    - optional:
+        - `VPN_PIA_PREFERRED_REGION`
+
+#### `VPN_PIA_PREFERRED_REGION`
+
+The `VPN_PIA_PREFERRED_REGION` was hard to figure out correctly. I did figure it out though. I had to first, go [here](https://serverlist.piaservers.net/vpninfo/servers/v4). After formatting that JSON data, there was this in there:
+
+```JSON
+{
+  "groups": {
+    "snip": true
+  },
+  "regions": [
+    {
+      "id": "nl_amsterdam",
+      "name": "Netherlands",
+      "country": "NL",
+      "auto_region": true,
+      "dns": "nl-amsterdam.privacy.network",
+      "port_forward": true,
+      "geo": false,
+      "servers": {
+        "ikev2": [{ "ip": "<redacted>", "cn": "amsterdam403" }],
+        "meta": [{ "ip": "<redacted>", "cn": "amsterdam403" }],
+        "ovpntcp": [{ "ip": "<redacted>", "cn": "amsterdam403" }],
+        "ovpnudp": [{ "ip": "<redacted>", "cn": "amsterdam403" }],
+        "wg": [{ "ip": "<redacted>", "cn": "amsterdam403" }]
+      }
+    }
+  ]
+}
+```
+
+The key was to use the `id` value. The hotio tooltip mentions in certain circumstances
+
+> you can't let it pick one randomly and are forced to fill in a **region id**
+
+`id` = "region id"
+
 
 ## Secrets
 In order to obfuscate the username and password required for PIA, I've had to create the secret manually, instead of via a manifest. I don't know if this is a skill issue, or if there is some technical limitation with linking the image with sealed secrets. 
@@ -43,3 +108,5 @@ k create secret generic pia-vpn-creds
     --from-literal='password=__REDACTED__' \
     -n prd
 ```
+
+I also used a `secret.yml` file to populate the `wg0.conf` file.
