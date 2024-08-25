@@ -26,6 +26,20 @@ Run the tool:
 python3 generate-config.py
 ```
 
-There should then be a config file to be used as necessary.
+There should then be a config file to be used as necessary. Presently, I think the simplest option is to add the entire file to k3s as a secret.
 
- * [ ] is this config file something which should be kept secret?
+### Sysctl
+some `sysctl` values need setting. [this](https://phoenixnap.com/kb/sysctl) page is a good summary of the commands.
+
+
+## Secrets
+In order to obfuscate the username and password required for PIA, I've had to create the secret manually, instead of via a manifest. I don't know if this is a skill issue, or if there is some technical limitation with linking the image with sealed secrets. 
+
+Command used to create the secret:
+
+```shell
+k create secret generic pia-vpn-creds 
+    --from-literal='username=__REDACTED__' \
+    --from-literal='password=__REDACTED__' \
+    -n prd
+```
