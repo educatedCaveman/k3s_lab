@@ -19,7 +19,8 @@ spec:
       restartPolicy: Always
       containers:
         - name: rflood
-          image: ghcr.io/hotio/rflood
+          # using "latest" because the versions are something like "release-1f62614"
+          image: ghcr.io/hotio/rflood:latest@sha256:761e6d764d6cc9d0e10081d0e66ab2cc89686b2b3e7ed57f489e8ef22eded338
           ports:
             - containerPort: 3000
             - containerPort: 5000

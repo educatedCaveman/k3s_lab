@@ -1,3 +1,6 @@
 [submodule "k3s-ansible"]
 	path = k3s-ansible
 	url = https://github.com/techno-tim/k3s-ansible.git
+[submodule "apps/rflood/pia-wg"]
+	path = apps/rflood/pia-wg
+	url = https://github.com/hsand/pia-wg.git
