@@ -33,16 +33,16 @@ spec:
           - name: TZ
             value:  America/New_York
           - name: FLOOD_AUTH
-            value:  false
+            value:  "false"
           # - name: ARGS
           #   value:  ""
           # - name: FLOOD_ARGS
           #   value:  ""
           # we don't want this built-in wireguard VPN
           - name: VPN_ENABLED
-            value:  false
+            value:  "false"
           - name: UNBOUND_ENABLED
-            value:  false
+            value:  "false"
           securityContext:
             capabilities: # Needed for VPN
               add:
@@ -62,4 +62,4 @@ spec:
             claimName:  rflood-config-pvc
         - name: rflood-data
           persistentVolumeClaim:
-            claimName:  seedbox-nfs-data-pvc
+            claimName:  rflood-nfs-data-pvc
