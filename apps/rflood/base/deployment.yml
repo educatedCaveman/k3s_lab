@@ -19,12 +19,6 @@ spec:
       restartPolicy: Always
       hostname: rflood
       subdomain: internal
-      # securityContext:
-      #   sysctls:
-      #   - name: net.ipv4.conf.all.src_valid_mark
-      #     value:  "1"
-        # - name: net.ipv6.conf.all.disable_ipv6
-        #   value:  "1"
       initContainers:
       - name: init-rflood-wg0-config
         image: busybox
@@ -65,7 +59,6 @@ spec:
             value:  "pia"
           - name: VPN_CONF
             value:  "wg0"
-          # i think by using 192.168.0.0/16, it will allow connection from other VLANs
           - name: VPN_LAN_NETWORK
             value:  "192.168.0.0/16"
           - name: VPN_PIA_USER

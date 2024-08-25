@@ -29,7 +29,7 @@ python3 generate-config.py
 There should then be a config file to be used as necessary. Presently, I think the simplest option is to add the entire file to k3s as a secret.
 
 ### Sysctl
-some `sysctl` values need setting. [this](https://phoenixnap.com/kb/sysctl) page is a good summary of the commands.
+some `sysctl` values need setting. [this](https://phoenixnap.com/kb/sysctl) page is a good summary of the commands. However, the values wont stick after rebooting. A more proper way I think will be to use the `sysctl` ansible module. The playbook for k3s will have that.
 
 ### Config notes
 1. setting fewer of the options seems to work best.
