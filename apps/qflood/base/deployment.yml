@@ -28,10 +28,18 @@ spec:
           mountPath:  /config
         - name: qflood-wg0-config-file
           mountPath:  /wireguard
+      - name: init-qflood-qbt-config
+        image: busybox
+        command: ["sh", "-c", "mkdir -p /config/config && cp /qbt/qBittorrent.conf /config/config/qBittorrent.conf"]
+        volumeMounts:
+        - name: qflood-config
+          mountPath:  /config
+        - name: qflood-qbt-config
+          mountPath:  /qbt
       containers:
         - name: qflood
           # using "latest" because the versions are something like "release-1f62614"
-          image: ghcr.io/engels74/qflood:latest
+          image: ghcr.io/engels74/qflood:latest@sha256:fb83639463f18a060ad37922a7dc4fc1b55990a9a3bb18d007578edde16b661b
           resources:
             limits:
               cpu: 1
@@ -71,8 +79,8 @@ spec:
               secretKeyRef:
                 name: pia-vpn-creds
                 key: password
-          # - name: VPN_PIA_PREFERRED_REGION
-          #   value: "nl_amsterdam"
+          - name: VPN_PIA_PREFERRED_REGION
+            value: "nl_amsterdam"
           securityContext:
             capabilities: # Needed for VPN
               add:
@@ -92,3 +100,7 @@ spec:
         - name: qflood-wg0-config-file
           secret:
             secretName: qflood-wg0-config
+        - name: qflood-qbt-config
+          configMap:
+            name: qflood-qbt-configmap
+            # defaultMode:  0777
