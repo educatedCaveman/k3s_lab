@@ -22,8 +22,8 @@ spec:
           image: lscr.io/linuxserver/radarr:5.9.1@sha256:b034531ff81d3e5e1f9fd70c969746040b40e6484c88981ea5d0dee732c10bc3
           resources:
             limits:
-              cpu: 1
-              memory: 512Mi
+              cpu: 2
+              memory: 2Gi
             requests:
               cpu: 100m
               memory: 50Mi
@@ -40,7 +40,7 @@ spec:
           - name: PUID
             value:  "1000"
           - name: PGID
-            value:  "1000"
+            value:  "65534"
           - name: TZ
             value:  America/New_York
       volumes:
