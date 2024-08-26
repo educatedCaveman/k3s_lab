@@ -181,10 +181,10 @@ services:
     icon: "fas fa-share-alt"
     items:
 
-      # - name: "qBittorrent"
-      #   logo: "./assets/svg/qbittorrent.svg"
-      #   url:  "https://qbt.drak3.io/"
-      #   target: "_blank"
+      - name: "qBittorrent"
+        logo: "./assets/svg/qbittorrent.svg"
+        url:  "https://qbt.drak3.io/"
+        target: "_blank"
 
       - name: "Flood"
         logo: "./assets/png/flood.png"
