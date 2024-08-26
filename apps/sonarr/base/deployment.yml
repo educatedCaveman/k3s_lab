@@ -50,7 +50,7 @@ spec:
             type: Directory
         - name: sonarr-downloads-nfs
           hostPath:
-            path: /mnt/mobius/temp/transmission
+            path: /mnt/mobius/temp/qflood/downloads
             type: Directory
         - name: sonarr-config
           persistentVolumeClaim:

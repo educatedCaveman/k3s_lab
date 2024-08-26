@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: qflood-nfs-pv
+spec:
+  capacity:
+    storage: 500Gi
+  storageClassName: nfs
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /mnt/storage_node/temp/qflood
+    server: 192.168.11.2
+  persistentVolumeReclaimPolicy: Retain

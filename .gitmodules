@@ -4,3 +4,6 @@
 [submodule "apps/rflood/pia-wg"]
 	path = apps/rflood/pia-wg
 	url = https://github.com/hsand/pia-wg.git
+[submodule "apps/qflood/pia-wg"]
+	path = apps/qflood/pia-wg
+	url = https://github.com/hsand/pia-wg.git
