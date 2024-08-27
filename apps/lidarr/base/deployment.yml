@@ -22,8 +22,8 @@ spec:
           image: lscr.io/linuxserver/lidarr:latest@sha256:d30f42dc071f77ae833d094083263d38be2dd0ddfff3c234ede29a36673a8603
           resources:
             limits:
-              cpu: 1
-              memory: 512Mi
+              cpu: 2
+              memory: 2Gi
             requests:
               cpu: 100m
               memory: 50Mi
