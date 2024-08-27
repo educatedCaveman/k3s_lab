@@ -67,22 +67,23 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Service Useage
 
-| Service           | DEV IP:port          | PRD IP:port           | Notes                 |
-| ----------------- | -------------------- | --------------------- | --------------------- |
-| Homer             | `192.168.13.26:8080` | `192.168.13.27:8080`  | PRD doesn't exist yet |
-| Jellyfin          | n/a                  | `192.168.13.28:8096`  | PRD-only              |
-| Syncthing         | n/a                  | `192.168.13.29:8384`  |                       |
-| Flaresolverr      | n/a                  | `192.168.13.30:8191`  |                       |
-| Prowlarr          | n/a                  | `192.168.13.31:9696`  |                       |
-| Radarr            | n/a                  | `192.168.13.32:7878`  |                       |
-| Sonarr            | n/a                  | `192.168.13.33:8989`  |                       |
-| Lidarr            | n/a                  | `192.168.13.34:8686`  |                       |
-| Bazarr            | n/a                  | `192.168.13.35:6767`  |                       |
-| Transmission-VPN  | n/a                  | `192.168.13.36:9091`  | WIP                   |
-| Flod              | n/a                  | `192.168.13.37:???`   | WIP                   |
-| NGINX             | `192.168.13.101:80`  | n/a                   | for testing           |
-| Unifi Network App | n/a                  | `192.168.13.239:8443` |                       |
+| Service           | DEV IP:port          | PRD IP:port                    | Notes                           |
+| ----------------- | -------------------- | ------------------------------ | ------------------------------- |
+| Homer             | `192.168.13.26:8080` | `192.168.13.27:8080`           |                                 |
+| Jellyfin          | n/a                  | `192.168.13.28:8096`           |                                 |
+| Syncthing         | n/a                  | `192.168.13.29:8384`           |                                 |
+| Flaresolverr      | n/a                  | `192.168.13.30:8191`           |                                 |
+| Prowlarr          | n/a                  | `192.168.13.31:9696`           |                                 |
+| Radarr            | n/a                  | `192.168.13.32:7878`           |                                 |
+| Sonarr            | n/a                  | `192.168.13.33:8989`           |                                 |
+| Lidarr            | n/a                  | `192.168.13.34:8686`           |                                 |
+| Bazarr            | n/a                  | `192.168.13.35:6767`           |                                 |
+| qFlood            | n/a                  | `192.168.13.38:8080`, `*:3000` | qBittorrent + Flood + Wiregaurd |
+| NGINX             | `192.168.13.101:80`  | n/a                            | for testing                     |
+| Apt Cache         | n/a                  | `192.168.13.238:8443`          | W.I.P.                          |
+| Unifi Network App | n/a                  | `192.168.13.239:8443`          |                                 |
 
 ### Remaining IPs
 
-`192.168.13.37` - `192.168.13.238`
+- `192.168.13.36` - `192.168.13.37`
+- `192.168.13.39` - `192.168.13.238`
