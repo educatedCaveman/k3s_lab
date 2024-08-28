@@ -51,26 +51,26 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Nodes
 
-| Name            | Hostname   | IP              | VM ID | CPU | MEM | MAC               | Notes                                    |
-| --------------- | ---------- | --------------- | ----- | --- | --- | ----------------- | ---------------------------------------- |
-| k3s-manager-01  | apis-1     | `192.168.13.2`  | 302   | 4   | 4   | BC:24:11:EB:00:CE | n/a                                      |
-| k3s-manager-02  | apis-2     | `192.168.13.3`  | 303   | 4   | 4   | BC:24:11:3E:49:42 | n/a                                      |
-| k3s-manager-03  | apis-3     | `192.168.13.4`  | 304   | 4   | 4   | BC:24:11:FB:DE:2B | n/a                                      |
-| k3s-worker-01   | vespae-1   | `192.168.13.11` | 311   | 8   | 16  | BC:24:11:BD:19:E9 | n/a                                      |
-| k3s-worker-02   | vespae-2   | `192.168.13.12` | 312   | 8   | 16  | BC:24:11:0F:C4:04 | n/a                                      |
-| k3s-worker-03   | vespae-3   | `192.168.13.13` | 311   | 8   | 16  | TBD               | added later, need to fill in MAC Address |
-| k3s-worker-04   | vespae-4   | `192.168.13.14` | 312   | 8   | 16  | TBD               | added later, need to fill in MAC Address |
-| k3s-worker-05   | vespae-5   | `192.168.13.15` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist               |
-| k3s-worker-06-g | vespae-6   | `192.168.13.16` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU        |
-| k3s-worker-07-g | vespae-7   | `192.168.13.17` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU        |
-| k3s-worker-08-g | vespae-8   | `192.168.13.18` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU        |
-| k3s-worker-09-g | vespae-9   | `192.168.13.19` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU        |
-| k3s-data-01     | formicae-1 | `192.168.13.20` | 320   | 4   | 4   | BC:24:11:EE:E6:3A | 500GB NVMe device passed though          |
-| k3s-data-02     | formicae-2 | `192.168.13.21` | 321   | 4   | 4   | BC:24:11:D4:B3:71 | 500GB NVMe device passed though          |
-| k3s-data-03     | formicae-3 | `192.168.13.22` | 322   | 4   | 4   | BC:24:11:F4:85:A1 | 500GB NVMe device passed though          |
-| k3s-data-04     | formicae-4 | `192.168.13.23` | 323   | 4   | 4   | BC:24:11:12:A2:C0 | 500GB NVMe device passed though          |
-| k3s-data-05     | formicae-5 | `192.168.13.24` | 324   | 4   | 4   | BC:24:11:BB:DC:EC | 500GB NVMe device passed though          |
-| k3s-data-06     | formicae-6 | `192.168.13.25` | 325   | 4   | 4   | BC:24:11:9E:5B:9F | 500GB NVMe device passed though          |
+| Name            | Hostname   | IP              | VM ID | CPU | MEM | MAC               | Notes                             |
+| --------------- | ---------- | --------------- | ----- | --- | --- | ----------------- | --------------------------------- |
+| k3s-manager-01  | apis-1     | `192.168.13.2`  | 302   | 4   | 4   | BC:24:11:EB:00:CE |                                   |
+| k3s-manager-02  | apis-2     | `192.168.13.3`  | 303   | 4   | 4   | BC:24:11:3E:49:42 |                                   |
+| k3s-manager-03  | apis-3     | `192.168.13.4`  | 304   | 4   | 4   | BC:24:11:FB:DE:2B |                                   |
+| k3s-worker-01   | vespae-1   | `192.168.13.11` | 311   | 8   | 16  | BC:24:11:BD:19:E9 |                                   |
+| k3s-worker-02   | vespae-2   | `192.168.13.12` | 312   | 8   | 16  | BC:24:11:0F:C4:04 |                                   |
+| k3s-worker-03   | vespae-3   | `192.168.13.13` | 313   | 8   | 16  | BC:24:11:E5:E9:D1 |                                   |
+| k3s-worker-04   | vespae-4   | `192.168.13.14` | 314   | 8   | 16  | BC:24:11:78:92:D2 |                                   |
+| k3s-worker-05   | vespae-5   | `192.168.13.15` | 315   | 8   | 16  | TBD               | hypthetical, doesn't exist        |
+| k3s-worker-06-g | vespae-6   | `192.168.13.16` | 316   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU |
+| k3s-worker-07-g | vespae-7   | `192.168.13.17` | 317   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU |
+| k3s-worker-08-g | vespae-8   | `192.168.13.18` | 318   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU |
+| k3s-worker-09-g | vespae-9   | `192.168.13.19` | 319   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU |
+| k3s-data-01     | formicae-1 | `192.168.13.20` | 320   | 4   | 4   | BC:24:11:EE:E6:3A | 500GB NVMe device passed though   |
+| k3s-data-02     | formicae-2 | `192.168.13.21` | 321   | 4   | 4   | BC:24:11:D4:B3:71 | 500GB NVMe device passed though   |
+| k3s-data-03     | formicae-3 | `192.168.13.22` | 322   | 4   | 4   | BC:24:11:F4:85:A1 | 500GB NVMe device passed though   |
+| k3s-data-04     | formicae-4 | `192.168.13.23` | 323   | 4   | 4   | BC:24:11:12:A2:C0 | 500GB NVMe device passed though   |
+| k3s-data-05     | formicae-5 | `192.168.13.24` | 324   | 4   | 4   | BC:24:11:BB:DC:EC | 500GB NVMe device passed though   |
+| k3s-data-06     | formicae-6 | `192.168.13.25` | 325   | 4   | 4   | BC:24:11:9E:5B:9F | 500GB NVMe device passed though   |
 
 ### Service Useage
 
