@@ -39,7 +39,7 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | 192.168.13.0   | n/a            | network address   |                                           |
 | 192.168.13.1   | n/a            | router            |                                           |
 | 192.168.13.2   | 192.168.13.10  | k3s managers      | presently, only \*.2 - \*.4 are used      |
-| 192.168.13.11  | 192.168.13.19  | k3s workers       | presently, only \*.11 and \*.12 are used  |
+| 192.168.13.11  | 192.168.13.19  | k3s workers       | presently, only \*.11 - \*.14 are used    |
 | 192.168.13.20  | 192.168.13.25  | k3s workers       |                                           |
 | 192.168.13.26  | 192.168.13.239 | k3s services      | MetalLB virtual IPs                       |
 | 192.168.13.240 | 192.168.13.249 | k3s services      | DHCP                                      |
@@ -51,19 +51,26 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Nodes
 
-| Name           | Hostname   | IP              | VM ID | CPU | MEM | MAC               | Notes                           |
-| -------------- | ---------- | --------------- | ----- | --- | --- | ----------------- | ------------------------------- |
-| k3s-manager-01 | apis-1     | `192.168.13.2`  | 302   | 4   | 4   | BC:24:11:EB:00:CE | n/a                             |
-| k3s-manager-02 | apis-2     | `192.168.13.3`  | 303   | 4   | 4   | BC:24:11:3E:49:42 | n/a                             |
-| k3s-manager-03 | apis-3     | `192.168.13.4`  | 304   | 4   | 4   | BC:24:11:FB:DE:2B | n/a                             |
-| k3s-worker-01  | vespae-1   | `192.168.13.11` | 311   | 8   | 8   | BC:24:11:BD:19:E9 | n/a                             |
-| k3s-worker-02  | vespae-2   | `192.168.13.12` | 312   | 8   | 8   | BC:24:11:0F:C4:04 | n/a                             |
-| k3s-data-01    | formicae-1 | `192.168.13.20` | 320   | 4   | 4   | BC:24:11:EE:E6:3A | 500GB NVMe device passed though |
-| k3s-data-02    | formicae-2 | `192.168.13.21` | 321   | 4   | 4   | BC:24:11:D4:B3:71 | 500GB NVMe device passed though |
-| k3s-data-03    | formicae-3 | `192.168.13.22` | 322   | 4   | 4   | BC:24:11:F4:85:A1 | 500GB NVMe device passed though |
-| k3s-data-04    | formicae-4 | `192.168.13.23` | 323   | 4   | 4   | BC:24:11:12:A2:C0 | 500GB NVMe device passed though |
-| k3s-data-05    | formicae-5 | `192.168.13.24` | 324   | 4   | 4   | BC:24:11:BB:DC:EC | 500GB NVMe device passed though |
-| k3s-data-06    | formicae-6 | `192.168.13.25` | 325   | 4   | 4   | BC:24:11:9E:5B:9F | 500GB NVMe device passed though |
+| Name            | Hostname   | IP              | VM ID | CPU | MEM | MAC               | Notes                                    |
+| --------------- | ---------- | --------------- | ----- | --- | --- | ----------------- | ---------------------------------------- |
+| k3s-manager-01  | apis-1     | `192.168.13.2`  | 302   | 4   | 4   | BC:24:11:EB:00:CE | n/a                                      |
+| k3s-manager-02  | apis-2     | `192.168.13.3`  | 303   | 4   | 4   | BC:24:11:3E:49:42 | n/a                                      |
+| k3s-manager-03  | apis-3     | `192.168.13.4`  | 304   | 4   | 4   | BC:24:11:FB:DE:2B | n/a                                      |
+| k3s-worker-01   | vespae-1   | `192.168.13.11` | 311   | 8   | 16  | BC:24:11:BD:19:E9 | n/a                                      |
+| k3s-worker-02   | vespae-2   | `192.168.13.12` | 312   | 8   | 16  | BC:24:11:0F:C4:04 | n/a                                      |
+| k3s-worker-03   | vespae-3   | `192.168.13.13` | 311   | 8   | 16  | TBD               | added later, need to fill in MAC Address |
+| k3s-worker-04   | vespae-4   | `192.168.13.14` | 312   | 8   | 16  | TBD               | added later, need to fill in MAC Address |
+| k3s-worker-05   | vespae-5   | `192.168.13.15` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist               |
+| k3s-worker-06-g | vespae-6   | `192.168.13.16` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU        |
+| k3s-worker-07-g | vespae-7   | `192.168.13.17` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU        |
+| k3s-worker-08-g | vespae-8   | `192.168.13.18` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU        |
+| k3s-worker-09-g | vespae-9   | `192.168.13.19` | 312   | 8   | 16  | TBD               | hypthetical, doesn't exist. g=GPU        |
+| k3s-data-01     | formicae-1 | `192.168.13.20` | 320   | 4   | 4   | BC:24:11:EE:E6:3A | 500GB NVMe device passed though          |
+| k3s-data-02     | formicae-2 | `192.168.13.21` | 321   | 4   | 4   | BC:24:11:D4:B3:71 | 500GB NVMe device passed though          |
+| k3s-data-03     | formicae-3 | `192.168.13.22` | 322   | 4   | 4   | BC:24:11:F4:85:A1 | 500GB NVMe device passed though          |
+| k3s-data-04     | formicae-4 | `192.168.13.23` | 323   | 4   | 4   | BC:24:11:12:A2:C0 | 500GB NVMe device passed though          |
+| k3s-data-05     | formicae-5 | `192.168.13.24` | 324   | 4   | 4   | BC:24:11:BB:DC:EC | 500GB NVMe device passed though          |
+| k3s-data-06     | formicae-6 | `192.168.13.25` | 325   | 4   | 4   | BC:24:11:9E:5B:9F | 500GB NVMe device passed though          |
 
 ### Service Useage
 
@@ -79,7 +86,9 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | Lidarr            | n/a                  | `192.168.13.34:8686`           |                                 |
 | Bazarr            | n/a                  | `192.168.13.35:6767`           |                                 |
 | qFlood            | n/a                  | `192.168.13.38:8080`, `*:3000` | qBittorrent + Flood + Wiregaurd |
+|                   | `192.168.13.39`      | `192.168.13.100`               | free addresses for services     |
 | NGINX             | `192.168.13.101:80`  | n/a                            | for testing                     |
+|                   | `192.168.13.102`     | `192.168.13.237`               | free addresses for services     |
 | Apt Cache         | n/a                  | `192.168.13.238:8443`          | W.I.P.                          |
 | Unifi Network App | n/a                  | `192.168.13.239:8443`          |                                 |
 
