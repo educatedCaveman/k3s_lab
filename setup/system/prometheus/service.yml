@@ -1,0 +1,19 @@
+---
+# this doesn't actually work
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-ui
+  namespace: monitoring
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "grafana-metallb-ip"  
+spec:
+  ipFamilyPolicy: SingleStack
+  selector:
+    app: grafana
+  ports:
+    - name: grafana-ui
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
+  loadBalancerIP: 192.168.13.237
