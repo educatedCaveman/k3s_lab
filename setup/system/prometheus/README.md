@@ -32,12 +32,12 @@ helm install -n monitoring prometheus prometheus-community/kube-prometheus-stack
 
 patch the service to use metalLB
 ```shell
-kubectl -n monitoring patch svc grafana -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.13.237"}}'
+k -n monitoring patch svc grafana -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.13.237"}}'
 ```
 
 ## Updating
 
 ```shell
 helm upgrade -n monitoring prometheus prometheus-community/kube-prometheus-stack -f values.yaml
-kubectl -n monitoring patch svc grafana -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.13.237"}}'
+k -n monitoring patch svc grafana -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.13.237"}}'
 ```
