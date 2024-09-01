@@ -235,10 +235,10 @@ services:
         url:  "http://localhost:8384/"
         target: "_blank"
 
-      # - name: "Grafana"
-      #   logo: "./assets/svg/grafana.svg"
-      #   url:  "https://grafana.drak3.io/"
-      #   target: "_blank"
+      - name: "Grafana"
+        logo: "./assets/svg/grafana.svg"
+        url:  "https://grafana.drak3.io/"
+        target: "_blank"
 
       - name: "Unifi Protect (feeds)"
         logo: "./assets/png/unifi.png"

@@ -81,6 +81,7 @@ configMapGenerator:
 
 - name: homer-svg-configmap
   files:
+  - svg/grafana.svg
   - svg/qbittorrent.svg
   - svg/sonarr.svg
   - svg/jellyfin.svg
