@@ -12,3 +12,10 @@ metadata:
   name: prd
   labels:
     name: prd
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  labels:
+    name: monitoring
