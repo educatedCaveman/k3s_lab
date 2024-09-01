@@ -88,11 +88,12 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | qFlood            | n/a                  | `192.168.13.38:8080`, `*:3000` | qBittorrent + Flood + Wiregaurd |
 |                   | `192.168.13.39`      | `192.168.13.100`               | free addresses for services     |
 | NGINX             | `192.168.13.101:80`  | n/a                            | for testing                     |
-|                   | `192.168.13.102`     | `192.168.13.237:80`            | free addresses for services     |
-| Apt Cache         | n/a                  | `192.168.13.238:8443`          | W.I.P.                          |
+|                   | `192.168.13.102`     | `192.168.13.236`               | free addresses for services     |
+| Grafana           |                      | `192.168.13.237:80`            |                                 |
+| Apt Cache         | n/a                  | `192.168.13.238:3142`          |                                 |
 | Unifi Network App | n/a                  | `192.168.13.239:8443`          |                                 |
 
 ### Remaining IPs
 
-- `192.168.13.36` - `192.168.13.37`
-- `192.168.13.39` - `192.168.13.238`
+- `192.168.13.39` - `192.168.13.100`
+- `192.168.13.102` - `192.168.13.236`

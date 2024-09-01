@@ -2,53 +2,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: CHANGE_ME
+  name: apt-cache
   labels:
-    app: CHANGE_ME
+    app: apt-cache
 spec:
   selector:
     matchLabels:
-      app: CHANGE_ME
+      app: apt-cache
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: CHANGE_ME
+        app: apt-cache
     spec:
       restartPolicy: Always
       containers:
-        - name: CHANGE_ME
-          image: CHANGE_ME
+        - name: apt-cache
+          image: sameersbn/apt-cacher-ng:latest@sha256:6d612ae08493af17eb5682cf0b29d75c18fd6455e786239fa63fe56ebca552fa
           ports:
-            - containerPort: 8080
+            - containerPort: 3142
           volumeMounts:
-          - name: CHANGE_ME-nfs
-            mountPath: /www/assets
-          env:
-          - name: key_CHANGE_ME
-            value:  value_CHANGE_ME
-          - name: env_CHANGE_ME
-            valueFrom:
-              configMapKeyRef:
-                name: env_CHANGE_ME
-                key:  key_CHANGE_ME
+          - name: apt-cache-data
+            mountPath: /var/cache/apt-cacher-ng
       volumes:
-        - name: CHANGE_ME-nfs
-          hostPath:
-            path: /mnt/k3s-data/production/apps/CHANGE_ME
-            type: Directory
-        - name: CHANGE_ME_config_map
-          configMap:
-            name: CHANGE_ME_config_map
-            defaultMode:  0777
-        - name: CHANGE_ME_pvc
+        - name: apt-cache-data
           persistentVolumeClaim:
-            claimName:  CHANGE_ME_pvc
-        - name: CHANGE_ME_png
-          projected:
-            sources:
-            - configMap:
-                name: CHANGE_ME_png-b
-            - configMap:
-                name: CHANGE_ME_png-g 
+            claimName:  apt-cache-pvc

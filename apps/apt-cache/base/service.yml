@@ -2,16 +2,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: CHANGE_ME
+  name: apt-cache
   annotations:
-    metallb.universe.tf/allow-shared-ip: "CHANGE_ME-metallb-ip"  
+    metallb.universe.tf/allow-shared-ip: "apt-cache-metallb-ip"  
 spec:
   ipFamilyPolicy: SingleStack
   selector:
-    app: CHANGE_ME
+    app: apt-cache
   ports:
-    - name: CHANGE_ME
-      port: CHANGE_ME
-      targetPort: CHANGE_ME
-      protocol: TCP_or_UDP
+    - name: apt-cache
+      port: 3142
+      targetPort: 3142
   type: LoadBalancer
