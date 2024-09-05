@@ -1,0 +1,1 @@
+the mongo password is in plaintext because the DB is only available to unifi.  eventually i should make that a secret.
