@@ -1,0 +1,57 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lidarr
+  labels:
+    app: lidarr
+spec:
+  selector:
+    matchLabels:
+      app: lidarr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: lidarr
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: lidarr
+          image: lscr.io/linuxserver/lidarr:latest@sha256:d30f42dc071f77ae833d094083263d38be2dd0ddfff3c234ede29a36673a8603
+          resources:
+            limits:
+              cpu: 2
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          ports:
+            - containerPort: 8686
+          volumeMounts:
+          - name: lidarr-music-nfs
+            mountPath:  /music
+          - name: lidarr-downloads-nfs
+            mountPath:  /downloads
+          - name: lidarr-config
+            mountPath:  /config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+      volumes:
+        - name: lidarr-music-nfs
+          hostPath:
+            path: /mnt/mobius/Music/library
+            type: Directory
+        - name: lidarr-downloads-nfs
+          hostPath:
+            path: /mnt/mobius/temp/qflood/downloads
+            type: Directory
+        - name: lidarr-config
+          persistentVolumeClaim:
+            claimName:  lidarr-config-pvc

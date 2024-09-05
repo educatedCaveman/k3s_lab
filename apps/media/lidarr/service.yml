@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lidarr
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "lidarr-metallb-ip"  
+spec:
+  ipFamilyPolicy: SingleStack
+  selector:
+    app: lidarr
+  ports:
+    - name: lidarr-ui
+      port: 8686
+      targetPort: 8686
+  type: LoadBalancer
+  loadBalancerIP: 192.168.13.34
