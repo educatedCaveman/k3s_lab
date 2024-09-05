@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prowlarr
+  namespace:  media
+  labels:
+    app: prowlarr
+spec:
+  selector:
+    matchLabels:
+      app: prowlarr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: prowlarr
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: prowlarr
+          image: lscr.io/linuxserver/prowlarr:1.21.2@sha256:c93f075dc5afb74dc7a0a55e90974f81425a5d3c5d293022c5416431f4963ce9
+          resources:
+            limits:
+              cpu: 8
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          ports:
+            - containerPort: 9696
+          volumeMounts:
+          - name: prowlarr-config
+            mountPath: /config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+      volumes:
+        - name: prowlarr-config
+          persistentVolumeClaim:
+            claimName:  prowlarr-pvc
