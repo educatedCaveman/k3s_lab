@@ -2,40 +2,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lidarr
-  namespace:  media
+  name: bazarr
+  namespace: media
   labels:
-    app: lidarr
+    app: bazarr
 spec:
   selector:
     matchLabels:
-      app: lidarr
+      app: bazarr
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: lidarr
+        app: bazarr
     spec:
       restartPolicy: Always
       containers:
-        - name: lidarr
-          image: lscr.io/linuxserver/lidarr:latest@sha256:d30f42dc071f77ae833d094083263d38be2dd0ddfff3c234ede29a36673a8603
+        - name: bazarr
+          image: lscr.io/linuxserver/bazarr:1.4.3@sha256:aa904c142512b64e98b0abd038bf8b07e1b0e8cf3a14a805cb9ae4df9415b933
           resources:
             limits:
               cpu: 2
-              memory: 2Gi
+              memory: 1Gi
             requests:
               cpu: 100m
               memory: 50Mi
           ports:
-            - containerPort: 8686
+            - containerPort: 6767
           volumeMounts:
-          - name: lidarr-music-nfs
-            mountPath:  /music
-          - name: lidarr-downloads-nfs
-            mountPath:  /downloads
-          - name: lidarr-config
+          - name: bazarr-movies-nfs
+            mountPath:  /movies
+          - name: bazarr-tv-nfs
+            mountPath:  /tv
+          - name: bazarr-config
             mountPath:  /config
           env:
           - name: PUID
@@ -45,14 +45,14 @@ spec:
           - name: TZ
             value:  America/New_York
       volumes:
-        - name: lidarr-music-nfs
+        - name: bazarr-movies-nfs
           hostPath:
-            path: /mnt/mobius/Music/library
+            path: /mnt/mobius/Video/Movies
             type: Directory
-        - name: lidarr-downloads-nfs
+        - name: bazarr-tv-nfs
           hostPath:
-            path: /mnt/mobius/temp/qflood/downloads
+            path: /mnt/mobius/Video/TV-shows
             type: Directory
-        - name: lidarr-config
+        - name: bazarr-config
           persistentVolumeClaim:
-            claimName:  lidarr-config-pvc
+            claimName:  bazarr-config-pvc
