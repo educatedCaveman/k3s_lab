@@ -1,0 +1,81 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homer
+  namespace:  applications
+  labels:
+    app: homer
+spec:
+  selector:
+    matchLabels:
+      app: homer
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: homer
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: homer
+          image: b4bz/homer:v24.05.1@sha256:66c2a66e3df660e270eca9a388c4164409c8f54edac7cf3c2424075fef593a39
+          resources:
+            limits:
+              cpu: 1
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: homer-config
+            mountPath: /www/assets
+          - name: homer-png
+            mountPath: /www/assets/png
+          - name: homer-svg
+            mountPath: /www/assets/svg
+      volumes:
+        - name: homer-config
+          configMap:
+            name: homer-configmap
+        - name: homer-svg
+          configMap:
+            name: homer-svg-configmap
+        - name: homer-png
+          projected:
+            sources:
+            - configMap:
+                name: homer-png-configmap-b
+            - configMap:
+                name: homer-png-configmap-f
+            - configMap:
+                name: homer-png-configmap-g
+            - configMap:
+                name: homer-png-configmap-h
+            - configMap:
+                name: homer-png-configmap-i
+            - configMap:
+                name: homer-png-configmap-j
+            - configMap:
+                name: homer-png-configmap-l
+            - configMap:
+                name: homer-png-configmap-n
+            - configMap:
+                name: homer-png-configmap-m
+            - configMap:
+                name: homer-png-configmap-p1
+            - configMap:
+                name: homer-png-configmap-p2
+            - configMap:
+                name: homer-png-configmap-r
+            - configMap:
+                name: homer-png-configmap-s
+            - configMap:
+                name: homer-png-configmap-t
+            - configMap:
+                name: homer-png-configmap-u
+            - configMap:
+                name: homer-png-configmap-y

@@ -1,0 +1,96 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace:  applications
+
+resources:
+  - deployment.yml
+  - service.yml
+
+  # insert a separate file as a configmap
+configMapGenerator:
+- name: homer-configmap
+  files:
+  - config.yml
+
+# PNG
+- name: homer-png-configmap-b
+  files:
+  - png/bazarr.png
+
+- name: homer-png-configmap-f
+  files:
+  - png/flood.png
+
+- name: homer-png-configmap-g
+  files:
+  - png/gatus.png
+
+- name: homer-png-configmap-h
+  files:
+  - png/homer.png
+
+- name: homer-png-configmap-i
+  files:
+  - png/idrac.png
+
+- name: homer-png-configmap-j
+  files:
+  - png/jenkins.png
+
+- name: homer-png-configmap-l
+  files:
+  - png/lidarr.png
+
+- name: homer-png-configmap-n
+  files:
+  - png/nextcloud.png
+
+- name: homer-png-configmap-m
+  files:
+  - png/mainsail.png
+
+- name: homer-png-configmap-p1
+  files:
+  - png/pfsense.png
+  - png/proxmox.png
+  - png/plex.png
+
+- name: homer-png-configmap-p2
+  files:
+  - png/prowlarr.png
+  - png/portainer.png
+  - png/pihole.png
+
+- name: homer-png-configmap-r
+  files:
+  - png/radarr.png
+
+- name: homer-png-configmap-s
+  files:
+  - png/syncthing.png
+
+- name: homer-png-configmap-t
+  files:
+  - png/truenas.png
+
+- name: homer-png-configmap-u
+  files:
+  - png/unifi-controller.png
+  - png/unifi.png
+
+- name: homer-png-configmap-y
+  files:
+  - png/youtube.png
+
+- name: homer-svg-configmap
+  files:
+  - svg/grafana.svg
+  - svg/qbittorrent.svg
+  - svg/sonarr.svg
+  - svg/jellyfin.svg
+
+# needed for pruning in the Jenkinsfile
+generatorOptions:
+  labels:
+    app: homer
