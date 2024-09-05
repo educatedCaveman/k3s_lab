@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apt-cache
+  namespace:  applications
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "apt-cache-metallb-ip"  
+spec:
+  ipFamilyPolicy: SingleStack
+  selector:
+    app: apt-cache
+  ports:
+    - name: apt-cache
+      port: 3142
+      targetPort: 3142
+  type: LoadBalancer
+  loadBalancerIP: 192.168.13.238
