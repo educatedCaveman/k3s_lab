@@ -1,0 +1,1 @@
+most of these install their components to their own namespace, hence, the lack of a `namespace.yml` file.

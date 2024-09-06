@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qflood
+  namespace:  media
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "qflood-metallb-ip"  
+spec:
+  ipFamilyPolicy: SingleStack
+  selector:
+    app: qflood
+  ports:
+    - name: flood
+      port: 3000
+      targetPort: 3000
+    - name: qbittorrent
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+  loadBalancerIP: 192.168.13.38
