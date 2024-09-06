@@ -1,4 +1,0 @@
----
-resources:
-  - pvc.yml
-  - cronjob.yml

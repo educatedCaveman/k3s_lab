@@ -1,1 +1,0 @@
-this directory is where the core files go.  things like deployments, services, etc.
