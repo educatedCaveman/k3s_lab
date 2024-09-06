@@ -1,5 +1,7 @@
 # Prometheus
 
+TODO: get this working with manifests
+
 steps to install prometheus:
 
 add repo
