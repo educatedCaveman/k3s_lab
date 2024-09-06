@@ -74,26 +74,24 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Service Useage
 
-| Service           | DEV IP:port          | PRD IP:port                    | Notes                           |
-| ----------------- | -------------------- | ------------------------------ | ------------------------------- |
-| Homer             | `192.168.13.26:8080` | `192.168.13.27:8080`           |                                 |
-| Jellyfin          | n/a                  | `192.168.13.28:8096`           |                                 |
-| Syncthing         | n/a                  | `192.168.13.29:8384`           |                                 |
-| Flaresolverr      | n/a                  | `192.168.13.30:8191`           |                                 |
-| Prowlarr          | n/a                  | `192.168.13.31:9696`           |                                 |
-| Radarr            | n/a                  | `192.168.13.32:7878`           |                                 |
-| Sonarr            | n/a                  | `192.168.13.33:8989`           |                                 |
-| Lidarr            | n/a                  | `192.168.13.34:8686`           |                                 |
-| Bazarr            | n/a                  | `192.168.13.35:6767`           |                                 |
-| qFlood            | n/a                  | `192.168.13.38:8080`, `*:3000` | qBittorrent + Flood + Wiregaurd |
-|                   | `192.168.13.39`      | `192.168.13.100`               | free addresses for services     |
-| NGINX             | `192.168.13.101:80`  | n/a                            | for testing                     |
-|                   | `192.168.13.102`     | `192.168.13.236`               | free addresses for services     |
-| Grafana           |                      | `192.168.13.237:80`            |                                 |
-| Apt Cache         | n/a                  | `192.168.13.238:3142`          |                                 |
-| Unifi Network App | n/a                  | `192.168.13.239:8443`          |                                 |
+| Service           | URL                                          | IP:port                        | Notes                           |
+| ----------------- | -------------------------------------------- | ------------------------------ | ------------------------------- |
+| Homer             | https://homer.drak3.io                       | `192.168.13.27:8080`           |                                 |
+| Jellyfin          | https://jellyfin.drak3.io                    | `192.168.13.28:8096`           |                                 |
+| Syncthing         | https://sync.drak3.io                        | `192.168.13.29:8384`           |                                 |
+| Flaresolverr      | n/a                                          | `192.168.13.30:8191`           |                                 |
+| Prowlarr          | https://prowlarr.drak3.io                    | `192.168.13.31:9696`           |                                 |
+| Radarr            | https://radarr.drak3.io                      | `192.168.13.32:7878`           |                                 |
+| Sonarr            | https://sonarr.drak3.io                      | `192.168.13.33:8989`           |                                 |
+| Lidarr            | https://lidarr.drak3.io                      | `192.168.13.34:8686`           |                                 |
+| Bazarr            | https://bazarr.drak3.io                      | `192.168.13.35:6767`           |                                 |
+| qFlood            | https://qbt.drak3.io, https://flood.drak3.io | `192.168.13.38:8080`, `*:3000` | qBittorrent + Flood + Wiregaurd |
+|                   |                                              | `192.168.13.39`                | free address for services       |
+|                   |                                              | `192.168.13.236`               | free address for services       |
+| Grafana           | https://grafana.drak3.io                     | `192.168.13.237:80`            |                                 |
+| Apt Cache         | https://apt.drak3.io                         | `192.168.13.238:3142`          |                                 |
+| Unifi Network App | https://unifi.drak3.io                       | `192.168.13.239:8443`          |                                 |
 
 ### Remaining IPs
 
-- `192.168.13.39` - `192.168.13.100`
-- `192.168.13.102` - `192.168.13.236`
+- `192.168.13.39` - `192.168.13.236`
