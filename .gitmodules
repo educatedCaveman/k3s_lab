@@ -2,5 +2,5 @@
 	path = k3s-ansible
 	url = https://github.com/techno-tim/k3s-ansible.git
 [submodule "apps/qflood/pia-wg"]
-	path = apps/qflood/pia-wg
+	path = archive/qflood/pia-wg
 	url = https://github.com/hsand/pia-wg.git
