@@ -4,7 +4,7 @@ pipeline {
     environment {
         WEBHOOK = credentials('JENKINS_DISCORD')
         APP_NS = 'media'
-        APP_NAME = 'bazarr'
+        APP_NAME = 'kometa'
     }
 
     //triggering periodically so the code is always present
