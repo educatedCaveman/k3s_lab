@@ -11,12 +11,20 @@ spec:
     matchLabels:
       app: syncthing
   strategy:
-    type: Recreate
+    type: RollingUpdate
+  replicas: 2
   template:
     metadata:
       labels:
         app: syncthing
     spec:
+      topologySpreadConstraints:
+        - maxSkew:  1
+          topologyKey:  kubernetes.io/hostname
+          whenUnsatisfiable:  ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: homer
       restartPolicy: Always
       containers:
         - name: syncthing
