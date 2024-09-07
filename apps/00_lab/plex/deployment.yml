@@ -1,0 +1,72 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex-test
+  namespace:  lab
+  labels:
+    app: plex-test
+spec:
+  selector:
+    matchLabels:
+      app: plex-test
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: plex-test
+    spec:
+      restartPolicy: Always
+      runtimeClassName: nvidia
+      tolerations:
+      - key: nvidia.com/gpu
+        operator: Exists
+        effect: NoSchedule
+      containers:
+        - name: plex-test
+          image: lscr.io/linuxserver/plex:latest
+          resources:
+            limits:
+              cpu: 8
+              memory: 4Gi
+              nvidia.com/gpu: 1
+            requests:
+              cpu: 1
+              memory: 512Mi
+          ports:
+            - containerPort: 32400
+          volumeMounts:
+          - name: plex-movies
+            mountPath:  /Movies
+          # - name: plex-shows
+          #   mountPath:  /TV
+          # - name: plex-music
+          #   mountPath:  /Music
+          - name: plex-config
+            mountPath:  /config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+          - name: VERSION
+            value:  docker
+          # - name: PLEX_CLAIM
+          #   value:  _redacted_
+      volumes:
+      - name: plex-movies
+        hostPath:
+          path: /mnt/mobius/Video/Movies
+      # - name: plex-shows
+      #   hostPath:
+      #     path: /mnt/mobius/Video/TV-shows
+      # - name: plex-music
+      #   hostPath:
+      #     path: /mnt/mobius/Music/library
+      - name: plex-config
+        persistentVolumeClaim:
+          claimName:  plex-config-data
+          

@@ -15,5 +15,5 @@ spec:
           limits:
             nvidia.com/gpu: 1
       nodeSelector:
-        kubernetes.io/hostname: ubuntu-24-gpu
+        kubernetes.io/hostname: k3s-worker-09-g
       restartPolicy: Never

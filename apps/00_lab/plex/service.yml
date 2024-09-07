@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plex-test
+  namespace:  lab
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "plex-test-metallb-ip"  
+spec:
+  ipFamilyPolicy: SingleStack
+  selector:
+    app: plex-test
+  ports:
+    - name: plex-web-ui
+      port: 32400
+      targetPort: 32400
+  type: LoadBalancer
+  loadBalancerIP: 192.168.13.100
