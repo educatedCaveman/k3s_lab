@@ -12,7 +12,7 @@ spec:
       app: syncthing
   strategy:
     type: RollingUpdate
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
