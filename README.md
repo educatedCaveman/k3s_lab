@@ -60,7 +60,7 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | k3s-worker-02   | vespae-2   | `192.168.13.12` | 312   | 8   | 16  | BC:24:11:0F:C4:04 |                                 |
 | k3s-worker-03   | vespae-3   | `192.168.13.13` | 313   | 8   | 16  | BC:24:11:E5:E9:D1 |                                 |
 | k3s-worker-04   | vespae-4   | `192.168.13.14` | 314   | 8   | 16  | BC:24:11:78:92:D2 |                                 |
-| k3s-worker-05   | vespae-5   | `192.168.13.15` | 315   | 8   | 16  | TBD               | hypthetical, doesn't exist      |
+| k3s-worker-05   | vespae-5   | `192.168.13.15` | 315   | 8   | 16  | BC:24:11:8F:21:CD |                                 |
 | k3s-worker-06-g | vespae-6   | `192.168.13.16` | 316   | 8   | 8   | BC:24:11:3E:4F:B2 | g=GPU                           |
 | k3s-worker-07-g | vespae-7   | `192.168.13.17` | 317   | 8   | 8   | BC:24:11:5A:C1:CD | g=GPU                           |
 | k3s-worker-08-g | vespae-8   | `192.168.13.18` | 318   | 8   | 8   | BC:24:11:2A:15:39 | g=GPU                           |
