@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whisper
+  namespace:  media
+  labels:
+    app: whisper
+spec:
+  selector:
+    matchLabels:
+      app: whisper
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: whisper
+    spec:
+      restartPolicy: Always
+      runtimeClassName: nvidia
+      tolerations:
+      - key: nvidia.com/gpu
+        operator: Exists
+        effect: NoSchedule
+      containers:
+        - name: whisper
+          image: onerahmet/openai-whisper-asr-webservice:v1.5.0-gpu@sha256:1daf8b3d5b32c92778c6ae08d2640ae81278f0960f200a38ac7e55a13ed81710
+          resources:
+            limits:
+              cpu: 8
+              memory: 6Gi
+              nvidia.com/gpu: 1
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 9000
+          volumeMounts:
+          - name: whisper-config
+            mountPath:  /config
+          - name: whisper-config
+            mountPath:  /data/whisper
+          env:
+          - name: ASR_MODEL
+            value:  medium
+          - name: ASR_ENGINE
+            value:  faster_whisper
+      volumes:
+      - name: whisper-config
+        persistentVolumeClaim:
+          claimName:  whisper-config-data
+      - name: whisper-model
+        persistentVolumeClaim:
+          claimName:  whisper-model-data
+          
