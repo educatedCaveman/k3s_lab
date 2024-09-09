@@ -43,7 +43,7 @@ spec:
             mountPath:  /data/whisper
           env:
           - name: ASR_MODEL
-            value:  medium
+            value:  small
           - name: ASR_ENGINE
             value:  faster_whisper
       volumes:
