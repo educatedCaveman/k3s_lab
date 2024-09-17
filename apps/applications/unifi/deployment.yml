@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: unifi-db
-          image:  docker.io/mongo:7.0.14@sha256:1ade6afda762cb6a68ba65e83ef305660ef0517d6d4140627211970e85f4588a
+          image:  docker.io/mongo:7.0.14@sha256:244afb1488edfc42aaa8ffa6153393bbc075d63516ab0305daa2eaa35241eb52
           volumeMounts:
           - name: unifi-db-db
             mountPath:  /data/db
