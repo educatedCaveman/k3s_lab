@@ -80,8 +80,8 @@ spec:
               secretKeyRef:
                 name: qflood-pia-vpn-creds
                 key: password
-          - name: VPN_PIA_PREFERRED_REGION
-            value: "nl_amsterdam"
+          # - name: VPN_PIA_PREFERRED_REGION
+          #   value: "nl_amsterdam"
           securityContext:
             capabilities: # Needed for VPN
               add:
