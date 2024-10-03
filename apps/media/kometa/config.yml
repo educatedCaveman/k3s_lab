@@ -74,8 +74,8 @@ settings:
 
 plex:
   url: http://192.168.12.2:32400
-  # token:  <<PLEX_TOKEN>>
-  token:  xSh5u11hq2Cpd_YFNr9K
+  token:  <<PLEX_TOKEN>>
+  # token:  xSh5u11hq2Cpd_YFNr9K
   timeout: 60
   clean_bundles: false
   empty_trash: false
