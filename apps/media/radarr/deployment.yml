@@ -10,23 +10,13 @@ spec:
   selector:
     matchLabels:
       app: radarr
-  # strategy:
-  #   type: Recreate
   strategy:
-    type: RollingUpdate
-  replicas: 1
+    type: Recreate
   template:
     metadata:
       labels:
         app: radarr
     spec:
-      topologySpreadConstraints:
-        - maxSkew:  1
-          topologyKey:  kubernetes.io/hostname
-          whenUnsatisfiable:  ScheduleAnyway
-          labelSelector:
-            matchLabels:
-              app: radarr
       restartPolicy: Always
       containers:
         - name: radarr
