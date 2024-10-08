@@ -43,8 +43,8 @@ spec:
           image: ghcr.io/engels74/qflood:latest@sha256:b6a6346943ac42a140f44c1997c9eb294124fc432e7d2bc8ab0ca232bb76afc8
           resources:
             limits:
-              cpu: 1
-              memory: 1Gi
+              cpu: 4
+              memory: 4Gi
             requests:
               cpu: 100m
               memory: 50Mi
