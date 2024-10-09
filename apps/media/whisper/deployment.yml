@@ -25,7 +25,7 @@ spec:
         effect: NoSchedule
       containers:
         - name: whisper
-          image: onerahmet/openai-whisper-asr-webservice:v1.5.0-gpu@sha256:1daf8b3d5b32c92778c6ae08d2640ae81278f0960f200a38ac7e55a13ed81710
+          image: onerahmet/openai-whisper-asr-webservice:v1.6.0-gpu@sha256:75971800b7191b977a68d644f7f32eaaa497a500ab84d3d0c3eca228429b9550
           resources:
             limits:
               cpu: 8
