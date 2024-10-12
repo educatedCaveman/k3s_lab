@@ -227,7 +227,7 @@ services:
 
       - name: "Syncthing"
         logo: "./assets/png/syncthing.png"
-        url:  "https://sync.drak3.io/syncthing/"
+        url:  "https://sync.drak3.io/"
         target: "_blank"
 
       - name: "Syncthing (local)"
