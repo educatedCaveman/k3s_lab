@@ -25,7 +25,7 @@ spec:
         effect: NoSchedule
       containers:
         - name: plex-test
-          image: lscr.io/linuxserver/plex:latest@sha256:519cb67f04c8b114d19a3ebe4e31711eed5debae95b996c9c87d69202c44e6d9
+          image: lscr.io/linuxserver/plex:latest@sha256:c8e5ab6336b20f89b4106945fa2ee035c0d0e8e9ad13a24b7e14b924b5c68090
           resources:
             limits:
               cpu: 8
