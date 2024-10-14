@@ -9,7 +9,7 @@ spec:
       runtimeClassName: nvidia
       containers:
       - name: nvidia-test
-        image: nvidia/cuda:12.6.1-base-ubuntu22.04@sha256:4989b8d89253f415f4273e4d4a1748ad0e82b172a8675ed7bcab3a9f7157cf66
+        image: nvidia/cuda:12.6.2-base-ubuntu22.04@sha256:26c704086505dc1ad1694591566d156296b4cd340a0076396ea8618d4f211bc2
         command: ["nvidia-smi"]
         resources:
           limits:
