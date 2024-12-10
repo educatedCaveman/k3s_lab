@@ -25,7 +25,7 @@ spec:
         effect: NoSchedule
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:10.10.3@sha256:97bb454710cc1d02ef2c750b57e4c4e9c6d2dbb3e849f405b37c5127f47b7d4c
+          image: lscr.io/linuxserver/jellyfin:10.10.3@sha256:a893c3ca1c0ff89f13a0877c6e8caf285a482aa188c6ee20e1cfdfdb6d52e906
           resources:
             limits:
               cpu: 12
