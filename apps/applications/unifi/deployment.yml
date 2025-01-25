@@ -35,7 +35,7 @@ spec:
               cpu: 500m
               memory: 512Mi
         - name: unifi-network-application
-          image: lscr.io/linuxserver/unifi-network-application:9.0.108@sha256:c0019979c1c2b4a9ba2f427061262d93552499daf7ac6ad60e6f7e8b28e6f71d
+          image: lscr.io/linuxserver/unifi-network-application:9.0.108@sha256:d819f56eb5af806d4182271d9576b6abe6d6fbb73585548cc49dbf7719287d9d
           resources:
             limits:
               cpu: 4
