@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: lidarr
-          image: lscr.io/linuxserver/lidarr:latest@sha256:1fc9bb408cadf0479febc0696d90621a72482e902432f6bf8770529d50f8f833
+          image: lscr.io/linuxserver/lidarr:latest@sha256:d59485eb738df16ba7000fe214c50758eecb405613cfa7a63339b10855373b77
           resources:
             limits:
               cpu: 2
