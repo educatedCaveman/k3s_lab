@@ -28,7 +28,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: homer
-          image: b4bz/homer:v25.02.1@sha256:cf4ae752adbbcbcc93a2bfc6c651b7b9c998ded38ba115cbab1d161dc3cfcb73
+          image: b4bz/homer:v25.03.2@sha256:24fa81e40e01d9d2fbeb187a1a7e561a62494bd56243156ab88cefe513111921
           resources:
             limits:
               cpu: 500m
