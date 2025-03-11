@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: bazarr
-          image: lscr.io/linuxserver/bazarr:1.5.1@sha256:f25f8d61c5d3d5b963e92cfb6d53930648e995fbd22ff62d3cd8b061282f59c7
+          image: lscr.io/linuxserver/bazarr:1.5.1@sha256:0b3e1b888615cbd32cf879963d041abcf863d15160a9ace2928039a7b00590ef
           resources:
             limits:
               cpu: 4
