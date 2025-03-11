@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: radarr
-          image: lscr.io/linuxserver/radarr:5.18.4@sha256:1184ee84bc5329c4f62c070a04d73eaf7918878410ca48a1f3dbf82b684eee27
+          image: lscr.io/linuxserver/radarr:5.19.3@sha256:620189d67078ddcfeb7a4efa424eb62f827ef734ef1e56980768bf8efd73782a
           resources:
             limits:
               cpu: 2
