@@ -1,0 +1,144 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nebula-sync
+  namespace:  applications
+  labels:
+    app: nebula-sync
+spec:
+  selector:
+    matchLabels:
+      app: nebula-sync
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nebula-sync
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: nebula-sync
+          image: ghcr.io/lovelaze/nebula-sync:v0.9.0@sha256:9f71be7da6663e0af8bdb62dca6a024ecde7472a59d6be9f50d3be6e5985f47f
+          resources:
+            limits:
+              cpu: 2
+              memory: 512Mi
+            requests:
+              cpu: 1
+              memory: 128Mi
+          env:
+          - name: PRIMARY
+            valueFrom:
+              secretKeyRef:
+                name: nebula-piholes
+                key:  pihole_primary
+          - name: REPLICAS
+            valueFrom:
+              secretKeyRef:
+                name: nebula-piholes
+                key:  pihole_replicas
+          - name: TZ
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  TZ
+          - name: FULL_SYNC
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  FULL_SYNC
+          - name: RUN_GRAVITY
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  RUN_GRAVITY
+          - name: CRON
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  CRON          
+          - name: SYNC_CONFIG_DNS
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_CONFIG_DNS
+          - name: SYNC_CONFIG_DHCP
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_CONFIG_DHCP
+          - name: SYNC_CONFIG_NTP
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_CONFIG_NTP
+          - name: SYNC_CONFIG_RESOLVER
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_CONFIG_RESOLVER
+          - name: SYNC_CONFIG_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_CONFIG_DATABASE
+          - name: SYNC_CONFIG_MISC
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_CONFIG_MISC
+          - name: SYNC_CONFIG_DEBUG
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_CONFIG_DEBUG
+          - name: SYNC_GRAVITY_DHCP_LEASES
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_GRAVITY_DHCP_LEASES
+          - name: SYNC_GRAVITY_GROUP
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_GRAVITY_GROUP          
+          - name: SYNC_GRAVITY_AD_LIST
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_GRAVITY_AD_LIST
+          - name: SYNC_GRAVITY_AD_LIST_BY_GROUP
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_GRAVITY_AD_LIST_BY_GROUP
+          - name: SYNC_GRAVITY_DOMAIN_LIST
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_GRAVITY_DOMAIN_LIST
+          - name: SYNC_GRAVITY_DOMAIN_LIST_BY_GROUP
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_GRAVITY_DOMAIN_LIST_BY_GROUP
+          - name: SYNC_GRAVITY_CLIENT
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_GRAVITY_CLIENT
+          - name: SYNC_GRAVITY_CLIENT_BY_GROUP
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  SYNC_GRAVITY_CLIENT_BY_GROUP
+          - name: CLIENT_SKIP_TLS_VERIFICATION
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  CLIENT_SKIP_TLS_VERIFICATION
+
+
+                
