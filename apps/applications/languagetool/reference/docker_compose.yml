@@ -1,0 +1,24 @@
+---
+services:
+  languagetool:
+    image: meyay/languagetool:latest
+    container_name: languagetool
+    restart: always
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    cap_add:
+      - CAP_SETUID
+      - CAP_SETGID
+      - CAP_CHOWN
+    security_opt:
+      - no-new-privileges
+    ports:
+      - 8010:8010
+    environment:
+      download_ngrams_for_langs: en
+    volumes:
+      - ./ngrams:/ngrams
+      - ./fasttext:/fasttext

@@ -1,0 +1,57 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: languagetool
+  namespace:  applications
+  labels:
+    app: languagetool
+spec:
+  selector:
+    matchLabels:
+      app: languagetool
+  strategy:
+    type: RollingUpdate
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: languagetool
+    spec:
+      topologySpreadConstraints:
+        - maxSkew:  1
+          topologyKey:  kubernetes.io/hostname
+          whenUnsatisfiable:  ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: languagetool
+      restartPolicy: Always
+      containers:
+        - name: languagetool
+          image: meyay/languagetool:6.5-2@sha256:ce1192581b0e33e151cb089ce2b952507b75ecd91c84bfd0e4a2a22073294ebb
+          resources:
+            limits:
+              cpu: 10
+              memory: 6Gi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          env:
+          - name: download_ngrams_for_langs
+            value:  "en,de"
+          ports:
+            - containerPort: 8010
+              name: languagetool
+              protocol: TCP
+          volumeMounts:
+          - name: languagetool-ngrams
+            mountPath:  /ngrams
+          - name: languagetool-fasttext
+            mountPath:  /fasttext
+      volumes:
+        - name: languagetool-ngrams
+          persistentVolumeClaim:
+            claimName:  languagetool-ngram-pvc
+        - name: languagetool-fasttext
+          persistentVolumeClaim:
+            claimName:  languagetool-fasttext-pvc
