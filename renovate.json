@@ -15,7 +15,10 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["*"],
+      "matchPackageNames": [
+        "lscr.io/linuxserver/jellyfin",
+        "lscr.io/linuxserver/lidarr"
+      ],
       "versioning": "regex:^(?<major>\\d{1,2})\\.((?<minor>\\d+))?(\\.(?<patch>\\d+))?(-(?<compatibility>.*))?$"
     },
     {
