@@ -1,8 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:best-practices"
+    "config:best-practices",
+    "docker:pinDigests",
+    ":semanticCommitsDisabled",
+    ":rebaseStalePrs",
+    ":disableRateLimiting"
   ],
+  "timezone": "America/New_York",
   "kubernetes": {
     "fileMatch": [
       "\\.yml$"
@@ -18,15 +23,19 @@
         "docker"
       ],
       "matchPackageNames": [
-        "lscr.io/linuxserver/jellyfin",
-        "lscr.io/linuxserver/lidarr"
+        "*"
       ],
       "versioning": "regex:^(?<major>\\d{1,2})\\.((?<minor>\\d+))?(\\.(?<patch>\\d+))?(-(?<compatibility>.*))?$"
     },
     {
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
       "matchCurrentVersion": "!/^0/",
-      "automerge": true
+      "automerge": true,
+      "automergeType": "branch",
+      "automergeSchedule": [
+        "* * * * *"
+      ]
     }
-  ]
+  ],
+  "ignoreTests": true
 }
