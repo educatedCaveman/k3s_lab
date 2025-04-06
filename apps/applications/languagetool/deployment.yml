@@ -39,6 +39,8 @@ spec:
           env:
           - name: download_ngrams_for_langs
             value:  "en,de"
+          - name: TZ
+            value:  "America/New_York"
           ports:
             - containerPort: 8010
               name: languagetool
