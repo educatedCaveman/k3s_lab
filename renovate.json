@@ -9,32 +9,22 @@
   ],
   "timezone": "America/New_York",
   "kubernetes": {
-    "fileMatch": [
-      "\\.yml$"
-    ]
+    "fileMatch": ["\\.yml$"]
   },
-  "baseBranches": [
-    "dev_test",
-    "master"
-  ],
+  "baseBranches": ["dev_test", "master"],
   "packageRules": [
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "*"
-      ],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["*"],
       "versioning": "regex:^(?<major>\\d{1,2})\\.((?<minor>\\d+))?(\\.(?<patch>\\d+))?(-(?<compatibility>.*))?$"
     },
     {
       "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "1 day",
       "matchCurrentVersion": "!/^0/",
       "automerge": true,
       "automergeType": "branch",
-      "automergeSchedule": [
-        "* * * * *"
-      ]
+      "automergeSchedule": ["* 0-5 * * *"]
     }
   ],
   "ignoreTests": true
