@@ -11,7 +11,7 @@
   "kubernetes": {
     "fileMatch": ["\\.yml$"]
   },
-  "baseBranches": ["dev_test", "master"],
+  "baseBranches": ["master"],
   "packageRules": [
     {
       "matchDatasources": ["docker"],
