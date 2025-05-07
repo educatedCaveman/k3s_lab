@@ -9,12 +9,18 @@
   ],
   "timezone": "America/New_York",
   "kubernetes": {
-    "fileMatch": ["\\.yml$"]
+    "managerFilePatterns": [
+      "/\\.yml$/"
+    ]
   },
-  "baseBranches": ["master"],
+  "baseBranches": [
+    "master"
+  ],
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
+      "matchDatasources": [
+        "docker"
+      ],
       "matchPackageNames": [
         "lscr.io/linuxserver/jellyfin",
         "lscr.io/linuxserver/lidarr"
@@ -22,12 +28,18 @@
       "versioning": "regex:^(?<major>\\d{1,2})\\.((?<minor>\\d+))?(\\.(?<patch>\\d+))?(-(?<compatibility>.*))?$"
     },
     {
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest"
+      ],
       "minimumReleaseAge": "1 day",
       "matchCurrentVersion": "!/^0/",
       "automerge": true,
       "automergeType": "branch",
-      "automergeSchedule": ["* 0-5 * * *"]
+      "automergeSchedule": [
+        "* 0-5 * * *"
+      ]
     }
   ],
   "ignoreTests": true
