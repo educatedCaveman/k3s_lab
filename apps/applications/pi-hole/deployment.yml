@@ -28,7 +28,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: pihole
-          image: pihole/pihole:2025.05.1@sha256:db38df3e050606bd014c801c2cbb0b13f263d3122d3d817a8cbcee807688af24
+          image: pihole/pihole:2025.06.0@sha256:fd1b07a5f7ff5a05d0e3b609e036fc9d37b93e140d37695f787e42671ddd3dec
           resources:
             limits:
               cpu: 4
