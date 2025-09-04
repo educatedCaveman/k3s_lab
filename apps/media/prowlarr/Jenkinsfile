@@ -15,7 +15,7 @@ pipeline {
         stage('deploy') {
             when { branch 'master' }
             steps {
-                sh 'kubectl apply -k ${WORKSPACE}/apps/${APP_NS}/${APP_NAME}'
+                sh 'kubectl apply --validate=false -k ${WORKSPACE}/apps/${APP_NS}/${APP_NAME}'
             }
         }
     }
