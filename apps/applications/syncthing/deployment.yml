@@ -28,7 +28,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: syncthing
-          image: lscr.io/linuxserver/syncthing:2.0.7@sha256:1646e5a211841b9a93552b5d3aeb642f4a5dcb07e1d4b19f609bf497d0b83f52
+          image: lscr.io/linuxserver/syncthing:2.0.8@sha256:8ebcf556fe0febbbaecc7349d25a3a21b0f1c23882f6ecf8843bc48321895bd3
           resources:
             limits:
               cpu: 4
