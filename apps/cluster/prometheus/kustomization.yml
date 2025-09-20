@@ -6,7 +6,7 @@ helmCharts:
   repo: https://prometheus-community.github.io/helm-charts
   releaseName: prometheus
   namespace: monitoring
-  version: 27.37.0
+  version: 27.38.0
   valuesFile: values.yaml
 
 resources:
