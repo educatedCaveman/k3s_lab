@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: home-assistant
+  namespace:  applications
+  labels:
+    app: home-assistant
+spec:
+  selector:
+    matchLabels:
+      app: home-assistant
+  strategy:
+    type: RollingUpdate
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+    spec:
+      topologySpreadConstraints:
+        - maxSkew:  1
+          topologyKey:  kubernetes.io/hostname
+          whenUnsatisfiable:  ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: home-assistant
+      restartPolicy: Always
+      containers:
+        - name: home-assistant
+          image: ghcr.io/home-assistant/home-assistant:2025.09.3
+          resources:
+            limits:
+              cpu: 4
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          # env:
+          # - name: PUID
+          #   value:  "1000"
+          # - name: PGID
+          #   value:  "1000"
+          # - name: TZ
+          #   value:  America/New_York          
+          ports:
+            - containerPort: 8123
+          volumeMounts:
+          - name: home-assistant-config
+            mountPath:  /config
+          - name: home-assistant-localtime
+            mountPath:  /etc/localtime
+      volumes:
+        - name: home-assistant-config
+          persistentVolumeClaim:
+            claimName:  sync-config-pvc
+        - name: home-assistant-localtime
+          hostPath:
+            path: /etc/localtime
+            type: Directory
