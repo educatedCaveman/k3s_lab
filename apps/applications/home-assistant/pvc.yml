@@ -11,3 +11,16 @@ spec:
   resources:
     requests:
       storage: 20Gi
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: home-assistant-localtime-pvc
+#   namespace:  applications
+# spec:
+#   accessModes:
+#     - ReadWriteMany
+#   storageClassName: longhorn
+#   resources:
+#     requests:
+#       storage: 20Gi

@@ -1,0 +1,15 @@
+# ---
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: home-assistant-localtime-pv
+#   namespace:  applications
+# spec:
+#   capacity:
+#     storage: 1Mi
+#   storageClassName: nfs
+#   accessModes:
+#     - ReadWriteOnce
+#   hostPath:
+#     path: /etc/localtime
+#   persistentVolumeReclaimPolicy: Retain
