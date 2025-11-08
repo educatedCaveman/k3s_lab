@@ -24,9 +24,12 @@ spec:
           volumeMounts:
           - name: unifi-db-db
             mountPath:  /data/db
-          - name: unifi-db-mongo-js
-            mountPath:  /docker-entrypoint-initdb.d/init-mongo.js
-            subPath:  init-mongo.js
+          # - name: unifi-db-mongo-js
+          #   mountPath:  /docker-entrypoint-initdb.d/init-mongo.js
+          #   subPath:  init-mongo.js
+          - name: unifi-db-mongo-sh
+            mountPath:  /docker-entrypoint-initdb.d/init-mongo.sh
+            subPath:  init-mongo.sh
           resources:
             limits:
               cpu: 4
@@ -74,8 +77,18 @@ spec:
             value:  "27017"
           - name: MONGO_DBNAME
             value:  unifi
+          - name: MONGO_AUTHSOURCE
+            value:  admin
+          - name: MONGO_INITDB_ROOT_USERNAME
+            value:  root
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            value:  sAqTwsP6NcvsJc9un5Kbv8yK4eVTf87C
       volumes:
-        - name: unifi-db-mongo-js
+        # - name: unifi-db-mongo-js
+        #   configMap:          
+        #     name: unifi-mongo-init-configmap
+        #     defaultMode:  0777
+        - name: unifi-db-mongo-sh
           configMap:          
             name: unifi-mongo-init-configmap
             defaultMode:  0777

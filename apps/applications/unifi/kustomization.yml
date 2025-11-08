@@ -12,7 +12,8 @@ resources:
 configMapGenerator:
 - name: unifi-mongo-init-configmap
   files:
-  - init-mongo.js
+  # - init-mongo.js
+  - init-mongo.sh
 
 # needed for pruning in the Jenkinsfile
 generatorOptions:
