@@ -24,9 +24,6 @@ spec:
           volumeMounts:
           - name: unifi-db-db
             mountPath:  /data/db
-          # - name: unifi-db-mongo-js
-          #   mountPath:  /docker-entrypoint-initdb.d/init-mongo.js
-          #   subPath:  init-mongo.js
           - name: unifi-db-mongo-sh
             mountPath:  /docker-entrypoint-initdb.d/init-mongo.sh
             subPath:  init-mongo.sh
@@ -69,13 +66,11 @@ spec:
           - name: MONGO_USER
             value:  unifi
           - name: MONGO_PASS
-            # value:  sAqTwsP6NcvsJc9un5Kbv8yK4eVTf87C
             valueFrom:
               secretKeyRef:
                 name: unifi-secret
                 key:  MONGO_PASS
           - name: MONGO_HOST
-            # value:  unifi-db
             value:  localhost
           - name: MONGO_PORT
             value:  "27017"
@@ -86,16 +81,11 @@ spec:
           - name: MONGO_INITDB_ROOT_USERNAME
             value:  root
           - name: MONGO_INITDB_ROOT_PASSWORD
-            # value:  sAqTwsP6NcvsJc9un5Kbv8yK4eVTf87C
             valueFrom:
               secretKeyRef:
                 name: unifi-secret
                 key:  MONGO_INITDB_ROOT_PASSWORD
       volumes:
-        # - name: unifi-db-mongo-js
-        #   configMap:          
-        #     name: unifi-mongo-init-configmap
-        #     defaultMode:  0777
         - name: unifi-db-mongo-sh
           configMap:          
             name: unifi-mongo-init-configmap
