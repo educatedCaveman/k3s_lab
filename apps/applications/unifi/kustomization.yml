@@ -6,6 +6,7 @@ resources:
   - deployment.yml
   - service.yml
   - pvc.yml
+  - sealed-secret.yml
 
 
 # insert a separate file as a configmap
