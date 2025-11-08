@@ -40,6 +40,12 @@
       "automergeSchedule": [
         "* 0-5 * * *"
       ]
+    },
+    {
+      "matchPackageNames": [
+        "docker.io/mongo"
+      ],
+      "allowedVersions": "<=8.0.15"
     }
   ],
   "ignoreTests": true
