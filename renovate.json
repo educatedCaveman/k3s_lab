@@ -43,6 +43,12 @@
     },
     {
       "matchPackageNames": [
+        "linuxserver/lidarr"
+      ],
+      "allowedVersions": "<8.0.0"
+    },
+    {
+      "matchPackageNames": [
         "docker.io/mongo"
       ],
       "allowedVersions": "<=8.0.15"
