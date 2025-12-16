@@ -40,7 +40,7 @@ spec:
       containers:
         - name: qflood
           # using "latest" because the versions are something like "release-1f62614"
-          image: ghcr.io/engels74/qflood:latest@sha256:500f8e7f89dfea7249e86c6fe1d9ee30fca4ac7790261dcf459bf62123ae3250
+          image: ghcr.io/engels74/qflood:latest@sha256:3569986e7d911177c609ed1a244ec580a3adc941bd416030fe38136c67c09ee9
           resources:
             limits:
               cpu: 4
