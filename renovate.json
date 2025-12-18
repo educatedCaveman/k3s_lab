@@ -52,6 +52,12 @@
         "docker.io/mongo"
       ],
       "allowedVersions": "<=8.0.15"
+    },
+    {
+      "matchPackageNames": [
+        "ghcr.io/engels74/qflood"
+      ],
+      "automerge": false
     }
   ],
   "ignoreTests": true
