@@ -22,7 +22,7 @@ spec:
       subdomain: internal
       initContainers:
       - name: init-qflood-wg0-config
-        image: busybox@sha256:d80cd694d3e9467884fcb94b8ca1e20437d8a501096cdf367a5a1918a34fc2fd
+        image: busybox@sha256:2383baad1860bbe9d8a7a843775048fd07d8afe292b94bd876df64a69aae7cb1
         command: ["sh", "-c", "mkdir -p /config/wireguard && cp /wireguard/wg0.conf /config/wireguard/wg0.conf"]
         volumeMounts:
         - name: qflood-config
@@ -30,7 +30,7 @@ spec:
         - name: qflood-wg0-config-file
           mountPath:  /wireguard
       - name: init-qflood-qbt-config
-        image: busybox@sha256:d80cd694d3e9467884fcb94b8ca1e20437d8a501096cdf367a5a1918a34fc2fd
+        image: busybox@sha256:2383baad1860bbe9d8a7a843775048fd07d8afe292b94bd876df64a69aae7cb1
         command: ["sh", "-c", "mkdir -p /config/config && cp /qbt/qBittorrent.conf /config/config/qBittorrent.conf"]
         volumeMounts:
         - name: qflood-config
