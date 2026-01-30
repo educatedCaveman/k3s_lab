@@ -61,6 +61,8 @@ spec:
             value:  "002"
           - name: TZ
             value:  "America/New_York"
+          - name: LIBTORRENT
+            value:  "v2"
           - name: FLOOD_AUTH
             value:  "false"
           - name: VPN_ENABLED
