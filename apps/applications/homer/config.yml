@@ -270,12 +270,12 @@ services:
 
       - name: "Singularity"
         logo: "./assets/png/pihole.png"
-        url:  "https://pihole.drak3.io/admin/index.php"
+        url:  "https://pihole.drak3.io/admin/"
         target: "_blank"
 
       - name: "Event Horizon"
         logo: "./assets/png/pihole.png"
-        url:  "https://pihole2.drak3.io/admin/index.php"
+        url:  "https://pihole2.drak3.io/admin/"
         target: "_blank"
     
   - name: "DEV"
