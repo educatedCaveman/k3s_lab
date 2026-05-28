@@ -12,4 +12,4 @@ resources:
 configMapGenerator:
 - name: navidrome-configmap
   files:
-  - config.yml
+  - navidrome.toml
