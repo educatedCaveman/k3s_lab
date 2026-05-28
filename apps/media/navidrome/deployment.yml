@@ -35,6 +35,9 @@ spec:
             mountPath:  /music
           - name: navidrome-data
             mountPath:  /data
+          - name: navidrome-config
+            mountPath: /data/navidrome.toml
+            subPath:  navidrome.toml
       volumes:
       - name: navidrome-music
         hostPath:
