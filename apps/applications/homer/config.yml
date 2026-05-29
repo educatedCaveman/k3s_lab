@@ -147,9 +147,14 @@ services:
     icon: "fas fa-server"
     items:
 
-      - name: "Plex"
-        logo: "./assets/png/plex.png"
-        url:  "https://plex.drak3.io"
+      # - name: "Plex"
+      #   logo: "./assets/png/plex.png"
+      #   url:  "https://plex.drak3.io"
+      #   target: "_blank"
+
+      - name: "Navidrome"
+        logo: "./assets/png/navidrome.png"
+        url:  "https://navidrome.drak3.io"
         target: "_blank"
 
       - name: "Jellyfin"
