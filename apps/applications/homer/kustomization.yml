@@ -45,6 +45,7 @@ configMapGenerator:
 - name: homer-png-configmap-n
   files:
   - png/nextcloud.png
+  - png/navidrome.png
 
 - name: homer-png-configmap-m
   files:
