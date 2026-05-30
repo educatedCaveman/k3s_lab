@@ -10,14 +10,15 @@ spec:
   selector:
     matchLabels:
       app: qflood
-  strategy:
-    type: Recreate
+  # strategy:
+  #   type: Recreate
   template:
     metadata:
       labels:
         app: qflood
     spec:
-      restartPolicy: Always
+      # restartPolicy: Always
+      restartPolicy: Never
       hostname: qflood
       subdomain: internal
       initContainers:
