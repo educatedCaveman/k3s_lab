@@ -1,0 +1,106 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+  namespace:  media
+  labels:
+    app: qbittorrent
+spec:
+  selector:
+    matchLabels:
+      app: qbittorrent
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: qbittorrent
+    spec:
+      restartPolicy: Always
+      hostname: qbittorrent
+      subdomain: internal
+      initContainers:
+      # use the default wireguard config
+      - name: init-qbittorrent-qbt-config
+        image: busybox@sha256:fd8d9aa63ba2f0982b5304e1ee8d3b90a210bc1ffb5314d980eb6962f1a9715d
+        command: ["sh", "-c", "mkdir -p /config/config && cp /qbt/qBittorrent.conf /config/qBittorrent/config/qBittorrent.conf"]
+        volumeMounts:
+        - name: qbittorrent-config
+          mountPath:  /config
+        - name: qbittorrent-qbt-config
+          mountPath:  /qbt
+      containers:
+        - name: qbittorrent
+          # using "latest" because the versions are something like "release-1f62614"
+          image: binhex/arch-qbittorrentvpn:latest
+          resources:
+            limits:
+              cpu: 4
+              memory: 8Gi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          ports:
+            - containerPort: 8080
+          env:
+          # these 3 might need to change
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: UMASK
+            value:  "002"
+          # - name: TZ
+          #   value:  "America/New_York"
+          - name: VPN_ENABLED
+            value:  "yes"
+          - name: VPN_PROV
+            value:  "pia"
+          - name: VPN_CLIENT
+            value: "wireguard"
+          - name: ENABLE_STARTUP_SCRIPTS
+            value: "no"
+          - name: ENABLE_PRIVOXY
+            value: "yes"
+          - name: STRICT_PORT_FORWARD
+            value: "yes"
+          - name: USERSPACE_WIREGUARD
+            value: "no"
+          - name: ENABLE_SOCKS
+            value: "yes"
+          - name: SOCKS_USER
+            value: "admin"
+          - name: SOCKS_PASS
+            value: "socks"
+          - name: LAN_NETWORK
+            value:  "192.168.0.0/16"
+          - name: VPN_USER
+            valueFrom:
+              secretKeyRef:
+                name: qbittorrent-pia-vpn-creds
+                key: username
+          - name: VPN_PASS
+            valueFrom:
+              secretKeyRef:
+                name: qbittorrent-pia-vpn-creds
+                key: password
+          securityContext:
+            capabilities: # Needed for VPN
+              add:
+                - NET_ADMIN
+          volumeMounts:
+          - name: qbittorrent-config
+            mountPath:  /config
+          - name: qbittorrent-data
+            mountPath:  /data
+      volumes:
+        - name: qbittorrent-config
+          persistentVolumeClaim:
+            claimName:  qbittorrent-config-pvc
+        - name: qbittorrent-data
+          persistentVolumeClaim:
+            claimName:  qbittorrent-nfs-data-pvc
+        - name: qbittorrent-qbt-config
+          configMap:
+            name: qbittorrent-qbt-configmap
