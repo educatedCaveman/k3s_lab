@@ -41,8 +41,6 @@ spec:
             mountPath:  /Movies
           - name: jf-shows
             mountPath:  /TV
-          # - name: jf-music
-          #   mountPath:  /Music
           - name: jf-config
             mountPath:  /config
           env:
@@ -68,9 +66,6 @@ spec:
       - name: jf-shows
         hostPath:
           path: /mnt/mobius/Video/TV-shows
-      # - name: jf-music
-      #   hostPath:
-      #     path: /mnt/mobius/Music/library
       - name: jf-config
         persistentVolumeClaim:
           claimName:  jf-config-data
