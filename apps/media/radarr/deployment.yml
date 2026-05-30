@@ -51,7 +51,7 @@ spec:
             type: Directory
         - name: radarr-downloads-nfs
           hostPath:
-            path: /mnt/mobius/temp/qflood/downloads
+            path: /mnt/mobius/temp/qbittorrent/downloads/movies
             type: Directory
         - name: radarr-config
           persistentVolumeClaim:

@@ -72,17 +72,6 @@ settings:
   overlay_artwork_filetype: jpg
   overlay_artwork_quality:
 
-plex:
-  url: http://192.168.12.2:32400
-  # token:  <<PLEX_TOKEN>>
-  token:  xSh5u11hq2Cpd_YFNr9K
-  timeout: 60
-  clean_bundles: false
-  empty_trash: false
-  optimize: false
-  db_cache: 4096
-  verify_ssl: false
-
 tmdb:
   apikey: <<TMDB_KEY>>
   language: en

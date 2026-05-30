@@ -51,7 +51,7 @@ spec:
             type: Directory
         - name: lidarr-downloads-nfs
           hostPath:
-            path: /mnt/mobius/temp/qflood/downloads
+            path: /mnt/mobius/temp/qbittorrent/downloads/music
             type: Directory
         - name: lidarr-config
           persistentVolumeClaim:
