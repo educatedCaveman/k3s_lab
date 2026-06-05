@@ -1,0 +1,82 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jf-collection
+  namespace:  media
+  labels:
+    app: jf-collection
+spec:
+  selector:
+    matchLabels:
+      app: jellyfin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: jf-collection
+          image:  ghcr.io/4lx69/jellyfin-collection:latest
+          imagePullPolicy: IfNotPresent
+          # args: [ "--run", "--read-only-config"]
+          resources:
+            limits:
+              cpu: 2
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 125Mi
+          volumeMounts:
+            - name: jf-collection-config-dir
+              mountPath: /config
+            - name: jf-collection-config
+              mountPath: /config/config.yml
+              subPath:  config.yml
+            - name: jf-collection-data-dir
+              mountPath: /data
+            - name: jf-collection-logs-dir
+              mountPath: /logs
+          env:
+          - name: TZ
+            value:  America/New_York
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: JELLYFIN_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: jf-collection-api-keys
+                key:  jellyfin_api_key
+          - name: TMDB_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: jf-collection-api-keys
+                key:  tmdb_api_key
+          - name: RADARR_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: jf-collection-api-keys
+                key:  radarr_api_key
+          - name: SONARR_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: jf-collection-api-keys
+                key:  sonarr_api_key
+      volumes:
+        - name: jf-collection-config-dir
+          persistentVolumeClaim:
+            claimName: jf-collection-config-pvc
+        - name: jf-collection-config
+          configMap:
+            name: jf-collection-configmap
+        - name: jf-collection-data-dir
+          persistentVolumeClaim:
+            claimName: jf-collection-data-pvc
+        - name: jf-collection-logs-dir
+          persistentVolumeClaim:
+            claimName: jf-collection-logs-pvc

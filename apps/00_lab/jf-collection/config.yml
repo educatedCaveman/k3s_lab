@@ -1,0 +1,27 @@
+settings:
+  # Jellyfin
+  jellyfin:
+    # url:  http://192.168.13.28:8096
+    url:  https://jellyfin.drak3.io/
+
+  # TMDB
+  tmdb:
+    language: en
+    region: US
+
+  # Radarr
+  radarr:
+    url:  http://192.168.13.32:7878
+    root_folder:  /movies
+
+  # Sonarr
+  sonarr:
+    url:  http://192.168.13.33:8989
+    root_folder:  /tv
+
+  scheduler:
+    run_on_start: true
+    timezone: America/New_York
+
+  log_level:  DEBUG
+  dry_run:  true
