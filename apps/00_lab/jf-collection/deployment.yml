@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: jf-collection
-          image:  ghcr.io/4lx69/jellyfin-collection:latest
+          image:  ghcr.io/4lx69/jellyfin-collection:latest@sha256:9a04c12597878fa1d501e9130cd1de45e070a733b24f6d32c3429ba0b73ceffb
           imagePullPolicy: IfNotPresent
           # args: [ "--run", "--read-only-config"]
           resources:
