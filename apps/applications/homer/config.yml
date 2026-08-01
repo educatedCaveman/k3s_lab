@@ -3,7 +3,7 @@
 title: "Grand Ol' Dungeon of the Horned God"
 subtitle: "Homer"
 # documentTitle: "Welcome" # Customize the browser tab text
-logo: "./assets/png/homer.png"
+logo: "./png/homer.png"
 # https://fontawesome.com/v4.7.0/icons/
 # Alternatively a fa icon can be provided:
 # icon: "fas fa-skull-crossbones"
