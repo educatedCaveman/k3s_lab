@@ -1,0 +1,65 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whisparr
+  namespace:  media
+  labels:
+    app: whisparr
+spec:
+  selector:
+    matchLabels:
+      app: whisparr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: whisparr
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: whisparr
+          image: ghcr.io/hotio/whisparr:latest
+          resources:
+            limits:
+              cpu: 4
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          ports:
+            - containerPort: 6969
+          volumeMounts:
+          - name: whisparr-porn-nfs
+            mountPath:  /porn
+          - name: whisparr-downloads-nfs
+            mountPath:  /downloads
+          - name: whisparr-config
+            mountPath:  /config
+          - name: whisparr-data
+            mountPath:  /data
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+          - name: WEBUI_PORTS
+            value:  "6969"
+      volumes:
+        - name: whisparr-porn-nfs
+          hostPath:
+            path: /mnt/mobius/Video/Porn
+            type: Directory
+        - name: whisparr-downloads-nfs
+          hostPath:
+            path: /mnt/mobius/temp/qbittorrent/downloads/porn
+            type: Directory
+        - name: whisparr-config
+          persistentVolumeClaim:
+            claimName:  whisparr-config-pvc
+        - name: whisparr-data
+          persistentVolumeClaim:
+            claimName:  whisparr-data-pvc

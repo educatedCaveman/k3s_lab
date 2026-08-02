@@ -88,10 +88,11 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | qFlood            | https://qbt.drak3.io, https://flood.drak3.io | `192.168.13.38:8080`, `*:3000` | qBittorrent + Flood + Wiregaurd |
 | whisper           | n/a                                          | `192.168.13.39:9000`           |                                 |
 | Home Assistant    | https://home-assistant.drak3.io              | `192.168.13.40:8123`           | testing Home Assistant          |
-| Navidrome         |                                              | `192.168.13.41`                | free address for services       |
-|                   |                                              | `192.168.13.42`                | free address for services       |
+| Navidrome         |                                              | `192.168.13.41`                |                                 |
+| Whisparr          |                                              | `192.168.13.42`                |                                 |
+|                   |                                              | `192.168.13.43`                | free address for services       |
 |                   |                                              | `192.168.13.234`               | free address for services       |
-| LanguageTool      |                                              | `192.168.13.235`               | free address for services       |
+| LanguageTool      |                                              | `192.168.13.235`               |                                 |
 | Pi-Hole           | https://pihole3.drak3.io                     | `192.168.13.236`               | W.I.P.                          |
 | Grafana           | https://grafana.drak3.io                     | `192.168.13.237:80`            |                                 |
 | Apt Cache         | https://apt.drak3.io                         | `192.168.13.238:3142`          |                                 |
