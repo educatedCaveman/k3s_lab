@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: whisparr
-          image: ghcr.io/hotio/whisparr:latest
+          image: ghcr.io/hotio/whisparr:latest@sha256:c97884f746e7209c42412fb1cdcc232c9711d273675e1ebb96df9da2225aadd5
           resources:
             limits:
               cpu: 4
