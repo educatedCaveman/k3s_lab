@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: cleanuparr
-          image: ghcr.io/cleanuparr/cleanuparr:2.10.3
+          image: ghcr.io/cleanuparr/cleanuparr:2.10.3@sha256:31f93b0f8eff9fe87c5cb7779276905144bc297b1a67cd77887d8eb168b1af2a
           resources:
             limits:
               cpu: 4
