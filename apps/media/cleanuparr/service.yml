@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cleanuparr
+  namespace:  media
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "cleanuparr-metallb-ip"  
+spec:
+  ipFamilyPolicy: SingleStack
+  selector:
+    app: cleanuparr
+  ports:
+    - name: cleanuparr-ui
+      port: 11011
+      targetPort: 11011
+  type: LoadBalancer
+  loadBalancerIP: 192.168.13.43

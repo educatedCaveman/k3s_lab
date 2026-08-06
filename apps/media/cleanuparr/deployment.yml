@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cleanuparr
+  namespace:  media
+  labels:
+    app: cleanuparr
+spec:
+  selector:
+    matchLabels:
+      app: cleanuparr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: cleanuparr
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: cleanuparr
+          image: ghcr.io/cleanuparr/cleanuparr:v2:10:3
+          resources:
+            limits:
+              cpu: 4
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          ports:
+            - containerPort: 11011
+          volumeMounts:
+          # - name: cleanuparr-shows-nfs
+          #   mountPath:  /tv
+          - name: cleanuparr-downloads-nfs
+            mountPath:  /downloads
+          - name: cleanuparr-config
+            mountPath:  /config
+          env:
+          - name: PUID
+            value:  "1000"
+          - name: PGID
+            value:  "1000"
+          - name: TZ
+            value:  America/New_York
+      volumes:
+        # - name: cleanuparr-shows-nfs
+        #   hostPath:
+        #     path: /mnt/mobius/Video/TV-shows
+        #     type: Directory
+        - name: cleanuparr-downloads-nfs
+          hostPath:
+            path: /mnt/mobius/temp/qbittorrent/downloads
+            type: Directory
+        - name: cleanuparr-config
+          persistentVolumeClaim:
+            claimName:  cleanuparr-config-pvc
