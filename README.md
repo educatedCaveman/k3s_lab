@@ -1,5 +1,121 @@
 # k3s_lab
 
+Doing a reset, bc the cluster is fucked
+
+## TODOS
+
+DOCUMENT EVERYTHING, DUMBASS!!!!!
+
+- [ ] update VMs
+      - other ansible stuff, too
+        - fastfetch
+- [ ] base config
+- [ ] longhorn, including ingress
+
+### GPU nodes
+
+nVidia update:
+```shell
+sudo apt install --only-upgrade libnvidia-cfg1-550 libnvidia-compute-550 libnvidia-decode-550 libnvidia-encode-550 nvidia-compute-utils-550 nvidia-dkms-550 nvidia-headless-550 nvidia-headless-no-dkms-550 nvidia-kernel-common-550 nvidia-kernel-source-550 nvidia-utils-550
+```
+
+#### set interface name
+
+open `/etc/netplan/50-cloud-init.yaml`, and update to include the `set-name` and `match` sections:
+```yaml
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    ethernets:
+        enp6s18:
+            dhcp4: true
+            set-name: eth0
+            match:
+                macaddress: bc:24:11:2a:15:39
+    version: 2
+```
+
+heed the warming, and create the file
+```shell
+sudoedit /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+```
+
+and paste `network: {config: disabled}` into it
+
+apply netplan:
+```shell
+sudo netplan apply
+```
+
+reboot to verify
+
+### Longhorn
+
+pull the config file, replacing the version number with the desired version:
+
+```shell
+curl -sSfL https://raw.githubusercontent.com/longhorn/longhorn/v1.11.3/deploy/longhorn.yaml -o longhorn-v1.11.3.yaml
+```
+
+apply with:
+
+```shell
+kubectl apply -f longhorn-v1.11.3.yaml
+```
+
+#### Ingress
+
+https://medium.com/geekculture/bare-metal-kubernetes-with-metallb-haproxy-longhorn-and-prometheus-370ccfffeba9
+
+edit the service. change the `type` property to `ClusterIP` to `NodePort`:
+
+```shell
+kubectl edit service longhorn-frontend -n longhorn-system
+```
+
+get the port it uses: 
+
+```shell
+kubectl get service longhorn-frontend -n longhorn-system
+```
+output:
+```
+NAME                TYPE       CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+longhorn-frontend   NodePort   10.43.75.69   <none>        80:31550/TCP   13m
+```
+
+#### UI config
+
+- disable node scheduling for all nodes other than the data nodes
+- backup configuration
+
+
+### GPU
+follow instructions in [this README](/apps/cluster/nvidia/README.md)
+
+### Prometheus
+TODO
+
+
+### Sealed Secrets
+TODO
+
+
+
+
+
+
+
+
+
+
+---
+
+# OLD shit
+
 This is an experiment to use K3s to replace my old docker swarm stack. Currently, I'm still feeling things out, but I'm getting closer to the point where I think I could migrate things in earnest.
 
 I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo from Techno Tim as a submodule. I've also reorganized the repo a bit.
