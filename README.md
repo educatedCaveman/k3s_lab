@@ -6,15 +6,14 @@ Doing a reset, bc the cluster is fucked
 
 DOCUMENT EVERYTHING, DUMBASS!!!!!
 
-- [ ] update VMs
-      - other ansible stuff, too
-        - fastfetch
+- [ ] update VMs - other ansible stuff, too - fastfetch
 - [ ] base config
 - [ ] longhorn, including ingress
 
 ### GPU nodes
 
 nVidia update:
+
 ```shell
 sudo apt install --only-upgrade libnvidia-cfg1-550 libnvidia-compute-550 libnvidia-decode-550 libnvidia-encode-550 nvidia-compute-utils-550 nvidia-dkms-550 nvidia-headless-550 nvidia-headless-no-dkms-550 nvidia-kernel-common-550 nvidia-kernel-source-550 nvidia-utils-550
 ```
@@ -22,6 +21,7 @@ sudo apt install --only-upgrade libnvidia-cfg1-550 libnvidia-compute-550 libnvid
 #### set interface name
 
 open `/etc/netplan/50-cloud-init.yaml`, and update to include the `set-name` and `match` sections:
+
 ```yaml
 # This file is generated from information provided by the datasource.  Changes
 # to it will not persist across an instance reboot.  To disable cloud-init's
@@ -29,16 +29,17 @@ open `/etc/netplan/50-cloud-init.yaml`, and update to include the `set-name` and
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
 # network: {config: disabled}
 network:
-    ethernets:
-        enp6s18:
-            dhcp4: true
-            set-name: eth0
-            match:
-                macaddress: bc:24:11:2a:15:39
-    version: 2
+  ethernets:
+    enp6s18:
+      dhcp4: true
+      set-name: eth0
+      match:
+        macaddress: bc:24:11:2a:15:39
+  version: 2
 ```
 
 heed the warming, and create the file
+
 ```shell
 sudoedit /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
 ```
@@ -46,6 +47,7 @@ sudoedit /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
 and paste `network: {config: disabled}` into it
 
 apply netplan:
+
 ```shell
 sudo netplan apply
 ```
@@ -76,12 +78,14 @@ edit the service. change the `type` property to `ClusterIP` to `NodePort`:
 kubectl edit service longhorn-frontend -n longhorn-system
 ```
 
-get the port it uses: 
+get the port it uses:
 
 ```shell
 kubectl get service longhorn-frontend -n longhorn-system
 ```
+
 output:
+
 ```
 NAME                TYPE       CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 longhorn-frontend   NodePort   10.43.75.69   <none>        80:31550/TCP   13m
@@ -92,25 +96,17 @@ longhorn-frontend   NodePort   10.43.75.69   <none>        80:31550/TCP   13m
 - disable node scheduling for all nodes other than the data nodes
 - backup configuration
 
-
 ### GPU
+
 follow instructions in [this README](/apps/cluster/nvidia/README.md)
 
 ### Prometheus
-TODO
 
+TODO
 
 ### Sealed Secrets
+
 TODO
-
-
-
-
-
-
-
-
-
 
 ---
 
@@ -190,30 +186,40 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 
 ### Service Useage
 
-| Service           | URL                                          | IP:port                        | Notes                           |
-| ----------------- | -------------------------------------------- | ------------------------------ | ------------------------------- |
-| Homer             | https://homer.drak3.io                       | `192.168.13.27:8080`           |                                 |
-| Jellyfin          | https://jellyfin.drak3.io                    | `192.168.13.28:8096`           |                                 |
-| Syncthing         | https://sync.drak3.io                        | `192.168.13.29:8384`           |                                 |
-| Flaresolverr      | n/a                                          | `192.168.13.30:8191`           |                                 |
-| Prowlarr          | https://prowlarr.drak3.io                    | `192.168.13.31:9696`           |                                 |
-| Radarr            | https://radarr.drak3.io                      | `192.168.13.32:7878`           |                                 |
-| Sonarr            | https://sonarr.drak3.io                      | `192.168.13.33:8989`           |                                 |
-| Lidarr            | https://lidarr.drak3.io                      | `192.168.13.34:8686`           |                                 |
-| Bazarr            | https://bazarr.drak3.io                      | `192.168.13.35:6767`           |                                 |
-| qFlood            | https://qbt.drak3.io | `192.168.13.38:8080`, `*:3000` | qBittorrent + VPN |
-| whisper           | n/a                                          | `192.168.13.39:9000`           |                                 |
-| Home Assistant    | https://home-assistant.drak3.io              | `192.168.13.40:8123`           | testing Home Assistant          |
-| Navidrome         |                                              | `192.168.13.41`                |                                 |
-| Whisparr          |                                              | `192.168.13.42`                |                                 |
-| Cleanuparr        |                                              | `192.168.13.43`                |                                 |
-|                   |                                              | `192.168.13.44`                | free address for services       |
-|                   |                                              | `192.168.13.234`               | free address for services       |
-| LanguageTool      |                                              | `192.168.13.235`               |                                 |
-| Pi-Hole           | https://pihole3.drak3.io                     | `192.168.13.236`               | W.I.P.                          |
-| Grafana           | https://grafana.drak3.io                     | `192.168.13.237:80`            |                                 |
-| Apt Cache         | https://apt.drak3.io                         | `192.168.13.238:3142`          |                                 |
-| Unifi Network App | https://unifi.drak3.io                       | `192.168.13.239:8443`          |                                 |
+| Service           | URL                             | IP:port                        | Notes                     |
+| ----------------- | ------------------------------- | ------------------------------ | ------------------------- |
+| Homer             | https://homer.drak3.io          | `192.168.13.27:8080`           |                           |
+| Jellyfin          | https://jellyfin.drak3.io       | `192.168.13.28:8096`           |                           |
+| Syncthing         | https://sync.drak3.io           | `192.168.13.29:8384`           |                           |
+| Flaresolverr      | n/a                             | `192.168.13.30:8191`           |                           |
+| Prowlarr          | https://prowlarr.drak3.io       | `192.168.13.31:9696`           |                           |
+| Radarr            | https://radarr.drak3.io         | `192.168.13.32:7878`           |                           |
+| Sonarr            | https://sonarr.drak3.io         | `192.168.13.33:8989`           |                           |
+| Lidarr            | https://lidarr.drak3.io         | `192.168.13.34:8686`           |                           |
+| Bazarr            | https://bazarr.drak3.io         | `192.168.13.35:6767`           |                           |
+| qFlood            | https://qbt.drak3.io            | `192.168.13.38:8080`, `*:3000` | qBittorrent + VPN         |
+| whisper           | n/a                             | `192.168.13.39:9000`           |                           |
+| Home Assistant    | https://home-assistant.drak3.io | `192.168.13.40:8123`           | testing Home Assistant    |
+| Navidrome         |                                 | `192.168.13.41`                |                           |
+| Whisparr          |                                 | `192.168.13.42`                |                           |
+| Cleanuparr        |                                 | `192.168.13.43`                |                           |
+|                   |                                 | `192.168.13.44`                | free address for services |
+|                   |                                 | `192.168.13.234`               | free address for services |
+| LanguageTool      |                                 | `192.168.13.235`               |                           |
+| Pi-Hole           | https://pihole3.drak3.io        | `192.168.13.236`               | W.I.P.                    |
+| Grafana           | https://grafana.drak3.io        | `192.168.13.237:80`            |                           |
+| Apt Cache         | https://apt.drak3.io            | `192.168.13.238:3142`          |                           |
+| Unifi Network App | https://unifi.drak3.io          | `192.168.13.239:8443`          |                           |
+|                   |                                 | `192.168.13.240`               |                           |
+|                   |                                 | `192.168.13.241`               |                           |
+|                   |                                 | `192.168.13.242`               |                           |
+|                   |                                 | `192.168.13.243`               |                           |
+|                   |                                 | `192.168.13.244`               |                           |
+|                   |                                 | `192.168.13.245`               |                           |
+|                   |                                 | `192.168.13.246`               |                           |
+|                   |                                 | `192.168.13.247`               |                           |
+|                   |                                 | `192.168.13.248`               |                           |
+| Longhorn          | https://longhorn.drak3.io       | `192.168.13.249`               |                           |
 
 ### Remaining IPs
 
