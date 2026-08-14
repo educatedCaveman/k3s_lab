@@ -2,6 +2,8 @@
 
 TODO: get this working with manifests
 
+useful website: https://harish2k01.in/monitoring-kubernetes-with-prometheus-and-grafana/
+
 steps to install prometheus:
 
 add repo
@@ -16,10 +18,10 @@ helm repo update
 
 create namespace for prometheus
 ```shell
-k apply -f namespaces.yml
+k apply -f namespace.yml
 ```
 
-login secrets
+login secrets (optional)
 ```shell
 k create secret generic grafana-admin-credentials \
     --from-literal='admin-user=__REDACTED__' \
@@ -29,17 +31,17 @@ k create secret generic grafana-admin-credentials \
 
 install prometheus
 ```shell
-helm install -n monitoring prometheus prometheus-community/kube-prometheus-stack -f values.yaml
+helm install -n monitoring prometheus prometheus-community/kube-prometheus-stack
 ```
 
 patch the service to use metalLB
 ```shell
-k -n monitoring patch svc grafana -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.13.237"}}'
+k -n monitoring patch svc prometheus-grafana -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.13.237"}}'
 ```
 
 ## Updating
 
 ```shell
-helm upgrade -n monitoring prometheus prometheus-community/kube-prometheus-stack -f values.yaml
-k -n monitoring patch svc grafana -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.13.237"}}'
+helm upgrade -n monitoring prometheus prometheus-community/kube-prometheus-stack
+k -n monitoring patch svc prometheus-grafana -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.13.237"}}'
 ```
