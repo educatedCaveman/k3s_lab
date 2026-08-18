@@ -33,6 +33,8 @@ spec:
           volumeMounts:
           - name: prowlarr-config
             mountPath: /config
+          - name: prowlarr-backup
+            mountPath:  /config/Backups
           env:
           - name: PUID
             value:  "1000"
@@ -44,3 +46,6 @@ spec:
         - name: prowlarr-config
           persistentVolumeClaim:
             claimName:  prowlarr-pvc
+        - name: prowlarr-backup
+          persistentVolumeClaim:
+            claimName:  prowlarr-nfs-bkup-pvc
