@@ -216,6 +216,11 @@ services:
         url:  "https://lidarr.drak3.io"
         target: "_blank"
 
+      - name: "Whisparr (XXX)"
+        logo: "./assets/png/whisparr.png"
+        url:  "https://whisparr.drak3.io"
+        target: "_blank"
+
       - name: "Bazarr (Subtitles)"
         logo: "./assets/png/bazarr.png"
         url:  "https://bazarr.drak3.io"
@@ -255,6 +260,11 @@ services:
         url:  "https://nvr.drak3.io/protect/liveview/6084571d00504103e70003fb"
         target: "_blank"
 
+      - name: "Cleanuparr"
+        logo: "./assets/png/cleanuparr.png"
+        url:  "https://cleanuparr.drak3.io/"
+        target: "_blank"
+
   - name: "Development Tools"
     icon: "fas fa-server"
     items:
@@ -267,6 +277,11 @@ services:
       - name: "Portainer (Pi)"
         logo: "./assets/png/portainer.png"
         url:  "https://portainer-pi.drak3.io/"
+        target: "_blank"
+
+      - name: "Longhorn"
+        logo: "./assets/png/longhorn.png"
+        url:  "http://192.168.13.249/#/dashboard"
         target: "_blank"
 
   - name: "Admin Tools"

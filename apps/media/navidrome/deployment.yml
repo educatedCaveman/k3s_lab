@@ -38,6 +38,8 @@ spec:
           - name: navidrome-config
             mountPath: /data/navidrome.toml
             subPath:  navidrome.toml
+          - name: navidrome-backup
+            mountPath:  /backup
       volumes:
       - name: navidrome-music
         hostPath:
@@ -48,3 +50,6 @@ spec:
       - name: navidrome-config
         configMap:
           name: navidrome-configmap
+      - name: navidrome-backup
+        persistentVolumeClaim:
+          claimName:  navidrome-nfs-bkup-pvc

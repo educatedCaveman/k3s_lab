@@ -1,1 +1,10 @@
 DefaultTheme = 'Spotify-ish'
+
+ArtistArtPriority = "folder.*"
+CoverArtPriority = "folder.*"
+DiscArtPriority = "discart.*"
+
+[Backup]
+Path = "/backup"
+Count = 7
+Schedule =  "0 0 * * *"

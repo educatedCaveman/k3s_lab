@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: radarr
-          image: lscr.io/linuxserver/radarr:6.1.1@sha256:c0a4335d4249b46102f64cf6fa27ffc3bddfd9138fac1e4ddf238afd37f02d1f
+          image: lscr.io/linuxserver/radarr:6.3.0
           resources:
             limits:
               cpu: 2
@@ -37,6 +37,8 @@ spec:
             mountPath:  /downloads
           - name: radarr-config
             mountPath:  /config
+          - name: radarr-backup
+            mountPath:  /config/Backups
           env:
           - name: PUID
             value:  "1000"
@@ -56,3 +58,6 @@ spec:
         - name: radarr-config
           persistentVolumeClaim:
             claimName:  radarr-config-pvc
+        - name: radarr-backup
+          persistentVolumeClaim:
+            claimName:  radarr-nfs-bkup-pvc

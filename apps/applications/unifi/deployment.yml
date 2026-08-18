@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: unifi-db
-          image:  docker.io/mongo:8.0.15@sha256:f4d54619262ae3bc6a0a8efbebcef970b87b8ad70697479a75ce308a6f400158
+          image:  docker.io/mongo:8.3.8
           volumeMounts:
           - name: unifi-db-db
             mountPath:  /data/db
@@ -35,7 +35,7 @@ spec:
               cpu: 500m
               memory: 512Mi
         - name: unifi-network-application
-          image: lscr.io/linuxserver/unifi-network-application:10.3.58@sha256:f87c4d57285f3118a0bad24f696f5aa088859d332b5bf865cdb8e515a1c819ab
+          image: lscr.io/linuxserver/unifi-network-application:10.3.58
           resources:
             limits:
               cpu: 4
@@ -77,7 +77,7 @@ spec:
           - name: MONGO_DBNAME
             value:  unifi
           - name: MONGO_AUTHSOURCE
-            value:  admin
+            value:  "admin"
           - name: MONGO_INITDB_ROOT_USERNAME
             value:  root
           - name: MONGO_INITDB_ROOT_PASSWORD

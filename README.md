@@ -6,9 +6,32 @@ Doing a reset, bc the cluster is fucked
 
 DOCUMENT EVERYTHING, DUMBASS!!!!!
 
-- [ ] update VMs - other ansible stuff, too - fastfetch
-- [ ] base config
-- [ ] longhorn, including ingress
+- [X] update VMs - other ansible stuff, too - fastfetch
+- [X] base config
+- [X] longhorn, including ingress
+- [/] deploy applications
+  - [/] applications
+    - [ ] apt-cache
+      - [ ] configure clients, too
+    - [x] homer
+    - [/] languagetool
+    - [ ] nebula-sync
+    - [ ] pi-hole
+    - [x] syncthing
+    - [ ] unifi
+  - [/] media
+    - [x] bazarr
+    - [x] cleanuparr
+    - [x] flaresolverr
+    - [x] jellyfin
+    - [x] lidarr
+    - [/] navidrome
+    - [x] prowlarr
+    - [x] qBittorrent
+    - [x] radarr
+    - [x] sonarr
+    - [/] whisparr
+    - [ ] whisper
 
 ### GPU nodes
 
@@ -102,45 +125,22 @@ follow instructions in [this README](/apps/cluster/nvidia/README.md)
 
 ### Prometheus
 
-TODO
+follow instructions in [this README](/apps/cluster/prometheus/README.md)
 
 ### Sealed Secrets
 
-TODO
-
----
-
-# OLD shit
-
-This is an experiment to use K3s to replace my old docker swarm stack. Currently, I'm still feeling things out, but I'm getting closer to the point where I think I could migrate things in earnest.
-
-I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo from Techno Tim as a submodule. I've also reorganized the repo a bit.
-
-## Things I want to be able to do
-
-### Done
-
-- setup the cluster
-- setup MetalLB
-- setup, then abandon longhorn
-  - longhorn is either a waste of time, or **WAY** too over my head right now.
-- determine how to use local files for config/data
-- deploy a workload to the k3s cluster
-  - using namespaces
-
-### TODO
-
-- determine how to precisely set permissions for the NFS share
-  - presently i have the entire share in the `nobody:nogroup` user:group, with 777 permissions. not ideal.
-- CI/CD
-- deploy existing stacks
-- automate shutdown/reboot for maintenance
-  - something leveraging the `kubectl drain` command.
+follow instructions in [this README](/apps/cluster/sealed-secrets/README.md)
 
 ## Useful sites:
 
 - https://medium.com/geekculture/bare-metal-kubernetes-with-metallb-haproxy-longhorn-and-prometheus-370ccfffeba9
 - https://docs.openshift.com/container-platform/4.9/networking/metallb/metallb-configure-services.html
+
+## Special steps
+
+### NFS folder directly in container
+
+in order to do this, you also need to share that folder in the TrueNAS GUI
 
 ## IP Address Use
 
@@ -197,7 +197,7 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 | Sonarr            | https://sonarr.drak3.io         | `192.168.13.33:8989`           |                           |
 | Lidarr            | https://lidarr.drak3.io         | `192.168.13.34:8686`           |                           |
 | Bazarr            | https://bazarr.drak3.io         | `192.168.13.35:6767`           |                           |
-| qFlood            | https://qbt.drak3.io            | `192.168.13.38:8080`, `*:3000` | qBittorrent + VPN         |
+| qBittorrent       | https://qbt.drak3.io            | `192.168.13.38:8080`, `*:3000` | qBittorrent + VPN         |
 | whisper           | n/a                             | `192.168.13.39:9000`           |                           |
 | Home Assistant    | https://home-assistant.drak3.io | `192.168.13.40:8123`           | testing Home Assistant    |
 | Navidrome         |                                 | `192.168.13.41`                |                           |
@@ -219,7 +219,7 @@ I've added the [k3s-ansible](https://github.com/techno-tim/k3s-ansible) repo fro
 |                   |                                 | `192.168.13.246`               |                           |
 |                   |                                 | `192.168.13.247`               |                           |
 |                   |                                 | `192.168.13.248`               |                           |
-| Longhorn          | https://longhorn.drak3.io       | `192.168.13.249`               |                           |
+| Longhorn          | https://longhorn.drak3.io       | `192.168.13.249:31550`         |                           |
 
 ### Remaining IPs
 

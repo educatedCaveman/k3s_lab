@@ -28,7 +28,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: languagetool
-          image: meyay/languagetool:6.8-5
+          image: meyay/languagetool:latest
           resources:
             limits:
               cpu: 10
@@ -42,7 +42,8 @@ spec:
           - name: TZ
             value:  "America/New_York"
           ports:
-            - containerPort: 8010
+            # - containerPort: 8010
+            - containerPort: 8081
               name: languagetool
               protocol: TCP
           volumeMounts:
