@@ -28,7 +28,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: languagetool
-          image: meyay/languagetool:latest
+          image: meyay/languagetool:latest@sha256:0b4a849aa00ccb2d157e40cc3bc2a4db56529ce4a20b923452148d5f84a3dd8d
           resources:
             limits:
               cpu: 10
