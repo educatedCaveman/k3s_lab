@@ -55,7 +55,7 @@ spec:
             type: Directory
         - name: whisparr-downloads-nfs
           hostPath:
-            path: /mnt/mobius/temp/qbittorrent/downloads/porn
+            path: /mnt/mobius/temp/qbittorrent/downloads
             type: Directory
         - name: whisparr-config
           persistentVolumeClaim:

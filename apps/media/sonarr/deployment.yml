@@ -53,7 +53,7 @@ spec:
             type: Directory
         - name: sonarr-downloads-nfs
           hostPath:
-            path: /mnt/mobius/temp/qbittorrent/downloads/shows
+            path: /mnt/mobius/temp/qbittorrent/downloads
             type: Directory
         - name: sonarr-config
           persistentVolumeClaim:
