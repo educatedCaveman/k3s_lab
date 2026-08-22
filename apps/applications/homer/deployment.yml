@@ -58,6 +58,8 @@ spec:
             - configMap:
                 name: homer-png-configmap-b
             - configMap:
+                name: homer-png-configmap-c
+            - configMap:
                 name: homer-png-configmap-f
             - configMap:
                 name: homer-png-configmap-g
@@ -85,5 +87,7 @@ spec:
                 name: homer-png-configmap-t
             - configMap:
                 name: homer-png-configmap-u
+            - configMap:
+                name: homer-png-configmap-w
             - configMap:
                 name: homer-png-configmap-y

@@ -24,7 +24,7 @@ spec:
       # use the default wireguard config
       - name: init-qbittorrent-qbt-config
         image: busybox@sha256:dc2d74b28e4cf8984fa52af1f39bc7c3d9c73760b41a74d629f5d11b1ab28616
-        command: ["sh", "-c", "mkdir -p /config/config && cp /qbt/qBittorrent.conf /config/qBittorrent/config/qBittorrent.conf"]
+        command: ["sh", "-c", "mkdir -p /config/config && mkdir -p /config/qBittorrent/config && cp /qbt/qBittorrent.conf /config/qBittorrent/config/qBittorrent.conf"]
         volumeMounts:
         - name: qbittorrent-config
           mountPath:  /config
@@ -36,7 +36,7 @@ spec:
           image: binhex/arch-qbittorrentvpn:latest@sha256:229e441811921893e77b483a192006e5dd598c356f94a80dbadbb9cf88c0f69f
           resources:
             limits:
-              cpu: 4
+              cpu: 16
               memory: 8Gi
             requests:
               cpu: 100m

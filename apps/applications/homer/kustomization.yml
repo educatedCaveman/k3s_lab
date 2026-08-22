@@ -18,6 +18,10 @@ configMapGenerator:
   files:
   - png/bazarr.png
 
+- name: homer-png-configmap-c
+  files:
+  - png/cleanuparr.png
+
 - name: homer-png-configmap-f
   files:
   - png/flood.png
@@ -41,6 +45,7 @@ configMapGenerator:
 - name: homer-png-configmap-l
   files:
   - png/lidarr.png
+  - png/longhorn.png
 
 - name: homer-png-configmap-n
   files:
@@ -79,6 +84,10 @@ configMapGenerator:
   files:
   - png/unifi-controller.png
   - png/unifi.png
+
+- name: homer-png-configmap-w
+  files:
+  - png/whisparr.png
 
 - name: homer-png-configmap-y
   files:

@@ -37,6 +37,8 @@ spec:
             mountPath:  /downloads
           - name: sonarr-config
             mountPath:  /config
+          - name: sonarr-backup
+            mountPath:  /config/Backups
           env:
           - name: PUID
             value:  "1000"
@@ -51,8 +53,11 @@ spec:
             type: Directory
         - name: sonarr-downloads-nfs
           hostPath:
-            path: /mnt/mobius/temp/qbittorrent/downloads/tv-shows
+            path: /mnt/mobius/temp/qbittorrent/downloads
             type: Directory
         - name: sonarr-config
           persistentVolumeClaim:
             claimName:  sonarr-config-pvc
+        - name: sonarr-backup
+          persistentVolumeClaim:
+            claimName:  sonarr-nfs-bkup-pvc

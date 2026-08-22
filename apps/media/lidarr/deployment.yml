@@ -37,6 +37,8 @@ spec:
             mountPath:  /downloads
           - name: lidarr-config
             mountPath:  /config
+          - name: lidarr-backup
+            mountPath:  /config/Backups
           env:
           - name: PUID
             value:  "1000"
@@ -51,8 +53,11 @@ spec:
             type: Directory
         - name: lidarr-downloads-nfs
           hostPath:
-            path: /mnt/mobius/temp/qbittorrent/downloads/music
+            path: /mnt/mobius/temp/qbittorrent/downloads
             type: Directory
         - name: lidarr-config
           persistentVolumeClaim:
             claimName:  lidarr-config-pvc
+        - name: lidarr-backup
+          persistentVolumeClaim:
+            claimName:  lidarr-nfs-bkup-pvc

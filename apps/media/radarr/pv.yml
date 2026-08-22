@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: radarr-nfs-bkup-pv
+  namespace:  media
+spec:
+  capacity:
+    storage: 10Gi
+  storageClassName: nfs
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /mnt/storage_node/Backup/radarr
+    server: 192.168.11.2
+  persistentVolumeReclaimPolicy: Retain

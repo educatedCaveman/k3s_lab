@@ -37,6 +37,8 @@ spec:
             mountPath:  /tv
           - name: bazarr-config
             mountPath:  /config
+          - name: bazarr-backup
+            mountPath:  /config/backup
           env:
           - name: PUID
             value:  "1000"
@@ -56,3 +58,6 @@ spec:
         - name: bazarr-config
           persistentVolumeClaim:
             claimName:  bazarr-config-pvc
+        - name: bazarr-backup
+          persistentVolumeClaim:
+            claimName:  bazarr-nfs-bkup-pvc
