@@ -1,3 +1,4 @@
 secret*.yml
 secret*.yaml
 wg0.conf
+*.ovpn
