@@ -8,6 +8,9 @@ configMapGenerator:
 - name: qbittorrent-qbt-configmap
   files:
   - qBittorrent.conf
+- name: pia-ovpn-configmap
+  files:
+  - nl_amsterdam-aes-128-cbc-udp-dns.ovpn
 
 # needed for pruning in the Jenkinsfile
 generatorOptions:

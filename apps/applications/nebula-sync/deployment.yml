@@ -139,6 +139,11 @@ spec:
               configMapKeyRef:
                 name: nebula-env
                 key:  CLIENT_SKIP_TLS_VERIFICATION
+          - name: CLIENT_RETRY_DELAY_SECONDS
+            valueFrom:
+              configMapKeyRef:
+                name: nebula-env
+                key:  CLIENT_RETRY_DELAY_SECONDS
 
 
                 

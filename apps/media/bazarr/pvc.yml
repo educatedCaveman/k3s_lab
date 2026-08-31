@@ -25,3 +25,16 @@ spec:
     requests:
       storage: 10Gi
   volumeName: bazarr-nfs-bkup-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: subgen-model-data
+  namespace:  media
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: 100Gi

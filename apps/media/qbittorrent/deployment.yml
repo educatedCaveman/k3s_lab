@@ -30,10 +30,19 @@ spec:
           mountPath:  /config
         - name: qbittorrent-qbt-config
           mountPath:  /qbt
+      # use the openvpn config
+      - name: init-qbittorrent-ovpn-config
+        image: busybox@sha256:dc2d74b28e4cf8984fa52af1f39bc7c3d9c73760b41a74d629f5d11b1ab28616
+        command: ["sh", "-c", "mkdir -p /config/openvpn && cp /pia-ovpn/nl_amsterdam-aes-128-cbc-udp-dns.ovpn /config/openvpn/nl_amsterdam-aes-128-cbc-udp-dns.ovpn"]
+        volumeMounts:
+        - name: qbittorrent-config
+          mountPath:  /config
+        - name: pia-ovpn-config
+          mountPath:  /pia-ovpn
       containers:
         - name: qbittorrent
           # using "latest" because the versions are something like "release-1f62614"
-          image: binhex/arch-qbittorrentvpn:latest@sha256:229e441811921893e77b483a192006e5dd598c356f94a80dbadbb9cf88c0f69f
+          image: binhex/arch-qbittorrentvpn:latest
           resources:
             limits:
               cpu: 16
@@ -58,7 +67,7 @@ spec:
           - name: VPN_PROV
             value:  "pia"
           - name: VPN_CLIENT
-            value: "wireguard"
+            value: "openvpn"
           - name: ENABLE_STARTUP_SCRIPTS
             value: "no"
           - name: ENABLE_PRIVOXY
@@ -104,3 +113,6 @@ spec:
         - name: qbittorrent-qbt-config
           configMap:
             name: qbittorrent-qbt-configmap
+        - name: pia-ovpn-config
+          configMap:
+            name: pia-ovpn-configmap

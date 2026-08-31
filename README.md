@@ -2,37 +2,6 @@
 
 Doing a reset, bc the cluster is fucked
 
-## TODOS
-
-DOCUMENT EVERYTHING, DUMBASS!!!!!
-
-- [X] update VMs - other ansible stuff, too - fastfetch
-- [X] base config
-- [X] longhorn, including ingress
-- [/] deploy applications
-  - [/] applications
-    - [ ] apt-cache
-      - [ ] configure clients, too
-    - [x] homer
-    - [/] languagetool
-    - [ ] nebula-sync
-    - [ ] pi-hole
-    - [x] syncthing
-    - [ ] unifi
-  - [/] media
-    - [x] bazarr
-    - [x] cleanuparr
-    - [x] flaresolverr
-    - [x] jellyfin
-    - [x] lidarr
-    - [/] navidrome
-    - [x] prowlarr
-    - [x] qBittorrent
-    - [x] radarr
-    - [x] sonarr
-    - [/] whisparr
-    - [ ] whisper
-
 ### GPU nodes
 
 nVidia update:
@@ -186,40 +155,40 @@ in order to do this, you also need to share that folder in the TrueNAS GUI
 
 ### Service Useage
 
-| Service           | URL                             | IP:port                        | Notes                     |
-| ----------------- | ------------------------------- | ------------------------------ | ------------------------- |
-| Homer             | https://homer.drak3.io          | `192.168.13.27:8080`           |                           |
-| Jellyfin          | https://jellyfin.drak3.io       | `192.168.13.28:8096`           |                           |
-| Syncthing         | https://sync.drak3.io           | `192.168.13.29:8384`           |                           |
-| Flaresolverr      | n/a                             | `192.168.13.30:8191`           |                           |
-| Prowlarr          | https://prowlarr.drak3.io       | `192.168.13.31:9696`           |                           |
-| Radarr            | https://radarr.drak3.io         | `192.168.13.32:7878`           |                           |
-| Sonarr            | https://sonarr.drak3.io         | `192.168.13.33:8989`           |                           |
-| Lidarr            | https://lidarr.drak3.io         | `192.168.13.34:8686`           |                           |
-| Bazarr            | https://bazarr.drak3.io         | `192.168.13.35:6767`           |                           |
-| qBittorrent       | https://qbt.drak3.io            | `192.168.13.38:8080`, `*:3000` | qBittorrent + VPN         |
-| whisper           | n/a                             | `192.168.13.39:9000`           |                           |
-| Home Assistant    | https://home-assistant.drak3.io | `192.168.13.40:8123`           | testing Home Assistant    |
-| Navidrome         |                                 | `192.168.13.41`                |                           |
-| Whisparr          |                                 | `192.168.13.42`                |                           |
-| Cleanuparr        |                                 | `192.168.13.43`                |                           |
-|                   |                                 | `192.168.13.44`                | free address for services |
-|                   |                                 | `192.168.13.234`               | free address for services |
-| LanguageTool      |                                 | `192.168.13.235`               |                           |
-| Pi-Hole           | https://pihole3.drak3.io        | `192.168.13.236`               | W.I.P.                    |
-| Grafana           | https://grafana.drak3.io        | `192.168.13.237:80`            |                           |
-| Apt Cache         | https://apt.drak3.io            | `192.168.13.238:3142`          |                           |
-| Unifi Network App | https://unifi.drak3.io          | `192.168.13.239:8443`          |                           |
-|                   |                                 | `192.168.13.240`               |                           |
-|                   |                                 | `192.168.13.241`               |                           |
-|                   |                                 | `192.168.13.242`               |                           |
-|                   |                                 | `192.168.13.243`               |                           |
-|                   |                                 | `192.168.13.244`               |                           |
-|                   |                                 | `192.168.13.245`               |                           |
-|                   |                                 | `192.168.13.246`               |                           |
-|                   |                                 | `192.168.13.247`               |                           |
-|                   |                                 | `192.168.13.248`               |                           |
-| Longhorn          | https://longhorn.drak3.io       | `192.168.13.249:31550`         |                           |
+| Service        | URL                             | IP:port                | Notes                     |
+| -------------- | ------------------------------- | ---------------------- | ------------------------- |
+| Homer          | https://homer.drak3.io          | `192.168.13.27:8080`   |                           |
+| Jellyfin       | https://jellyfin.drak3.io       | `192.168.13.28:8096`   |                           |
+| Syncthing      | https://sync.drak3.io           | `192.168.13.29:8384`   |                           |
+| Flaresolverr   | n/a                             | `192.168.13.30:8191`   |                           |
+| Prowlarr       | https://prowlarr.drak3.io       | `192.168.13.31:9696`   |                           |
+| Radarr         | https://radarr.drak3.io         | `192.168.13.32:7878`   |                           |
+| Sonarr         | https://sonarr.drak3.io         | `192.168.13.33:8989`   |                           |
+| Lidarr         | https://lidarr.drak3.io         | `192.168.13.34:8686`   |                           |
+| Bazarr         | https://bazarr.drak3.io         | `192.168.13.35:6767`   |                           |
+| qBittorrent    | https://qbt.drak3.io            | `192.168.13.38:8080`   | qBittorrent + VPN         |
+| whisper        | n/a                             | `192.168.13.39:9000`   |                           |
+| Home Assistant | https://home-assistant.drak3.io | `192.168.13.40:8123`   | testing Home Assistant    |
+| Navidrome      |                                 | `192.168.13.41`        |                           |
+|                |                                 | `192.168.13.42`        | free address for services |
+| Cleanuparr     |                                 | `192.168.13.43`        |                           |
+|                |                                 | `192.168.13.44`        | free address for services |
+|                |                                 | `192.168.13.234`       | free address for services |
+| LanguageTool   |                                 | `192.168.13.235`       |                           |
+| Pi-Hole        | https://pihole3.drak3.io        | `192.168.13.236`       | W.I.P.                    |
+| Grafana        | https://grafana.drak3.io        | `192.168.13.237:80`    |                           |
+| Apt Cache      | https://apt.drak3.io            | `192.168.13.238:3142`  |                           |
+|                |                                 | `192.168.13.239`       | free address for services |
+|                |                                 | `192.168.13.240`       | free address for services |
+|                |                                 | `192.168.13.241`       | free address for services |
+|                |                                 | `192.168.13.242`       | free address for services |
+|                |                                 | `192.168.13.243`       | free address for services |
+|                |                                 | `192.168.13.244`       | free address for services |
+|                |                                 | `192.168.13.245`       | free address for services |
+|                |                                 | `192.168.13.246`       | free address for services |
+|                |                                 | `192.168.13.247`       | free address for services |
+|                |                                 | `192.168.13.248`       | free address for services |
+| Longhorn       | https://longhorn.drak3.io       | `192.168.13.249:31550` |                           |
 
 ### Remaining IPs
 

@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: unifi-db
-          image:  docker.io/mongo:8.3.8@sha256:5211c51171f57ae60842b11664bb244628971b3d35325762a97888337b9bb0db
+          image:  docker.io/mongo:7.0
           volumeMounts:
           - name: unifi-db-db
             mountPath:  /data/db
@@ -35,7 +35,7 @@ spec:
               cpu: 500m
               memory: 512Mi
         - name: unifi-network-application
-          image: lscr.io/linuxserver/unifi-network-application:10.3.58@sha256:f87c4d57285f3118a0bad24f696f5aa088859d332b5bf865cdb8e515a1c819ab
+          image: lscr.io/linuxserver/unifi-network-application:10.6.101
           resources:
             limits:
               cpu: 4

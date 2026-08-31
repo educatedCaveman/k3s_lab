@@ -4,3 +4,4 @@ resources:
   - service.yml
   - pvc.yml
   - pv.yml
+  - subgen-configmap.yml

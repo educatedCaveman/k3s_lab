@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: subgen-env
+  namespace:  media
+data:
+  # TZ: America/New_York
+  TRANSCRIBE_DEVICE:  "cuda"
+  # TRANSCRIBE_DEVICE:  "gpu"
+  WHISPER_MODEL: "medium"
+  CONCURRENT_TRANSCRIPTIONS:  "2"
+  WHISPER_THREADS: "4"
+  COMPUTE_TYPE: "auto"
+  # COMPUTE_TYPE: "int8"
+  CLEAR_VRAM_ON_COMPLETE: "True"
+  MODEL_CLEANUP_DELAY:  "30"
+  ASR_TIMEOUT:  "18000"

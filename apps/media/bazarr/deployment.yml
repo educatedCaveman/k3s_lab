@@ -46,6 +46,66 @@ spec:
             value:  "1000"
           - name: TZ
             value:  America/New_York
+        - name: subgen
+          image: mccloud/subgen:latest
+          resources:
+            limits:
+              cpu: 8
+              memory: 6Gi
+              nvidia.com/gpu: 1
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 9000
+          volumeMounts:
+          - name: subgen-models
+            mountPath:  /subgen/models
+          - name: bazarr-movies-nfs
+            mountPath:  /movies
+          - name: bazarr-tv-nfs
+            mountPath:  /tv
+          env:
+          - name: TRANSCRIBE_DEVICE
+            valueFrom:
+              configMapKeyRef:
+                name: subgen-env
+                key:  TRANSCRIBE_DEVICE
+          - name: WHISPER_MODEL
+            valueFrom:
+              configMapKeyRef:
+                name: subgen-env
+                key:  WHISPER_MODEL
+          - name: CONCURRENT_TRANSCRIPTIONS
+            valueFrom:
+              configMapKeyRef:
+                name: subgen-env
+                key:  CONCURRENT_TRANSCRIPTIONS
+          - name: WHISPER_THREADS
+            valueFrom:
+              configMapKeyRef:
+                name: subgen-env
+                key:  WHISPER_THREADS
+          - name: COMPUTE_TYPE
+            valueFrom:
+              configMapKeyRef:
+                name: subgen-env
+                key:  COMPUTE_TYPE
+          - name: CLEAR_VRAM_ON_COMPLETE
+            valueFrom:
+              configMapKeyRef:
+                name: subgen-env
+                key:  CLEAR_VRAM_ON_COMPLETE
+          - name: MODEL_CLEANUP_DELAY
+            valueFrom:
+              configMapKeyRef:
+                name: subgen-env
+                key:  MODEL_CLEANUP_DELAY
+          - name: ASR_TIMEOUT
+            valueFrom:
+              configMapKeyRef:
+                name: subgen-env
+                key:  ASR_TIMEOUT
       volumes:
         - name: bazarr-movies-nfs
           hostPath:
@@ -61,3 +121,10 @@ spec:
         - name: bazarr-backup
           persistentVolumeClaim:
             claimName:  bazarr-nfs-bkup-pvc
+        # - name: whisper-config
+        #   persistentVolumeClaim:
+        #     claimName:  whisper-config-data
+        - name: subgen-models
+          persistentVolumeClaim:
+            claimName:  subgen-model-data
+            
