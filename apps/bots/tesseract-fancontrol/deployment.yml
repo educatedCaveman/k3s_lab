@@ -1,0 +1,62 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tesseract-fancontrol
+  namespace:  bots
+  labels:
+    app: tesseract-fancontrol
+spec:
+  selector:
+    matchLabels:
+      app: tesseract-fancontrol
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: tesseract-fancontrol
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: tesseract-fancontrol
+          image: tigerblue77/dell_idrac_fan_controller:latest
+          # args: ["--env-file .env"]
+          resources:
+            limits:
+              cpu: 2
+              memory: 512Mi
+            requests:
+              cpu: 1
+              memory: 128Mi
+          # load all env vars from configmap
+          envFrom:
+            - configMapRef:
+                name: tesseract-env
+          env:
+            - name: IDRAC_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: tesseract-idrac-login
+                  key:  IDRAC_HOST
+            - name: IDRAC_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: tesseract-idrac-login
+                  key:  IDRAC_USERNAME
+            # for the life of me, I cannot figure out why this doesn't work, but the username and login do!
+            # - name: IDRAC_PASSWORD
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: tesseract-idrac-login
+            #       key:  IDRAC_PASSWORD
+          
+      #     volumeMounts:
+      #     - name: tesseract-envfile
+      #       mountPath: /app/.env
+      #       subPath: .env
+
+      # volumes:
+      #   - name: tesseract-envfile
+      #     configMap:
+      #       name: tesseract-envfile-configmap

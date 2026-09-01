@@ -4,3 +4,4 @@ wg0.conf
 *.ovpn
 .env
 mobius-configmap.yml
+tesseract-configmap.yml
