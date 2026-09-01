@@ -1,0 +1,62 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mobius-fancontrol
+  namespace:  bots
+  labels:
+    app: mobius-fancontrol
+spec:
+  selector:
+    matchLabels:
+      app: mobius-fancontrol
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mobius-fancontrol
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: mobius-fancontrol
+          image: tigerblue77/dell_idrac_fan_controller:latest
+          # args: ["--env-file .env"]
+          resources:
+            limits:
+              cpu: 2
+              memory: 512Mi
+            requests:
+              cpu: 1
+              memory: 128Mi
+          # load all env vars from configmap
+          envFrom:
+            - configMapRef:
+                name: mobius-env
+          env:
+            - name: IDRAC_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: mobius-idrac-login
+                  key:  IDRAC_HOST
+            - name: IDRAC_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mobius-idrac-login
+                  key:  IDRAC_USERNAME
+            # for the life of me, I cannot figure out why this doesn't work, but the username and login do!
+            # - name: IDRAC_PASSWORD
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: mobius-idrac-login
+            #       key:  IDRAC_PASSWORD
+          
+      #     volumeMounts:
+      #     - name: mobius-envfile
+      #       mountPath: /app/.env
+      #       subPath: .env
+
+      # volumes:
+      #   - name: mobius-envfile
+      #     configMap:
+      #       name: mobius-envfile-configmap

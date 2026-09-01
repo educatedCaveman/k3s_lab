@@ -4,4 +4,4 @@ kind: Namespace
 metadata:
   name: bots
   labels:
-    name: media
+    name: bots

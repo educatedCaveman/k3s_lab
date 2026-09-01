@@ -2,3 +2,5 @@ secret*.yml
 secret*.yaml
 wg0.conf
 *.ovpn
+.env
+mobius-configmap.yml
