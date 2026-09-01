@@ -47,7 +47,7 @@ spec:
           - name: TZ
             value:  America/New_York
         - name: subgen
-          image: mccloud/subgen:latest
+          image: mccloud/subgen:latest@sha256:2841515a3b409677669f0a10d77d49160bffb8111db91640fb33a4db06b3396c
           resources:
             limits:
               cpu: 8
