@@ -59,16 +59,16 @@ spec:
                 name: homer-png-configmap-b
             - configMap:
                 name: homer-png-configmap-c
-            - configMap:
-                name: homer-png-configmap-f
-            - configMap:
-                name: homer-png-configmap-g
+            # - configMap:
+            #     name: homer-png-configmap-f
+            # - configMap:
+            #     name: homer-png-configmap-g
             - configMap:
                 name: homer-png-configmap-h
             - configMap:
                 name: homer-png-configmap-i
-            - configMap:
-                name: homer-png-configmap-j
+            # - configMap:
+            #     name: homer-png-configmap-j
             - configMap:
                 name: homer-png-configmap-l
             - configMap:

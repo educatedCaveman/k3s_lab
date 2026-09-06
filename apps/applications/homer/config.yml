@@ -51,6 +51,11 @@ colors:
 # Optional navbar
 # links: [] # Allows for navbar (dark mode, layout, and search) without any links
 links:
+  - name: "Forgejo"
+    icon: "fab fa-forgejo"
+    url: "https://forgejo.drak3.io"
+    target: "_blank"
+
   - name: "GitHub"
     icon: "fab fa-github"
     url: "https://github.com/educatedCaveman"
@@ -65,11 +70,6 @@ links:
   - name: "Namecheap"
     icon: "fas fa-cubes"
     url:  "https://ap.www.namecheap.com"
-    target: "_blank"
-
-  - name: "Gatus (status)"
-    icon: "fas fa-circle-exclamation"
-    url:  "https://status.drak3.io"
     target: "_blank"
 
   - name: "DuckDuckGo"
@@ -107,7 +107,7 @@ services:
         url:  "https://tesseract.drak3.io"
         target: "_blank"    
 
-      - name: "Unifi Controller"
+      - name: "Unifi OS"
         logo: "./assets/png/unifi-controller.png"
         url:  "https://unifi.drak3.io"
         target: "_blank"
@@ -147,11 +147,6 @@ services:
     icon: "fas fa-server"
     items:
 
-      # - name: "Plex"
-      #   logo: "./assets/png/plex.png"
-      #   url:  "https://plex.drak3.io"
-      #   target: "_blank"
-
       - name: "Navidrome"
         logo: "./assets/png/navidrome.png"
         url:  "https://navidrome.drak3.io"
@@ -161,26 +156,6 @@ services:
         logo: "./assets/svg/jellyfin.svg"
         url:  "https://jellyfin.drak3.io"
         target: "_blank"
-
-      # - name: "Tautulli"
-      #   logo: "./assets/png/tautulli.png"
-      #   url:  "https://tau.drak3.io/"
-      #   target: "_blank"
-
-      - name: "NextCloud"
-        logo: "./assets/png/nextcloud.png"
-        url:  "https://cloud.drak3.io"
-        target: "_blank"
-
-      # - name: "qBittorrent"
-      #   logo: "./assets/svg/qbittorrent.svg"
-      #   url:  "https://qbt.drak3.io/"
-      #   target: "_blank"
-
-      # - name: "HandBrake"
-      #   logo: "./assets/png/handbrake.png"
-      #   url:  "https://hb.drak3.io"
-      #   target: "_blank"
 
       - name: "YouTube"
         logo: "./assets/png/youtube.png"
@@ -195,11 +170,6 @@ services:
         logo: "./assets/svg/qbittorrent.svg"
         url:  "https://qbt.drak3.io/"
         target: "_blank"
-
-      # - name: "Flood"
-      #   logo: "./assets/png/flood.png"
-      #   url:  "https://flood.drak3.io/"
-      #   target: "_blank"
 
       - name: "Radarr (Movies)"
         logo: "./assets/png/radarr.png"
@@ -235,11 +205,6 @@ services:
     icon: "fas fa-server"
     items:
 
-      - name: "Gatus"
-        logo: "./assets/png/gatus.png"
-        url:  "https://status.drak3.io/"
-        target: "_blank"
-
       - name: "Syncthing"
         logo: "./assets/png/syncthing.png"
         url:  "https://sync.drak3.io/"
@@ -269,40 +234,16 @@ services:
     icon: "fas fa-server"
     items:
 
-      - name: "Jenkins"
-        logo: "./assets/png/jenkins.png"
-        url:  "https://jenkins.drak3.io/"
-        target: "_blank"
-
-      - name: "Portainer (Pi)"
-        logo: "./assets/png/portainer.png"
-        url:  "https://portainer-pi.drak3.io/"
-        target: "_blank"
-
       - name: "Longhorn"
         logo: "./assets/png/longhorn.png"
         url:  "http://192.168.13.249/#/dashboard"
         target: "_blank"
 
-  - name: "Admin Tools"
-    icon: "fas fa-server"
+  - name: "DNS"
+    icon: "fas fa-object-group"
     items:
 
-      - name: "Singularity"
-        logo: "./assets/png/pihole.png"
-        url:  "https://pihole.drak3.io/admin/"
-        target: "_blank"
-
-      - name: "Event Horizon"
-        logo: "./assets/png/pihole.png"
-        url:  "https://pihole2.drak3.io/admin/"
-        target: "_blank"
-    
-  - name: "DEV"
-    icon: "fas fa-server"
-    items:
-
-      - name: "Homer (DEV)"
-        logo: "./assets/png/homer.png"
-        url:  "https://homer.dev.drak3.io"
+      - name: "Technitium (Admin)"
+        logo: "./assets/svg/technitium.svg"
+        url:  "https://dns-admin.drak3.io/"
         target: "_blank"

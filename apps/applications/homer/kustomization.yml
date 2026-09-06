@@ -22,13 +22,13 @@ configMapGenerator:
   files:
   - png/cleanuparr.png
 
-- name: homer-png-configmap-f
-  files:
-  - png/flood.png
+# - name: homer-png-configmap-f
+#   files:
+#   - png/flood.png
 
-- name: homer-png-configmap-g
-  files:
-  - png/gatus.png
+# - name: homer-png-configmap-g
+#   files:
+#   - png/gatus.png
 
 - name: homer-png-configmap-h
   files:
@@ -38,9 +38,9 @@ configMapGenerator:
   files:
   - png/idrac.png
 
-- name: homer-png-configmap-j
-  files:
-  - png/jenkins.png
+# - name: homer-png-configmap-j
+#   files:
+#   - png/jenkins.png
 
 - name: homer-png-configmap-l
   files:
@@ -49,7 +49,6 @@ configMapGenerator:
 
 - name: homer-png-configmap-n
   files:
-  - png/nextcloud.png
   - png/navidrome.png
 
 - name: homer-png-configmap-m
@@ -60,13 +59,13 @@ configMapGenerator:
   files:
   - png/pfsense.png
   - png/proxmox.png
-  - png/plex.png
+  # - png/plex.png
 
 - name: homer-png-configmap-p2
   files:
   - png/prowlarr.png
-  - png/portainer.png
-  - png/pihole.png
+  # - png/portainer.png
+  # - png/pihole.png
 
 - name: homer-png-configmap-r
   files:
@@ -99,6 +98,7 @@ configMapGenerator:
   - svg/qbittorrent.svg
   - svg/sonarr.svg
   - svg/jellyfin.svg
+  - svg/technitium.svg
 
 # needed for pruning in the Jenkinsfile
 generatorOptions:
