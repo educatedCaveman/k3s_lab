@@ -1,5 +1,0 @@
----
-resources:
-  - deployment.yml
-  - env-configmap.yml
-  - sealed-secret.yml

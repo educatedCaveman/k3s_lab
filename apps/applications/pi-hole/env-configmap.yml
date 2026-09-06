@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: pihole-env
-  namespace:  applications
-data:
-  TZ: America/New_York
-  FTLCONF_dns_listeningMode:  "all"
