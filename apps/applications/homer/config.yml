@@ -17,7 +17,7 @@ columns: "auto" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
 connectivityCheck: true # whether you want to display a message when the apps are not accessible anymore (VPN disconnected for example)
 
 # Optional theming
-theme: default # 'default' or one of the themes available in 'src/./assets/themes'.
+theme: walkxcode # 'default' or one of the themes available in 'src/./assets/themes'.
 
 #default colors from github:
 colors:
@@ -87,6 +87,12 @@ links:
     url:  "https://www.base64encode.org/"
     target: "_blank"
 
+# Missing/To-Add:
+# HAOS
+# UPS
+# uptime kuma?
+
+
 services:
   - name: "Servers"
     icon: "fas fa-server"
@@ -127,11 +133,10 @@ services:
         url:  "https://idrac.tesseract.drak3.io"
         target: "_blank"
 
-      # I can't remember the password...
-      # - name: "pfSense (IPMI)"
-      #   icon: "fas fa-server"
-      #   url:  "http://192.168.1.10"
-      #   target: "_blank"
+      - name: "pfSense (IPMI)"
+        icon: "fas fa-server"
+        url:  "https://ipmi.pfsense.drak3.io"
+        target: "_blank"
 
       - name: "Mainsail"
         logo: "./assets/png/mainsail.png"
@@ -233,6 +238,12 @@ services:
   - name: "Development Tools"
     icon: "fas fa-server"
     items:
+
+      - name: "Forgejo"
+        type: "Gitea"
+        icon: "fab fa-forgejo"
+        url: "https://forgejo.drak3.io"
+        target: "_blank"
 
       - name: "Longhorn"
         logo: "./assets/png/longhorn.png"

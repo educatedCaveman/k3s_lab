@@ -1,0 +1,27 @@
+---
+# IDK why homepage requires this fucked-up yaml formatting, but it does
+- Servers:
+    - pfSense:
+        - pfSense:
+            icon: pfsense.svg
+            href: https://pfsense.drak3.io
+        - IPMI:
+            icon: supermicro.svg
+            href: https://ipmi.pfsense.drak3.io
+    - TrueNAS:
+        - mobius:
+            icon: truenas-scale.svg
+            href: https://mobius.drak3.io
+        - iDRAC:
+            icon: idrac.svg
+            href: https://idrac.mobius.drak3.io
+
+- Applications:
+    - Torrents:
+        - Bazarr:
+            icon: bazarr.svg
+            href: https://bazarr.drak3.io
+            widget:
+              type: bazarr
+              url: http://192.168.13.35:6767
+              key: {{HOMEPAGE_VAR_BAZARR_APIKEY}}

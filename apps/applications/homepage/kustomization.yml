@@ -1,0 +1,19 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace:  applications
+
+resources:
+  - cluster-role.yml
+  - configmap.yml
+  - deployment.yml
+  - service-account-secret.yml
+  - service-account.yml
+  - service.yml
+  - sealed-secret.yml
+
+
+configMapGenerator:
+- name: homepage-configmap
+  files:
+  - services.yaml
