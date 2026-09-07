@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: mobius-fancontrol
-          image: tigerblue77/dell_idrac_fan_controller:latest
+          image: tigerblue77/dell_idrac_fan_controller:latest@sha256:23c1c4af0ea81e719355af39c10c5333d9ff9103b9e1e39bd5a734cd0b650268
           # args: ["--env-file .env"]
           resources:
             limits:
