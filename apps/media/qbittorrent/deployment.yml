@@ -42,7 +42,7 @@ spec:
       containers:
         - name: qbittorrent
           # using "latest" because the versions are something like "release-1f62614"
-          image: binhex/arch-qbittorrentvpn:latest
+          image: binhex/arch-qbittorrentvpn:latest@sha256:229e441811921893e77b483a192006e5dd598c356f94a80dbadbb9cf88c0f69f
           resources:
             limits:
               cpu: 16
