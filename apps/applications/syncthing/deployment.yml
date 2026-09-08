@@ -17,6 +17,7 @@ spec:
     metadata:
       labels:
         app: syncthing
+        app.kubernetes.io/name: syncthing
     spec:
       topologySpreadConstraints:
         - maxSkew:  1

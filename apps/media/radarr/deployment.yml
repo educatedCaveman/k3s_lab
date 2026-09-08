@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app: radarr
+        app.kubernetes.io/name: radarr
     spec:
       restartPolicy: Always
       containers:

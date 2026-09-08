@@ -1,0 +1,18 @@
+---
+- Links:
+    - Github:
+        - abbr: GH
+          icon: github-light.svg
+          href: https://github.com/educatedCaveman
+          description: n/a
+    - Namecheap:
+        - abbr: NC
+          icon: namecheap.svg
+          href: https://ap.www.namecheap.com
+    - Renovate:
+        - abbr: RE
+          icon: renovate.svg
+          href: https://developer.mend.io/github/educatedCaveman
+    - Base64:
+        - abbr: 64
+          href: https://www.base64encode.org/

@@ -5,7 +5,7 @@ namespace:  applications
 
 resources:
   - cluster-role.yml
-  - configmap.yml
+  # - configmap.yml
   - deployment.yml
   - service-account-secret.yml
   - service-account.yml
@@ -16,4 +16,12 @@ resources:
 configMapGenerator:
 - name: homepage-configmap
   files:
-  - services.yaml
+  - configs/bookmarks.yaml
+  - configs/custom.css
+  - configs/custom.js
+  - configs/docker.yaml
+  - configs/kubernetes.yaml
+  - configs/proxmox.yaml
+  - configs/services.yaml
+  - configs/settings.yaml
+  - configs/widgets.yaml

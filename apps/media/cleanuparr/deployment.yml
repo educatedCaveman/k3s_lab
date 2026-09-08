@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app: cleanuparr
+        app.kubernetes.io/name: cleanuparr
     spec:
       restartPolicy: Always
       containers:

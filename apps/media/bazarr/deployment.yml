@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app: bazarr
+        app.kubernetes.io/name: bazarr
     spec:
       restartPolicy: Always
       containers:

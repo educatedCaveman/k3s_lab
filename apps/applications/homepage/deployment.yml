@@ -28,6 +28,13 @@ spec:
       containers:
         - name: homepage
           image: "ghcr.io/gethomepage/homepage:latest"
+          resources:
+            limits:
+              cpu: 4
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false
@@ -46,12 +53,112 @@ spec:
                   fieldPath: status.podIP
             - name: HOMEPAGE_ALLOWED_HOSTS
               value: "*"
-              # value: "$(MY_POD_IP):3000,gethomepage.dev" # See gethomepage.dev/installation/#homepage_allowed_hosts . Value before the comma is required for the k8s probe
+            # qBittorrent
+            - name: HOMEPAGE_VAR_QBT_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  qbt_api_key
+            # radarr
+            - name: HOMEPAGE_VAR_RADARR_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  radarr_api_key
+            # sonarr
+            - name: HOMEPAGE_VAR_SONARR_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  sonarr_api_key
+            # lidarr
+            - name: HOMEPAGE_VAR_LIDARR_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  lidarr_api_key
+            # bazarr
             - name: HOMEPAGE_VAR_BAZARR_APIKEY
               valueFrom:
                 secretKeyRef:
                   name: homepage-secrets
                   key:  bazarr_api_key
+            # prowlarr
+            - name: HOMEPAGE_VAR_PROWLARR_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  prowlarr_api_key
+            # navidrome
+            - name: HOMEPAGE_VAR_NAVIDROME_USER
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  navidrome_user
+            - name: HOMEPAGE_VAR_NAVIDROME_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  navidrome_token
+                  # key:  navidrome_md5
+            - name: HOMEPAGE_VAR_NAVIDROME_SALT
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  navidrome_salt
+            # jellyfin
+            - name: HOMEPAGE_VAR_JELLYFIN_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  jellyfin_api_key
+            # syncthing
+            - name: HOMEPAGE_VAR_SYNCTHING_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  syncthing_api_key
+            # grafana
+            - name: HOMEPAGE_VAR_GRAFANA_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  grafana_username
+            - name: HOMEPAGE_VAR_GRAFANA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  grafana_password
+            # technitium
+            - name: HOMEPAGE_VAR_TECHNITIUM_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  technitium_token
+            # unifi-OS
+            - name: HOMEPAGE_VAR_UNIFI_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  unifi_api_token
+            # forgejo
+            - name: HOMEPAGE_VAR_FORGEJO_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  forgejo_api_token
+            # proxmox
+            - name: HOMEPAGE_VAR_PROXMOX_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  proxmox_api_token
+            # proxmox
+            - name: HOMEPAGE_VAR_TRUENAS_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  truenas_api_key
           ports:
             - name: http
               containerPort: 3000
@@ -64,34 +171,31 @@ spec:
             periodSeconds: 15
           volumeMounts:
             - mountPath: /app/config/custom.js
-              name: homepage-config
+              name: homepage-configmap
               subPath: custom.js
             - mountPath: /app/config/custom.css
-              name: homepage-config
+              name: homepage-configmap
               subPath: custom.css
             - mountPath: /app/config/bookmarks.yaml
-              name: homepage-config
+              name: homepage-configmap
               subPath: bookmarks.yaml
             - mountPath: /app/config/docker.yaml
-              name: homepage-config
+              name: homepage-configmap
               subPath: docker.yaml
             - mountPath: /app/config/kubernetes.yaml
-              name: homepage-config
+              name: homepage-configmap
               subPath: kubernetes.yaml
-            # - mountPath: /app/config/services.yaml
-            #   name: homepage-config
-            #   subPath: services.yaml
             - mountPath: /app/config/services.yaml
               name: homepage-configmap
               subPath: services.yaml
             - mountPath: /app/config/settings.yaml
-              name: homepage-config
+              name: homepage-configmap
               subPath: settings.yaml
             - mountPath: /app/config/widgets.yaml
-              name: homepage-config
+              name: homepage-configmap
               subPath: widgets.yaml
             - mountPath: /app/config/proxmox.yaml
-              name: homepage-config
+              name: homepage-configmap
               subPath: proxmox.yaml
             - mountPath: /app/config/logs
               name: logs

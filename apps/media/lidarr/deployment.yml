@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app: lidarr
+        app.kubernetes.io/name: lidarr
     spec:
       restartPolicy: Always
       containers:

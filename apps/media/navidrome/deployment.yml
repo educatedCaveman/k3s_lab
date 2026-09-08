@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app: navidrome
+        app.kubernetes.io/name: navidrome
     spec:
       restartPolicy: Always
       containers:
