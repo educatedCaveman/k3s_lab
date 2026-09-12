@@ -4,3 +4,10 @@ resources:
   - service.yml
   - env-configmap.yml
   - pvc.yml
+
+configMapGenerator:
+- name: jellyfin-db-configmap
+  files:
+  - config/database-optimistic.xml
+#   - config/database-nolock.xml
+#   - config/database-pessimistic.xml

@@ -19,19 +19,27 @@ spec:
         app: jellyfin
     spec:
       restartPolicy: Always
-      runtimeClassName: nvidia
-      tolerations:
-      - key: nvidia.com/gpu
-        operator: Exists
-        effect: NoSchedule
+      # runtimeClassName: nvidia
+      # tolerations:
+      # - key: nvidia.com/gpu
+      #   operator: Exists
+      #   effect: NoSchedule
+      # initContainers:
+      # # remove the default config, so i can attach the desired one later
+      # - name: init-qbittorrent-qbt-config
+      #   image: busybox@sha256:dc2d74b28e4cf8984fa52af1f39bc7c3d9c73760b41a74d629f5d11b1ab28616
+      #   command: ["sh", "-c", "rm /config/database.xml"]
+      #   volumeMounts:
+      #   - name: jf-config
+      #     mountPath:  /config
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:10.11.10@sha256:be2bd22d5e27451ebc14b326d8a6554e1f51c79f4431d6c71522565ed17f06ea
+          image: lscr.io/linuxserver/jellyfin:latest
           resources:
             limits:
               cpu: 12
               memory: 6Gi
-              nvidia.com/gpu: 1
+              # nvidia.com/gpu: 1
             requests:
               cpu: 1
               memory: 512Mi
@@ -44,6 +52,9 @@ spec:
             mountPath:  /TV
           - name: jf-config
             mountPath:  /config
+          # - name: jellyfin-db-config
+          #   mountPath: /config/database.xml            
+          #   subPath: database-optimistic.xml
           env:
           - name: jf-puid
             valueFrom:
@@ -70,4 +81,7 @@ spec:
       - name: jf-config
         persistentVolumeClaim:
           claimName:  jf-config-data
+      # - name: jellyfin-db-config
+      #   configMap:
+      #     name: jellyfin-db-configmap
           
