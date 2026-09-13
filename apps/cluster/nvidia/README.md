@@ -12,7 +12,7 @@ helm repo update
 ```
 
 ```shell
-helm install --wait --generate-name -n gpu-operator --create-namespace nvidia/gpu-operator --set driver.enabled=false --set toolkit.enabled=false
+helm install --wait --generate-name -n gpu-operator --create-namespace nvidia/gpu-operator --set driver.enabled=false --set toolkit.enabled=false 
 ```
 
 ## Troubleshooting
@@ -36,3 +36,18 @@ helm uninstall gpu-operator-1786727246 -n
 ```
 
 after running the above install command, things seemed to mostly work, but the validator pods weren't. however, workloads still seemed to get scheduled, so not sure what to do about that.
+
+
+
+
+this has to be run with bash
+```shell
+helm install --wait --generate-name \
+    -n gpu-operator --create-namespace nvidia/gpu-operator \
+    --set driver.enabled=false \
+    --set toolkit.enabled=false \
+    --set toolkit.env[0].name=CONTAINERD_CONFIG \
+    --set toolkit.env[0].value=/var/lib/rancher/k3s/agent/etc/containerd/config.toml \
+    --set toolkit.env[1].name=CONTAINERD_SOCKET \
+    --set toolkit.env[1].value=/run/k3s/containerd/containerd.sock
+```

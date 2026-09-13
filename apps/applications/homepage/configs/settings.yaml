@@ -4,3 +4,62 @@ description: "Homelab Homepage"
 theme: "dark"
 color: "stone"
 # TODO: longhorn
+useEqualHeights: true
+layout:
+
+  Servers:
+    style:  row
+    columns: 3
+
+  Remote Management:
+    header: false
+    style:  row
+    columns: 3
+
+  Media:
+    style:  row
+    columns:  3
+
+  Torrents:
+    style:  row
+    columns:  3
+
+  group 1:
+    Syncthing:
+      style:  row
+      columns:  2
+    Hu3bert:
+      style:  row
+      columns:  2
+    Unifi:
+      style:  row
+      columns:  2
+
+  Monitoring & Admin:
+    style:  row
+    columns:  4
+
+  DNS:
+    style:  row
+    columns:  1
+  DNS_nodes:
+    header: false
+    style:  row
+    columns:  4
+
+  Syncthing:
+    style:  row
+    columns:  2
+
+  Hu3bert:
+    style:  row
+    columns:  2
+
+  group_2:
+    Development:
+      style:  row
+      columns:  2
+
+    Home Assistant:
+      style:  row
+      columns:  2
