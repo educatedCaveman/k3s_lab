@@ -1,18 +1,52 @@
 ---
 - Links:
+    - Forgejo:
+        - abbr: FJ
+          icon: forgejo.svg
+          href: https://forgejo.drak3.io
+          description:  ""
     - Github:
         - abbr: GH
           icon: github-light.svg
           href: https://github.com/educatedCaveman
-          description: n/a
+          description:  ""
+    - Unifi Protect:
+        - abbr: CAMs
+          icon: ubiquiti-unifi.svg
+          href: https://nvr.drak3.io/protect/liveview/6084571d00504103e70003fb
+          description:  ""
     - Namecheap:
         - abbr: NC
           icon: namecheap.svg
           href: https://ap.www.namecheap.com
+          description:  ""
     - Renovate:
         - abbr: RE
           icon: renovate.svg
           href: https://developer.mend.io/github/educatedCaveman
+          description:  ""
     - Base64:
         - abbr: 64
           href: https://www.base64encode.org/
+          description:  ""
+    - YouTube:
+        - abbr: YT
+          icon: youtube.svg
+          href: https://www.youtube.com/feed/subscriptions
+          description:  ""
+    - NOAA (Weather):
+        - icon: mdi-alpha-w-box
+          href: {{HOMEPAGE_VAR_NOAA_LINK}}
+          description:  ""
+    - Zoom:
+        - abbr: ZOOM
+          icon: zoom.svg
+          href: {{HOMEPAGE_VAR_ZOOM_LINK}}
+          description:  "therafy me!"
+    - RemovePaywall:
+        - abbr: ~$>
+          href: https://www.removepaywall.com/
+          description:  ""
+
+
+          

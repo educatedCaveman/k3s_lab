@@ -25,3 +25,6 @@ configMapGenerator:
   - configs/services.yaml
   - configs/settings.yaml
   - configs/widgets.yaml
+# - name: homepage-bg-configmap
+#   files:
+#   - background/wp3539903.jpg

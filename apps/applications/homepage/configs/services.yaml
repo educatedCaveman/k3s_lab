@@ -6,7 +6,7 @@
       href: https://pfsense.drak3.io
       widget:
         type: pfsense
-        url: https://pfsense.drak3.io
+        url: https://192.168.13.1
         headers: 
           X-API-Key: {{HOMEPAGE_VAR_PFSENSE_APIKEY}}
         wan: igb0
@@ -30,7 +30,7 @@
       href: https://proxmox.drak3.io
       widget:
         type: proxmox
-        url: https://proxmox.drak3.io
+        url: https://192.168.11.3:8006
         username: api_user@pam!homepage
         password: {{HOMEPAGE_VAR_PROXMOX_TOKEN}}
   - Holodeck:
@@ -101,12 +101,20 @@
         user: {{HOMEPAGE_VAR_NAVIDROME_USER}}
         token: {{HOMEPAGE_VAR_NAVIDROME_TOKEN}}
         salt: {{HOMEPAGE_VAR_NAVIDROME_SALT}}
-  # youtube
-  - YouTube:
-      icon: youtube.svg
-      href: https://www.youtube.com/feed/subscriptions
 
-- Torrents:
+# - Torrents:
+  # qbittorrent
+  - qBittorrent:
+      icon: qbittorrent.svg
+      href: https://qbt.drak3.io
+      namespace:  media
+      app:  qbittorrent
+      widget:
+        type: qbittorrent
+        url:  https://192.168.13.38:8080
+        key:  {{HOMEPAGE_VAR_QBT_APIKEY}}
+        # enableLeechProgress: true # optional, defaults to false
+        # enableLeechSize: true # optional, defaults to false
   # radarr
   - Radarr:
       icon: radarr.svg
@@ -137,18 +145,6 @@
         type: lidarr
         url: http://192.168.13.34:8686
         key: {{HOMEPAGE_VAR_LIDARR_APIKEY}}
-  # qbittorrent
-  - qBittorrent:
-      icon: qbittorrent.svg
-      href: https://qbt.drak3.io
-      namespace:  media
-      app:  qbittorrent
-      widget:
-        type: qbittorrent
-        url:  https://qbt.drak3.io
-        key:  {{HOMEPAGE_VAR_QBT_APIKEY}}
-        # enableLeechProgress: true # optional, defaults to false
-        # enableLeechSize: true # optional, defaults to false
   # prowlarr
   - Prowlarr:
       icon: prowlarr.svg
@@ -231,14 +227,9 @@
         type: unifi
         url: https://192.168.1.2:11443
         key: {{HOMEPAGE_VAR_UNIFI_TOKEN}}
-  # Unifi Protect Feeds?
-  - Unifi Protect (feeds):
-      icon: ubiquiti-unifi.svg
-      href: https://nvr.drak3.io/protect/liveview/6084571d00504103e70003fb
 
-- DNS:
   # Technitium
-  - Admin:
+  - Technitium (DNS):
       icon: technitium.svg
       href: https://dns-admin.drak3.io
       proxmoxNode:  tesseract
@@ -246,24 +237,24 @@
       proxmoxType:  lxc
       widget:
         type: technitium
-        url: http://192.168.11.7:5380
+        url: http://192.168.12.7:5380
         key: {{HOMEPAGE_VAR_TECHNITIUM_TOKEN}}
         # node: <node dns name or cluster> # optional, defaults to current node
         # range: LastDay # optional, defaults to LastHour
 
-- DNS_nodes:
-  - DNS01:
-      icon: technitium.svg
-      href: https://dns01.drak3.io
-  - DNS02:
-      icon: technitium.svg
-      href: https://dns02.drak3.io
-  - DNS03:
-      icon: technitium.svg
-      href: https://dns03.drak3.io
-  - DNS04:
-      icon: technitium.svg
-      href: https://dns04.drak3.io
+# - DNS_nodes:
+#   - DNS01:
+#       icon: technitium.svg
+#       href: https://dns01.drak3.io
+#   - DNS02:
+#       icon: technitium.svg
+#       href: https://dns02.drak3.io
+#   - DNS03:
+#       icon: technitium.svg
+#       href: https://dns03.drak3.io
+#   - DNS04:
+#       icon: technitium.svg
+#       href: https://dns04.drak3.io
 
 
 

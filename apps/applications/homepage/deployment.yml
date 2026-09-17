@@ -165,6 +165,18 @@ spec:
                 secretKeyRef:
                   name: homepage-secrets
                   key:  pfsense_api_key
+            # NOAA
+            - name: HOMEPAGE_VAR_NOAA_LINK
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  noaa_link
+            # ZOOM
+            - name: HOMEPAGE_VAR_ZOOM_LINK
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key:  zoom_link
           ports:
             - name: http
               containerPort: 3000
@@ -176,6 +188,8 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 15
           volumeMounts:
+            # - mountPath: /app/config/background/
+            #   name: homepage-bg-configmap
             - mountPath: /app/config/custom.js
               name: homepage-configmap
               subPath: custom.js
@@ -212,5 +226,8 @@ spec:
         - name: homepage-configmap
           configMap:
             name: homepage-configmap
+        # - name: homepage-bg-configmap
+        #   configMap:
+        #     name: homepage-bg-configmap
         - name: logs
           emptyDir: {}
