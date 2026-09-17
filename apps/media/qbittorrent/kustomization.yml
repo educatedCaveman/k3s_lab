@@ -10,6 +10,7 @@ configMapGenerator:
   - qBittorrent.conf
 - name: pia-ovpn-configmap
   files:
+  # - nl_amsterdam-aes-128-cbc-udp-ip.ovpn
   - nl_amsterdam-aes-128-cbc-udp-dns.ovpn
 
 # needed for pruning in the Jenkinsfile
@@ -18,7 +19,7 @@ generatorOptions:
     app: qbittorrent
 
 resources:
-  - sealed-secret-pia-vpn-creds.yml
+  - sealed-secret.yml
   - deployment.yml
   - service.yml
   - pv.yml

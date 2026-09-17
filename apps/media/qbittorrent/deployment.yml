@@ -25,24 +25,14 @@ spec:
       # use the default wireguard config
       - name: init-qbittorrent-qbt-config
         image: busybox@sha256:dc2d74b28e4cf8984fa52af1f39bc7c3d9c73760b41a74d629f5d11b1ab28616
-        command: ["sh", "-c", "mkdir -p /config/config && mkdir -p /config/qBittorrent/config && cp /qbt/qBittorrent.conf /config/qBittorrent/config/qBittorrent.conf"]
-        volumeMounts:
-        - name: qbittorrent-config
-          mountPath:  /config
-        - name: qbittorrent-qbt-config
-          mountPath:  /qbt
-      # use the openvpn config
-      - name: init-qbittorrent-ovpn-config
-        image: busybox@sha256:dc2d74b28e4cf8984fa52af1f39bc7c3d9c73760b41a74d629f5d11b1ab28616
-        command: ["sh", "-c", "mkdir -p /config/openvpn && cp /pia-ovpn/nl_amsterdam-aes-128-cbc-udp-dns.ovpn /config/openvpn/nl_amsterdam-aes-128-cbc-udp-dns.ovpn"]
+        command: ["sh", "-c", "mkdir -p /config/openvpn && cp /pia/*.ovpn /config/openvpn/"]
         volumeMounts:
         - name: qbittorrent-config
           mountPath:  /config
         - name: pia-ovpn-config
-          mountPath:  /pia-ovpn
+          mountPath:  /pia
       containers:
         - name: qbittorrent
-          # using "latest" because the versions are something like "release-1f62614"
           image: binhex/arch-qbittorrentvpn:latest
           resources:
             limits:
@@ -61,8 +51,8 @@ spec:
             value:  "1000"
           - name: UMASK
             value:  "002"
-          # - name: TZ
-          #   value:  "America/New_York"
+          - name: TZ
+            value:  "America/New_York"
           - name: VPN_ENABLED
             value:  "yes"
           - name: VPN_PROV
@@ -104,6 +94,12 @@ spec:
             mountPath:  /config
           - name: qbittorrent-data
             mountPath:  /data
+          - name: qbittorrent-qbt-config
+            mountPath:  /config/qBittorrent/qBittorrent.conf
+            subPath:  qBittorrent.conf
+          # - name: qbittorrent-qbt-config
+          #   mountPath:  /config/openvpn/nl_amsterdam-aes-128-cbc-udp-ip.ovpn
+          #   subPath:  nl_amsterdam-aes-128-cbc-udp-ip.ovpn
       volumes:
         - name: qbittorrent-config
           persistentVolumeClaim:
