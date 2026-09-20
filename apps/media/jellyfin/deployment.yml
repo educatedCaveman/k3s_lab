@@ -19,11 +19,6 @@ spec:
         app: jellyfin
     spec:
       restartPolicy: Always
-      # runtimeClassName: nvidia
-      # tolerations:
-      # - key: nvidia.com/gpu
-      #   operator: Exists
-      #   effect: NoSchedule
       # initContainers:
       # # remove the default config, so i can attach the desired one later
       # - name: init-qbittorrent-qbt-config
@@ -34,12 +29,13 @@ spec:
       #     mountPath:  /config
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:latest
+          image: lscr.io/linuxserver/jellyfin:12.1ubu2604-ls50
+          # get the filename from Mobius Backup dataset:/mnt/mobius/Backup/jellyfin/jellyfin-backup-*.zip
+          # args: ["--restore-archive", "/config/data/data/backups/jellyfin-backup-20260919084708.zip"]
           resources:
             limits:
               cpu: 12
               memory: 6Gi
-              # nvidia.com/gpu: 1
             requests:
               cpu: 1
               memory: 512Mi
@@ -52,21 +48,23 @@ spec:
             mountPath:  /TV
           - name: jf-config
             mountPath:  /config
+          - name: jf-backup
+            mountPath:  /config/data/data/backups
           # - name: jellyfin-db-config
           #   mountPath: /config/database.xml            
           #   subPath: database-optimistic.xml
           env:
-          - name: jf-puid
+          - name: PUID
             valueFrom:
               configMapKeyRef:
                 name: jf-env
                 key:  PUID
-          - name: jf-pgid
+          - name: PGID
             valueFrom:
               configMapKeyRef:
                 name: jf-env
                 key:  PGID
-          - name: jf-tz
+          - name: TZ
             valueFrom:
               configMapKeyRef:
                 name: jf-env
@@ -84,4 +82,7 @@ spec:
       # - name: jellyfin-db-config
       #   configMap:
       #     name: jellyfin-db-configmap
+      - name: jf-backup
+        persistentVolumeClaim:
+          claimName:  jellyfin-nfs-bkup-pvc
           

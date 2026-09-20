@@ -4,6 +4,7 @@ resources:
   - service.yml
   - env-configmap.yml
   - pvc.yml
+  - pv.yml
 
 configMapGenerator:
 - name: jellyfin-db-configmap

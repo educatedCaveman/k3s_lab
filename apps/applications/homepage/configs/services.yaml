@@ -76,19 +76,17 @@
   - Jellyfin:
       icon: jellyfin.svg
       href: https://jellyfin.drak3.io
-      namespace:  media
-      app:  jellyfin
       widget:
         type: jellyfin
-        url: http://192.168.13.28:8096
+        url: http://192.168.12.3:8096
         key: {{HOMEPAGE_VAR_JELLYFIN_APIKEY}}
         version: 2 # optional, default is 1
-        enableBlocks: true # optional, defaults to false
-        enableNowPlaying: true # optional, defaults to true
-        enableUser: true # optional, defaults to false
-        enableMediaControl: false # optional, defaults to true
-        showEpisodeNumber: true # optional, defaults to false
-        expandOneStreamToTwoRows: false # optional, defaults to true
+      #   enableBlocks: true # optional, defaults to false
+      #   enableNowPlaying: true # optional, defaults to true
+      #   enableUser: true # optional, defaults to false
+      #   enableMediaControl: false # optional, defaults to true
+      #   showEpisodeNumber: true # optional, defaults to false
+      #   expandOneStreamToTwoRows: false # optional, defaults to true
   # navidrome
   - Navidrome:
       icon: navidrome.svg
@@ -111,7 +109,7 @@
       app:  qbittorrent
       widget:
         type: qbittorrent
-        url:  https://192.168.13.38:8080
+        url:  http://192.168.13.38:8080
         key:  {{HOMEPAGE_VAR_QBT_APIKEY}}
         # enableLeechProgress: true # optional, defaults to false
         # enableLeechSize: true # optional, defaults to false
