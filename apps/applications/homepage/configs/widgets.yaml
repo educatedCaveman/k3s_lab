@@ -1,22 +1,36 @@
 ---
-# - kubernetes:
-#     cluster:
-#       show: true
-#       cpu: true
-#       memory: true
-#       showLabel: true
-#       label: "cluster"
-#     nodes:
-#       show: true
-#       cpu: true
-#       memory: true
-#       showLabel: true
-# - resources:
-#     backend: resources
-#     expanded: true
-#     cpu: true
-#     memory: true
-#     network: default
-- search:
-    provider: duckduckgo
-    target: _blank
+
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: long
+      hourCycle: h23
+      dateStyle: long
+
+- kubernetes:
+    cluster:
+      show: false
+      cpu: false
+      memory: false
+      showLabel: false
+      label: "cluster"
+    nodes:
+      show: false
+      cpu: false
+      memory: false
+      showLabel: false
+- resources:
+    # backend: resources
+    # expanded: false
+    # cpu: false
+    # memory: false
+    # network: default
+# - search:
+#     provider: duckduckgo
+#     target: _blank
+- unifi_console:
+    url: https://unifi.drak3.io/
+    site: "Dungeon" # optional
+    # username: drake
+    # password: 
+    key: {{HOMEPAGE_VAR_UNIFI_TOKEN}}
